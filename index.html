@@ -710,682 +710,330 @@
 
     <!-- SEÇÃO DE BENEFÍCIOS -->
     <section class="benefits-sec">
-        <div class        .badge {
-            display: inline-block;
-            padding: 9px 18px;
-            border-radius: 50px;
-            background: rgba(212,175,55,.1);
-            border: 1px solid rgba(212,175,55,.45);
-            color: #d4af37;
-            font-weight: bold;
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 86px);
-            line-height: .95;
-            letter-spacing: -4px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: #d4af37;
-        }
-
-        .hero-text {
-            max-width: 650px;
-            color: #bdbdbd;
-            font-size: 19px;
-            line-height: 1.6;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .primary {
-            background: linear-gradient(135deg, #f1d77a, #b8860b);
-            color: #050505;
-            padding: 16px 27px;
-            border-radius: 8px;
-            font-weight: 900;
-            box-shadow: 0 10px 35px rgba(212,175,55,.2);
-            transition: .3s;
-        }
-
-        .primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212,175,55,.35);
-        }
-
-        .secondary {
-            border: 1px solid #333;
-            padding: 16px 27px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #ddd;
-        }
-
-        /* NÚMEROS */
-
-        .numbers {
-            padding: 25px 7%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            background: #080808;
-            border-top: 1px solid #191919;
-            border-bottom: 1px solid #191919;
-        }
-
-        .number {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .number strong {
-            display: block;
-            color: #d4af37;
-            font-size: 34px;
-            margin-bottom: 5px;
-        }
-
-        .number span {
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* SEÇÕES */
-
-        section.content {
-            padding: 90px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-
-        .section-title small {
-            color: #d4af37;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 {
-            font-size: clamp(32px, 5vw, 50px);
-            margin: 12px 0;
-        }
-
-        .section-title p {
-            color: #888;
-            line-height: 1.6;
-        }
-
-        /* CARDS */
-
-        .cards {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: linear-gradient(145deg, #111, #080808);
-            border: 1px solid #222;
-            border-radius: 18px;
-            padding: 35px 25px;
-            transition: .3s;
-        }
-
-        .card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(212,175,55,.5);
-        }
-
-        .card-icon {
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(212,175,55,.1);
-            border-radius: 14px;
-            font-size: 26px;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-            font-size: 20px;
-        }
-
-        .card p {
-            color: #888;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        /* DESTAQUE */
-
-        .highlight {
-            max-width: 1100px;
-            margin: auto;
-            padding: 55px 40px;
-            border-radius: 25px;
-            background:
-                radial-gradient(circle at 80% 20%, rgba(212,175,55,.18), transparent 30%),
-                linear-gradient(135deg, #151515, #080808);
-            border: 1px solid #292929;
-            text-align: center;
-        }
-
-        .highlight h2 {
-            font-size: clamp(32px, 5vw, 55px);
-            margin-bottom: 15px;
-        }
-
-        .highlight h2 span {
-            color: #d4af37;
-        }
-
-        .highlight p {
-            color: #999;
-            max-width: 650px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-
-        /* DISPOSITIVOS */
-
-        .devices {
-            max-width: 900px;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .device {
-            border: 1px solid #252525;
-            background: #101010;
-            padding: 15px 22px;
-            border-radius: 50px;
-            color: #ccc;
-        }
-
-        /* PLANOS */
-
-        .plans {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .plan {
-            background: #0d0d0d;
-            border: 1px solid #272727;
-            border-radius: 20px;
-            padding: 35px;
-        }
-
-        .plan.featured {
-            border: 1px solid #d4af37;
-            box-shadow: 0 0 40px rgba(212,175,55,.08);
-        }
-
-        .plan h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .plan p {
-            color: #888;
-            margin-bottom: 25px;
-        }
-
-        .plan ul {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .plan li {
-            padding: 9px 0;
-            color: #ccc;
-            border-bottom: 1px solid #181818;
-        }
-
-        .plan li::before {
-            content: "✓";
-            color: #d4af37;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        /* CTA */
-
-        .cta {
-            padding: 90px 7%;
-            text-align: center;
-            background: linear-gradient(180deg, #050505, #0c0c0c);
-        }
-
-        .cta h2 {
-            font-size: clamp(35px, 6vw, 60px);
-            margin-bottom: 15px;
-        }
-
-        .cta p {
-            color: #888;
-            margin-bottom: 30px;
-        }
-
-        /* WHATSAPP */
-
-        .whatsapp {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #25d366;
-            border-radius: 50%;
-            font-size: 28px;
-            box-shadow: 0 8px 30px rgba(0,0,0,.5);
-            z-index: 100;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 30px 7%;
-            text-align: center;
-            border-top: 1px solid #181818;
-            color: #666;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 750px) {
-
-            header {
-                padding: 20px;
-            }
-
-            .hero {
-                padding: 120px 20px 70px;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            .hero-text {
-                font-size: 16px;
-            }
-
-            .numbers {
-                grid-template-columns: 1fr;
-                padding: 10px 20px;
-            }
-
-            section.content {
-                padding: 70px 20px;
-            }
-
-            .cards,
-            .plans {
-                grid-template-columns: 1fr;
-            }
-
-            .highlight {
-                padding: 40px 22px;
-            }
-
-            .header-button {
-                display: none;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="glow one"></div>
-<div class="glow two"></div>
-
-<header>
-    <div class="logo">
-        Pedriin<span>Canais</span>
-    </div>
-
-    <a class="header-button"
-       href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20fazer%20o%20teste%20gr%C3%A1tis%20de%204%20horas."
-       target="_blank">
-        TESTE GRÁTIS
-    </a>
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            ✦ TESTE GRATUITO POR 4 HORAS
+        <div class="section-title">
+            <h2>TUDO QUE VOCÊ PRECISA EM <span>UM ÚNICO LUGAR</span></h2>
+            <p>A melhor experiência de entretenimento do mercado.</p>
         </div>
+        <div class="benefits">
+            <div class="benefit-card">
+                <div class="icon-box">🎬</div>
+                <h3>Filmes atualizados</h3>
+                <p>Os maiores lançamentos do cinema e streamings direto na sua tela.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">📺</div>
+                <h3>Canais nacionais e internacionais</h3>
+                <p>Todos os canais abertos e fechados na melhor qualidade.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">⚽</div>
+                <h3>Futebol ao vivo</h3>
+                <p>Estaduais, Brasileirão, Champions League e campeonatos do mundo todo.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">🥊</div>
+                <h3>UFC e esportes</h3>
+                <p>Lutas, basquete, corrida e muito mais esportes para torcer.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">👶</div>
+                <h3>Conteúdo infantil</h3>
+                <p>Desenhos, filmes animados e canais infantis para as crianças.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">🍿</div>
+                <h3>Séries completas</h3>
+                <p>As maratonas mais desejadas com temporadas atualizadas.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">🌍</div>
+                <h3>Conteúdo internacional</h3>
+                <p>Programação global de diversos países ao seu alcance.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">🎞️</div>
+                <h3>Qualidade SD, HD, FHD e 4K</h3>
+                <p>Escolha a definição ideal de acordo com a sua conexão.</p>
+            </div>
+        </div>
+    </section>
 
-        <h1>
-            Entretenimento<br>
-            <span>do seu jeito.</span>
-        </h1>
+    <!-- COMPATIBILIDADE -->
+    <section class="compatibility">
+        <div class="section-title">
+            <h2>FUNCIONA EM TODOS OS <span>SEUS DISPOSITIVOS</span></h2>
+            <p>Assista de onde quiser, quando quiser, sem complicações.</p>
+        </div>
+        <div class="device-grid">
+            <div class="device-card"><i class="fas fa-mobile-alt"></i>Android</div>
+            <div class="device-card"><i class="fab fa-apple"></i>iPhone</div>
+            <div class="device-card"><i class="fas fa-tv"></i>Smart TV</div>
+            <div class="device-card"><i class="fas fa-box-open"></i>TV Box</div>
+            <div class="device-card"><i class="fas fa-fire"></i>Fire TV Stick</div>
+            <div class="device-card"><i class="fas fa-laptop"></i>Notebook e PC</div>
+        </div>
+    </section>
 
-        <p class="hero-text">
-            Tenha uma experiência completa com filmes, séries,
-            canais e esportes em um só lugar. Descubra a
-            PedriinCanais e aproveite seu entretenimento.
-        </p>
+    <!-- PLANOS -->
+    <section class="plans" id="planos">
+        <div class="section-title">
+            <h2>ESCOLHA O <span>PLANO IDEAL</span></h2>
+            <p>Valores que cabem no bolso e com entrega imediata.</p>
+        </div>
+        <div class="plans-grid">
+            
+            <!-- PLANO MENSAL 1 TELA -->
+            <div class="plan-card">
+                <div>
+                    <div class="plan-title">📺 PLANO MENSAL - 1 TELA</div>
+                    <div class="plan-price">R$ 35,00<span>/mês</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
+                        <li><i class="fas fa-check-square"></i> Filmes e Séries</li>
+                        <li><i class="fas fa-check-square"></i> Canais Ao Vivo</li>
+                        <li><i class="fas fa-check-square"></i> Futebol e Esportes</li>
+                        <li><i class="fas fa-check-square"></i> Suporte WhatsApp</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
 
-        <div class="buttons">
+            <!-- PLANO MENSAL 2 TELAS -->
+            <div class="plan-card">
+                <div>
+                    <div class="plan-title">📺 PLANO MENSAL - 2 TELAS</div>
+                    <div class="plan-price">R$ 55,00<span>/mês</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check-square"></i> Tudo do plano anterior</li>
+                        <li><i class="fas fa-check-square"></i> 2 dispositivos simultâneos</li>
+                        <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
+                        <li><i class="fas fa-check-square"></i> Filmes, Séries e Esportes</li>
+                        <li><i class="fas fa-check-square"></i> Suporte Dedicado</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
 
-            <a class="primary"
-               href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20fazer%20o%20teste%20gr%C3%A1tis%20de%204%20horas."
-               target="_blank">
-                🎁 FAZER TESTE GRÁTIS
-            </a>
+            <!-- PLANO TRIMESTRAL -->
+            <div class="plan-card">
+                <div>
+                    <div class="plan-title">⭐️ PLANO TRIMESTRAL</div>
+                    <div class="plan-price">R$ 94,99<span>/trimestre</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check-square"></i> 90 dias de acesso</li>
+                        <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
+                        <li><i class="fas fa-check-square"></i> Conteúdo completo</li>
+                        <li><i class="fas fa-check-square"></i> Filmes, Séries e Esportes</li>
+                        <li><i class="fas fa-check-square"></i> Suporte Prioritário</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
 
-            <a class="secondary" href="#vantagens">
-                CONHECER O SERVIÇO
-            </a>
+            <!-- PLANO SEMESTRAL -->
+            <div class="plan-card featured">
+                <span class="plan-badge">🥇 MELHOR CUSTO-BENEFÍCIO</span>
+                <div>
+                    <div class="plan-title">🏅 PLANO SEMESTRAL</div>
+                    <div class="plan-price">R$ 159,99<span>/semestre</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check-square"></i> 180 dias de acesso</li>
+                        <li><i class="fas fa-check-square"></i> Conteúdo completo</li>
+                        <li><i class="fas fa-check-square"></i> Suporte prioritário</li>
+                        <li><i class="fas fa-check-square"></i> Sem travamentos</li>
+                        <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
+
+            <!-- PLANO ANUAL -->
+            <div class="plan-card featured">
+                <span class="plan-badge">👑 MAIS VENDIDO</span>
+                <div>
+                    <div class="plan-title">👑 PLANO ANUAL</div>
+                    <div class="plan-price">R$ 250,00<span>/ano</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check-square"></i> 365 dias de acesso</li>
+                        <li><i class="fas fa-check-square"></i> Conteúdo completo</li>
+                        <li><i class="fas fa-check-square"></i> Melhor economia</li>
+                        <li><i class="fas fa-check-square"></i> Acesso garantido o ano todo</li>
+                        <li><i class="fas fa-check-square"></i> Suporte VIP</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
 
         </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-<!-- NÚMEROS -->
-
-<div class="numbers">
-
-    <div class="number">
-        <strong>+45 MIL</strong>
-        <span>FILMES</span>
-    </div>
-
-    <div class="number">
-        <strong>+16 MIL</strong>
-        <span>SÉRIES</span>
-    </div>
-
-    <div class="number">
-        <strong>MILHARES</strong>
-        <span>DE CANAIS</span>
-    </div>
-
-</div>
-
-
-<!-- VANTAGENS -->
-
-<section class="content" id="vantagens">
-
-    <div class="section-title">
-
-        <small>PedriinCanais</small>
-
-        <h2>Uma experiência completa.</h2>
-
-        <p>
-            Tudo pensado para você encontrar seu entretenimento
-            favorito com praticidade.
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="card-icon">🎬</div>
-            <h3>Filmes e séries</h3>
-            <p>
-                Um enorme catálogo de filmes e séries para
-                você escolher o que assistir.
-            </p>
+    <!-- POR QUE ESCOLHER A PEDRIINCANAIS? -->
+    <section class="why-us">
+        <div class="section-title">
+            <h2>POR QUE ESCOLHER A <span>PEDRIINCANAIS</span>?</h2>
+            <p>Conheça os diferenciais que nos tornam a melhor escolha.</p>
         </div>
-
-        <div class="card">
-            <div class="card-icon">⚽</div>
-            <h3>Esportes ao vivo</h3>
-            <p>
-                Acompanhe conteúdos esportivos e futebol ao vivo
-                onde estiver.
-            </p>
+        <div class="why-grid">
+            <div class="why-card">
+                <i class="fas fa-bolt"></i>
+                <div>
+                    <h4>Servidores estáveis</h4>
+                    <p>Tecnologia de ponta para você assistir sem quedas ou congelamento de imagem.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-sync-alt"></i>
+                <div>
+                    <h4>Canais atualizados</h4>
+                    <p>Atualizações diárias de programação, séries e filmes direto do cinema.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-video"></i>
+                <div>
+                    <h4>Catálogo completo</h4>
+                    <p>Milhares de opções on-demand de todas as plataformas em um só lugar.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <h4>Esportes ao vivo</h4>
+                    <p>Não perca nenhum lance do seu time e esportes mundiais favoritos.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>Conexão segura</h4>
+                    <p>Seus dados protegidos com sistemas modernos de streaming.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-tablet-alt"></i>
+                <div>
+                    <h4>Compatível com vários dispositivos</h4>
+                    <p>Aplicativos fáceis para Smart TVs, celulares, computadores e consoles.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-headset"></i>
+                <div>
+                    <h4>Atendimento rápido</h4>
+                    <p>Sem robôs. Suporte humano para ajudar na sua instalação e dúvidas.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-user-shield"></i>
+                <div>
+                    <h4>Suporte especializado</h4>
+                    <p>Time dedicado ao seu pós-venda para garantir sua tranquilidade.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <div class="card-icon">📺</div>
-            <h3>Milhares de canais</h3>
-            <p>
-                Uma grande variedade de canais e conteúdos
-                para todos os gostos.
-            </p>
+    <!-- APLICATIVOS RECOMENDADOS -->
+    <section class="apps">
+        <div class="section-title">
+            <h2>APLICATIVOS RECOMENDADOS</h2>
+            <p>Assista de onde quiser com os melhores reprodutores de IPTV do mercado.</p>
         </div>
-
-        <div class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Qualidade</h3>
-            <p>
-                Conteúdo disponível em diferentes qualidades,
-                incluindo SD, HD, FHD e 4K quando disponível.
-            </p>
+        <div class="apps-grid">
+            <div class="app-card"><i class="fas fa-play"></i> IPTV Smarters Pro</div>
+            <div class="app-card"><i class="fas fa-play"></i> XCIPTV</div>
+            <div class="app-card"><i class="fas fa-play"></i> Smart IPTV</div>
+            <div class="app-card"><i class="fas fa-play"></i> TiviMate</div>
+            <div class="app-card"><i class="fas fa-play"></i> GSE Smart IPTV</div>
+            <div class="app-card"><i class="fas fa-play"></i> Flix IPTV</div>
         </div>
+    </section>
 
-        <div class="card">
-            <div class="card-icon">📱</div>
-            <h3>Onde você estiver</h3>
-            <p>
-                Assista através de dispositivos compatíveis
-                como Smart TV, TV Box, celular e computador.
-            </p>
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>DEPOIMENTOS</h2>
+            <p>O que nossos clientes dizem sobre nossa qualidade.</p>
         </div>
-
-        <div class="card">
-            <div class="card-icon">🎁</div>
-            <h3>Teste gratuito</h3>
-            <p>
-                Antes de escolher seu plano, conheça o serviço
-                através do nosso teste gratuito de 4 horas.
-            </p>
+        <div class="test-grid">
+            <div class="test-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Melhor IPTV que já utilizei. Qualidade surreal e o suporte realmente responde rápido!"</p>
+            </div>
+            <div class="test-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Instalação rápida e suporte excelente. Em menos de 10 minutos já estava assistindo meus canais."</p>
+            </div>
+            <div class="test-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Imagem muito boa até em 4K. Assisto os jogos de futebol inteiros e não trava nada."</p>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-title">
+            <h2>FAQ - DÚVIDAS FREQUENTES</h2>
+            <p>Tire suas dúvidas antes de começar.</p>
+        </div>
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <div class="faq-question">O teste é gratuito? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim! Oferecemos um teste gratuito de 4 horas para você avaliar todo o conteúdo, grade de canais e estabilidade antes de assinar.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Funciona em Smart TV? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim! Funciona em qualquer Smart TV de todas as marcas (Samsung, LG, TCL, AOC, etc.) através de aplicativos de IPTV.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Funciona em iPhone? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim! Funciona perfeitamente em dispositivos iOS (iPhone, iPad e Apple TV) por meio de apps reprodutores.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Precisa de antena? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Não! Nosso sistema funciona 100% via internet, dispensando o uso de antenas ou cabeamento físico.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Tem suporte? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim, oferecemos suporte completo em português diretamente pelo WhatsApp para ajudar na configuração e sanar eventuais dúvidas.</div>
+            </div>
+        </div>
+    </section>
 
-</section>
-
-
-<!-- DESTAQUE -->
-
-<section class="content">
-
-    <div class="highlight">
-
-        <h2>
-            Experimente por <span>4 horas.</span>
-        </h2>
-
-        <p>
-            Quer conhecer a PedriinCanais antes de assinar?
-            Solicite seu teste gratuito e descubra a experiência.
-        </p>
-
-        <a class="primary"
-           href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20fazer%20o%20teste%20gr%C3%A1tis%20de%204%20horas."
-           target="_blank">
-            🚀 SOLICITAR TESTE
+    <!-- CONTATO FINAL & CALL TO ACTION -->
+    <section class="cta-final">
+        <h2>FALE CONOSCO</h2>
+        <p>Ainda está com dúvidas ou quer começar a assistir agora mesmo? Nossa equipe está pronta para te atender!</p>
+        <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20e%20solicitar%20a%20instala%C3%A7%C3%A3o." class="btn-primary" style="display:inline-flex;" target="_blank">
+            <i class="fab fa-whatsapp"></i> SOLICITAR INSTALAÇÃO
         </a>
+    </section>
 
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 PedriinCanais - Todos os direitos reservados.</p>
+    </footer>
 
-</section>
-
-
-<!-- DISPOSITIVOS -->
-
-<section class="content">
-
-    <div class="section-title">
-
-        <small>Compatibilidade</small>
-
-        <h2>Assista nos seus dispositivos.</h2>
-
-        <p>
-            Aproveite seu entretenimento nos dispositivos
-            compatíveis com o serviço.
-        </p>
-
-    </div>
-
-    <div class="devices">
-
-        <div class="device">📺 Smart TV</div>
-        <div class="device">📦 TV Box</div>
-        <div class="device">📱 Android</div>
-        <div class="device">🍎 iPhone</div>
-        <div class="device">💻 Computador</div>
-        <div class="device">🎮 Videogame</div>
-
-    </div>
-
-</section>
-
-
-<!-- PLANOS -->
-
-<section class="content">
-
-    <div class="section-title">
-
-        <small>Planos</small>
-
-        <h2>Escolha a melhor opção para você.</h2>
-
-        <p>
-            Planos pensados para diferentes necessidades.
-        </p>
-
-    </div>
-
-    <div class="plans">
-
-        <div class="plan">
-
-            <h3>1 Tela</h3>
-
-            <p>
-                Ideal para quem deseja utilizar o serviço
-                em um dispositivo por vez.
-            </p>
-
-            <ul>
-                <li>1 acesso</li>
-                <li>Filmes e séries</li>
-                <li>Milhares de canais</li>
-                <li>Esportes</li>
-            </ul>
-
-            <a class="primary"
-               href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20de%201%20tela."
-               target="_blank">
-                SABER MAIS
-            </a>
-
-        </div>
-
-
-        <div class="plan featured">
-
-            <h3>2 Telas</h3>
-
-            <p>
-                Para quem deseja mais flexibilidade
-                utilizando duas telas.
-            </p>
-
-            <ul>
-                <li>2 acessos</li>
-                <li>Filmes e séries</li>
-                <li>Milhares de canais</li>
-                <li>Esportes</li>
-            </ul>
-
-            <a class="primary"
-               href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20de%202%20telas."
-               target="_blank">
-                SABER MAIS
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-    <h2>
-        Pronto para experimentar?
-    </h2>
-
-    <p>
-        Faça seu teste gratuito de 4 horas.
-    </p>
-
-    <a class="primary"
-       href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20fazer%20o%20teste%20gr%C3%A1tis%20de%204%20horas."
-       target="_blank">
-        🎁 QUERO MEU TESTE GRÁTIS
+    <!-- Botão de WhatsApp Flutuante -->
+    <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-</section>
-
-
-<!-- WHATSAPP -->
-
-<a class="whatsapp"
-   href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20PedriinCanais%20e%20quero%20mais%20informa%C3%A7%C3%B5es."
-   target="_blank"
-   aria-label="Falar no WhatsApp">
-    💬
-</a>
-
-
-<footer>
-    © 2026 PedriinCanais — Entretenimento para você.
-</footer>
+    <!-- Script JavaScript para o FAQ sanfona funcionar ao clicar -->
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
