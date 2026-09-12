@@ -1,171 +1,1136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabela de Preços - PedriinCanais</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PedriinCanais - IPTV Premium | O Melhor Entretenimento</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #07070a;
+            --bg-card: #121217;
+            --primary: #ff1f5a;
+            --secondary: #7928ca;
+            --accent: #25d366;
+            --text: #ffffff;
+            --text-secondary: #a0a0b0;
+            --gradient: linear-gradient(135deg, #ff1f5a 0%, #7928ca 100%);
+            --border: rgba(255, 255, 255, 0.08);
+        }
 
-    h2 {
-      margin-bottom: 20px;
-      color: #f8fafc;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    /* Container dos Botões de Seleção de Moeda */
-    .currency-selector {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    .currency-btn {
-      background-color: #1e293b;
-      color: #94a3b8;
-      border: 2px solid #334155;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(7, 7, 10, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
 
-    .currency-btn:hover {
-      border-color: #38bdf8;
-      color: #ffffff;
-    }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .currency-btn.active {
-      background-color: #0284c7;
-      color: #ffffff;
-      border-color: #38bdf8;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-    }
+        .currency-switch {
+            display: flex;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 3px;
+        }
 
-    /* Grid dos Cards de Planos */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      width: 100%;
-      max-width: 1000px;
-    }
+        .currency-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
 
-    .plan-card {
-      background-color: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
-    }
+        .currency-btn.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 2px 10px rgba(255, 31, 90, 0.3);
+        }
 
-    .plan-card:hover {
-      transform: translateY(-4px);
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
-    .plan-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #cbd5e1;
-      margin-bottom: 12px;
-    }
+        .logo img {
+            max-height: 60px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
 
-    .plan-price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #38bdf8;
-    }
-  </style>
+        .logo-fallback {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .btn-header {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .hero {
+            padding: 130px 5% 50px;
+            background: radial-gradient(circle at 50% 30%, rgba(121, 40, 202, 0.15) 0%, transparent 70%);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .badge-premium {
+            background: rgba(255, 31, 90, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 31, 90, 0.2);
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            max-width: 800px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        /* CARROSSEL */
+        .slider-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        .slider-dots {
+            text-align: center;
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 10px;
+            width: 10px;
+            margin: 0 4px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            width: 25px;
+            border-radius: 10px;
+        }
+
+        .hero-checks {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            .hero-checks { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.1rem; }
+            header { padding: 12px 3%; }
+            .btn-header span { display: none; }
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .check-item i { color: var(--accent); }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 31, 90, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 31, 90, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: 0.3s ease;
+        }
+
+        .section-title {
+            text-align: center;
+            padding: 60px 5% 20px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .section-title h2 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        /* BENEFICIOS */
+        .benefits {
+            padding: 20px 5% 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .benefit-card .icon-box {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* DISPOSITIVOS */
+        .compatibility {
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+
+        .device-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .device-card i {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* PLANOS */
+        .plans {
+            padding: 60px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 31, 90, 0.15);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .plan-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .plan-price span { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .plan-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .plan-list li i { color: var(--accent); }
+
+        .btn-plan {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 14px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            display: block;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .plan-card.featured .btn-plan, .btn-plan:hover {
+            background: var(--gradient);
+            border: none;
+        }
+
+        /* DEPOIMENTOS */
+        .testimonials {
+            padding: 60px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .stars {
+            color: #ffb400;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
+        }
+
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            object-fit: cover;
+        }
+
+        .user-details h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .user-details span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 60px 5% 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-accordion {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 250px;
+            padding: 0 20px 20px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        /* CTA FINAL */
+        .cta-final {
+            background: radial-gradient(circle at bottom, rgba(255, 31, 90, 0.15) 0%, transparent 70%);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 60px 5%;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: #040406;
+            border-top: 1px solid var(--border);
+            padding: 50px 5% 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+        }
+
+        .footer-col h4 {
+            color: var(--text);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            font-size: 0.8rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* MODAL POLITICA */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 650px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+    </style>
 </head>
 <body>
 
-  <h2>Escolha seu Plano</h2>
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="PedriinCanais" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';">
+            <span id="logo-text" class="logo-fallback" style="display:none;">PedriinCanais</span>
+        </a>
 
-  <!-- Botões para Alternar a Moeda -->
-  <div class="currency-selector">
-    <button class="currency-btn active" onclick="setCurrency('brl')">R$ Real</button>
-    <button class="currency-btn" onclick="setCurrency('jpy')">¥ Iene</button>
-    <button class="currency-btn" onclick="setCurrency('usd')">$ Dólar</button>
-  </div>
+        <div class="header-actions">
+            <div class="currency-switch">
+                <button class="currency-btn active" id="btnBRL" onclick="setCurrency('BRL')">🇧🇷 BRL</button>
+                <button class="currency-btn" id="btnJPY" onclick="setCurrency('JPY')">🇯🇵 JPY</button>
+            </div>
 
-  <!-- Cards de Planos -->
-  <div class="pricing-grid">
-    <div class="plan-card">
-      <div class="plan-title">1 Tela</div>
-      <div class="plan-price" id="plan-1tela">R$ 35,00</div>
+            <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-header" target="_blank">
+                <i class="fab fa-whatsapp"></i> <span>Teste Grátis</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <span class="badge-premium">🔴 100% Online e Seguro</span>
+        <h1>O MELHOR <span>IPTV</span> PARA SUA CASA</h1>
+        <p class="subtitle">Filmes, Séries, Canais Ao Vivo, Futebol, UFC, Fórmula 1 e muito mais sem travamentos!</p>
+
+        <!-- CARROSSEL -->
+        <div class="slider-section">
+            <div class="slides" id="slidesContainer">
+                <div class="slide"><img src="slide1.jpg" alt="Grade de Conteúdos"></div>
+                <div class="slide"><img src="slide2.jpg" alt="Assista Tudo em um só lugar"></div>
+                <div class="slide"><img src="slide3.png" alt="Categorias de Canais"></div>
+                <div class="slide"><img src="slide4.jpg" alt="Futebol Europeu e Sul-Americano"></div>
+                <div class="slide"><img src="slide5.jpg" alt="Atualização Mais Rápida do Streaming"></div>
+            </div>
+            <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+
+        <div class="hero-checks">
+            <div class="check-item"><i class="fas fa-check-circle"></i> Ativação em minutos</div>
+            <div class="check-item"><i class="fas fa-check-circle"></i> Compatível com todos os aparelhos</div>
+            <div class="check-item"><i class="fas fa-check-circle"></i> Suporte humanizado 24h</div>
+            <div class="check-item"><i class="fas fa-check-circle"></i> Qualidade SD, HD, FHD e 4K</div>
+        </div>
+
+        <div class="hero-buttons">
+            <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-primary" target="_blank">
+                <i class="fas fa-play"></i> SOLICITAR TESTE GRÁTIS
+            </a>
+            <a href="#planos" class="btn-secondary">VER PLANOS</a>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits-sec" id="beneficios">
+        <div class="section-title">
+            <h2>TUDO O QUE VOCÊ PRECISA EM <span>UM SÓ LUGAR</span></h2>
+            <p>A melhor experiência de entretenimento diretamente na sua tela.</p>
+        </div>
+        <div class="benefits">
+            <div class="benefit-card">
+                <div class="icon-box">🎬</div>
+                <h3>Filmes e Lançamentos</h3>
+                <p>Os maiores sucessos do cinema e das plataformas de streaming atualizados semanalmente.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">📺</div>
+                <h3>Canais Ao Vivo</h3>
+                <p>Todos os canais abertos e fechados do Brasil e do mundo sem falhas.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">⚽</div>
+                <h3>Futebol e Esportes</h3>
+                <p>Estaduais, Brasileirão, Champions League, UFC, F1 e muito mais em 4K.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-box">🍿</div>
+                <h3>Séries Completas</h3>
+                <p>Temporadas completas e episódios novos disponibilizados rapidamente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISPOSITIVOS -->
+    <section class="compatibility" id="dispositivos">
+        <div class="section-title">
+            <h2>DISPOSITIVOS <span>COMPATÍVEIS</span></h2>
+            <p>Assista onde quiser, sem necessidade de equipamentos caros.</p>
+        </div>
+        <div class="device-grid">
+            <div class="device-card"><i class="fas fa-tv"></i>Smart TV</div>
+            <div class="device-card"><i class="fas fa-box-open"></i>TV Box</div>
+            <div class="device-card"><i class="fas fa-fire"></i>Fire TV Stick</div>
+            <div class="device-card"><i class="fas fa-mobile-alt"></i>Celular Android</div>
+            <div class="device-card"><i class="fab fa-apple"></i>iPhone / iPad</div>
+            <div class="device-card"><i class="fas fa-laptop"></i>Computador / PC</div>
+        </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section class="plans" id="planos">
+        <div class="section-title">
+            <h2>NOSSOS <span>PLANOS</span></h2>
+            <p>Escolha o plano ideal para você e sua família.</p>
+        </div>
+        <div class="plans-grid">
+            
+            <div class="plan-card">
+                <div>
+                    <h3>1 TELA MENSAL</h3>
+                    <div class="plan-price" id="price-p1">R$ 35,00<span>/mês</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 1 Dispositivo Conectado</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Qualidade SD, HD, FHD, 4K</li>
+                        <li><i class="fas fa-check"></i> Suporte WhatsApp</li>
+                    </ul>
+                </div>
+                <a id="link-p1" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
+
+            <div class="plan-card">
+                <div>
+                    <h3>2 TELAS MENSAL</h3>
+                    <div class="plan-price" id="price-p2">R$ 55,00<span>/mês</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 2 Dispositivos Simultâneos</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Qualidade SD, HD, FHD, 4K</li>
+                        <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                    </ul>
+                </div>
+                <a id="link-p2" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
+
+            <div class="plan-card">
+                <div>
+                    <h3>TRIMESTRAL</h3>
+                    <div class="plan-price" id="price-p3">R$ 95,00<span>/3 meses</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 3 Meses de Acesso</li>
+                        <li><i class="fas fa-check"></i> Economia no Plano</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                    </ul>
+                </div>
+                <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
+
+            <div class="plan-card">
+                <div>
+                    <h3>SEMESTRAL</h3>
+                    <div class="plan-price" id="price-p4">R$ 160,00<span>/6 meses</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 6 Meses de Acesso</li>
+                        <li><i class="fas fa-check"></i> Ótimo Custo-Benefício</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                    </ul>
+                </div>
+                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
+
+            <div class="plan-card featured">
+                <span class="plan-badge">👑 MAIS VENDIDO</span>
+                <div>
+                    <h3>PLANO ANUAL VIP</h3>
+                    <div class="plan-price" id="price-p5">R$ 250,00<span>/ano</span></div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 365 Dias de Acesso Garantido</li>
+                        <li><i class="fas fa-check"></i> Máxima Economia Anual</li>
+                        <li><i class="fas fa-check"></i> Acesso Liberado para a Família</li>
+                        <li><i class="fas fa-check"></i> Suporte VIP Exclusivo</li>
+                    </ul>
+                </div>
+                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SESSÃO: DEPOIMENTOS DE CLIENTES -->
+    <section class="testimonials" id="depoimentos">
+        <div class="section-title">
+            <h2>O QUE NOSSOS <span>CLIENTES DIZEM</span></h2>
+            <p>Quem experimenta o PedriinCanais não troca mais!</p>
+        </div>
+
+        <div class="testimonial-grid">
+            
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Cansei de pagar 4 streamings caros. Aqui tem TUDO, funciona liso na Smart TV e o suporte responde rápido quando preciso."</p>
+                </div>
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Carlos M." class="user-avatar">
+                    <div class="user-details">
+                        <h4>Carlos M.</h4>
+                        <span>Cliente há 8 meses</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Assisto UFC, novelas, futebol e os desenhos do meu filho num só aplicativo. Valeu cada centavo investido!"</p>
+                </div>
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Juliana R." class="user-avatar">
+                    <div class="user-details">
+                        <h4>Juliana R.</h4>
+                        <span>Cliente há 1 ano</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Moro no Japão e assisto aos jogos do meu time ao vivo sem travamento nenhum. Perfeito pra matar a saudade do Brasil!"</p>
+                </div>
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Ricardo P." class="user-avatar">
+                    <div class="user-details">
+                        <h4>Ricardo P.</h4>
+                        <span>Cliente no Japão 🇯🇵</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SESSÃO: FAQ -->
+    <section class="faq" id="faq">
+        <div class="section-title">
+            <h2>TUDO O QUE VOCÊ <span>PRECISA SABER</span></h2>
+            <p>Ainda com dúvidas? Fale conosco no WhatsApp que respondemos na hora.</p>
+        </div>
+
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <div class="faq-question">Como funciona o serviço IPTV da PedriinCanais? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">O IPTV transmite os sinais de TV e streamings via internet diretamente para o seu aparelho (Smart TV, Celular, TV Box, Fire Stick ou PC) sem necessidade de antenas.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Quais dispositivos são compatíveis? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">É compatível com Smart TVs (Samsung, LG, TCL, Android TV), TV Box, Chromecast, Fire TV Stick, celulares Android/iOS e Computadores.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Funciona normalmente no Japão? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">Sim! Nosso sistema possui rotas otimizadas internacionais que funcionam com alta qualidade e sem travamentos no Japão e em qualquer lugar do mundo.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Posso testar antes de assinar? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">Com certeza! Disponibilizamos um teste grátis de 4 horas para você experimentar toda a nossa grade de conteúdo sem compromisso.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Como é feito o pagamento? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">Aceitamos PIX, Cartões de Crédito e Cartões Internacionais. Para clientes no Japão, facilitamos o pagamento via PIX ou Cartão.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">O sinal costuma cair ou travar? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">Utilizamos servidores de alta performance com sistema anti-trava ativado, garantindo estabilidade máxima em jogos ao vivo e horários de pico.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section class="cta-final">
+        <h2>AINDA TEM DÚVIDAS?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 25px;">Chame nossa equipe no WhatsApp para tirar qualquer dúvida na hora!</p>
+        <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Ainda%20tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20servi%C3%A7o." class="btn-primary" style="display:inline-flex;" target="_blank">
+            <i class="fab fa-whatsapp"></i> FALE CONOSCO NO WHATSAPP
+        </a>
+    </section>
+
+    <!-- RODAPÉ COMPLETO -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 style="color:var(--primary)">PEDRIINCANAIS</h4>
+                <p>O melhor serviço de entretenimento online do Brasil e do Japão. Qualidade, estabilidade e suporte 24 horas.</p>
+            </div>
+            <div class="footer-col">
+                <h4>NAVEGAR</h4>
+                <ul>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#dispositivos">Dispositivos</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>LEGAL</h4>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="openModal('termos')">Termos de Uso</a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal('privacidade')">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>FALE CONOSCO</h4>
+                <p><i class="fab fa-whatsapp" style="color:var(--accent)"></i> (11) 98253-9475</p>
+                <p style="margin-top: 10px;">Atendimento Diário das 08h às 00h</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PedriinCanais - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+    <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- MODAL POLITICA / TERMOS -->
+    <div class="modal" id="modalLegal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalText"></div>
+        </div>
     </div>
 
-    <div class="plan-card">
-      <div class="plan-title">2 Telas</div>
-      <div class="plan-price" id="plan-2telas">R$ 55,00</div>
-    </div>
+    <script>
+        // DADOS DOS PLANOS EM DUAS MOEDAS
+        const plansData = {
+            BRL: {
+                p1: { price: "R$ 35,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
+                p2: { price: "R$ 55,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
+                p3: { price: "R$ 95,00", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
+                p4: { price: "R$ 160,00", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." },
+                p5: { price: "R$ 250,00", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." }
+            },
+            JPY: {
+                p1: { price: "¥ 3.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
+                p2: { price: "¥ 4.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
+                p3: { price: "¥ 6.500", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
+                p4: { price: "¥ 10.000", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
+                p5: { price: "¥ 15.000", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
+            }
+        };
 
-    <div class="plan-card">
-      <div class="plan-title">Trimestral</div>
-      <div class="plan-price" id="plan-trimestral">R$ 95,00</div>
-    </div>
+        function setCurrency(currency) {
+            document.getElementById('btnBRL').classList.toggle('active', currency === 'BRL');
+            document.getElementById('btnJPY').classList.toggle('active', currency === 'JPY');
 
-    <div class="plan-card">
-      <div class="plan-title">Semestral</div>
-      <div class="plan-price" id="plan-semestral">R$ 160,00</div>
-    </div>
+            const data = plansData[currency];
+            const baseUrl = "https://wa.me/5511982539475?text=";
 
-    <div class="plan-card">
-      <div class="plan-title">Anual</div>
-      <div class="plan-price" id="plan-anual">R$ 250,00</div>
-    </div>
-  </div>
+            for (let i = 1; i <= 5; i++) {
+                const key = `p${i}`;
+                document.getElementById(`price-p${i}`).innerHTML = `${data[key].price}<span>${data[key].span}</span>`;
+                document.getElementById(`link-p${i}`).href = `${baseUrl}${data[key].msg}`;
+            }
+        }
 
-  <script>
-    // Mapeamento de Valores em Cada Moeda
-    const prices = {
-      brl: {
-        '1tela': 'R$ 35,00',
-        '2telas': 'R$ 55,00',
-        'trimestral': 'R$ 95,00',
-        'semestral': 'R$ 160,00',
-        'anual': 'R$ 250,00'
-      },
-      jpy: {
-        '1tela': '1000 ¥',
-        '2telas': '1600 ¥',
-        'trimestral': '2800 ¥',
-        'semestral': '4700 ¥',
-        'anual': '7300 ¥'
-      },
-      usd: {
-        '1tela': '35$',
-        '2telas': '55$',
-        'trimestral': '95$',
-        'semestral': '160$',
-        'anual': '250$'
-      }
-    };
+        // CARROSSEL DE IMAGENS
+        let slideIndex = 0;
+        const slides = document.getElementById('slidesContainer');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = 5;
 
-    function setCurrency(currency) {
-      // Atualiza o estado ativo dos botões
-      const buttons = document.querySelectorAll('.currency-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+        function showSlide(index) {
+            if (index >= totalSlides) slideIndex = 0;
+            if (index < 0) slideIndex = totalSlides - 1;
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+        }
 
-      // Atualiza os textos dos preços
-      document.getElementById('plan-1tela').innerText = prices[currency]['1tela'];
-      document.getElementById('plan-2telas').innerText = prices[currency]['2telas'];
-      document.getElementById('plan-trimestral').innerText = prices[currency]['trimestral'];
-      document.getElementById('plan-semestral').innerText = prices[currency]['semestral'];
-      document.getElementById('plan-anual').innerText = prices[currency]['anual'];
-    }
-  </script>
+        function moveSlide(step) {
+            slideIndex += step;
+            showSlide(slideIndex);
+        }
 
+        function currentSlide(index) {
+            slideIndex = index;
+            showSlide(slideIndex);
+        }
+
+        setInterval(() => {
+            slideIndex++;
+            showSlide(slideIndex);
+        }, 4000);
+
+        // ACCORDION DO FAQ
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // MODAL DE PRIVACIDADE E TERMOS
+        function openModal(type) {
+            const modal = document.getElementById('modalLegal');
+            const modalText = document.getElementById('modalText');
+            
+            if(type === 'privacidade') {
+                modalText.innerHTML = `
+                    <h2 style="margin-bottom:15px; color:var(--primary);">Política de Privacidade</h2>
+                    <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:15px;">Última atualização: 12/09/2026</p>
+                    <p>Esta página é mantida pela <strong>PedriinCanais</strong> para explicar de forma transparente como protegemos seus dados seguindo a Lei Geral de Proteção de Dados (LGPD).</p>
+                    <br>
+                    <h4>1. Dados que coletamos</h4>
+                    <p>Coletamos apenas informações básicas necessárias para prestação do serviço (Nome e WhatsApp para suporte técnico e ativação).</p>
+                    <br>
+                    <h4>2. Uso de Dados</h4>
+                    <p>Seus dados são utilizados estritamente para ativação de contas e fornecimento de suporte direto no WhatsApp.</p>
+                `;
+            } else {
+                modalText.innerHTML = `
+                    <h2 style="margin-bottom:15px; color:var(--primary);">Termos de Uso</h2>
+                    <p>Ao contratar nossos serviços, você concorda com o uso de nossos aplicativos e conexões de internet compatíveis para visualização de mídias online.</p>
+                `;
+            }
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalLegal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
