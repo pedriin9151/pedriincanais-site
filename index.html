@@ -90,10 +90,15 @@
         }
 
         .logo img {
-            max-height: 60px;
+            max-height: 85px;
             width: auto;
             display: block;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
         }
 
         .logo-fallback {
@@ -533,6 +538,67 @@
             display: block;
         }
 
+        /* ESTILOS DO FORMULÁRIO DE FEEDBACK */
+        .add-feedback-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        .add-feedback-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .add-feedback-box p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            font-size: 1.5rem;
+            color: #444;
+            cursor: pointer;
+        }
+
+        .star-rating .star.active {
+            color: #ffb400;
+        }
+
         /* FAQ */
         .faq {
             padding: 60px 5% 80px;
@@ -876,92 +942,48 @@
     <!-- SESSÃO: DEPOIMENTOS DE CLIENTES -->
     <section class="testimonials" id="depoimentos">
         <div class="section-title">
-            <h2>O QUE NOSSOS <span>CLIENTES DIZEM</span></h2>
-            <p>Quem experimenta o PedriinCanais não troca mais!</p>
+            <h2>AVALIAÇÕES DOS <span>NOSSOS CLIENTES</span></h2>
+            <p>Veja o que quem já usa o PedriinCanais tem a dizer ou deixe seu comentário!</p>
         </div>
 
-        <div class="testimonial-grid">
+        <!-- Grade de depoimentos reais -->
+        <div class="testimonial-grid" id="testimonialGrid">
+            <!-- Feedbacks reais enviados no formulário serão inseridos aqui -->
+        </div>
+
+        <!-- FORMULÁRIO PARA NOVO FEEDBACK REAL -->
+        <div class="add-feedback-box">
+            <h3>Deixe sua Avaliação</h3>
+            <p>Sua opinião é fundamental para melhorarmos nosso serviço!</p>
             
-            <div class="testimonial-card">
-                <div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Cansei de pagar 4 streamings caros. Aqui tem TUDO, funciona liso na Smart TV e o suporte responde rápido quando preciso."</p>
+            <form id="feedbackForm" onsubmit="enviarFeedback(event)">
+                <div class="form-group">
+                    <input type="text" id="fbNome" placeholder="Seu Nome completo" required>
                 </div>
-                <div class="user-info">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Carlos Previtelo." class="user-avatar">
-                    <div class="user-details">
-                        <h4>Carlos M.</h4>
-                        <span>Cliente há 8 meses</span>
-                    </div>
+                
+                <div class="form-group">
+                    <input type="text" id="fbLocal" placeholder="Cidade / País (ex: São Paulo 🇧🇷 ou Orlando 🇺🇸)" required>
                 </div>
-            </div>
 
-            <div class="testimonial-card">
-                <div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Assisto UFC, novelas, futebol e os desenhos do meu filho num só aplicativo. Valeu cada centavo investido!"</p>
-                </div>
-                <div class="user-info">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Luiza Maia." class="user-avatar">
-                    <div class="user-details">
-                        <h4>Juliana R.</h4>
-                        <span>Cliente há 1 ano</span>
+                <div class="form-group">
+                    <label>Sua Nota:</label>
+                    <div class="star-rating">
+                        <i class="fas fa-star star active" data-value="1"></i>
+                        <i class="fas fa-star star active" data-value="2"></i>
+                        <i class="fas fa-star star active" data-value="3"></i>
+                        <i class="fas fa-star star active" data-value="4"></i>
+                        <i class="fas fa-star star active" data-value="5"></i>
                     </div>
                 </div>
-            </div>
 
-            <div class="testimonial-card">
-                <div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Moro no Japão e assisto aos jogos do meu time ao vivo sem travamento nenhum. Perfeito pra matar a saudade do Brasil!"</p>
+                <div class="form-group">
+                    <textarea id="fbTexto" rows="3" placeholder="Escreva como está sendo sua experiência com a PedriinCanais..." required></textarea>
                 </div>
-                <div class="user-info">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Ricardo Pereira." class="user-avatar">
-                    <div class="user-details">
-                        <h4>Ricardo P.</h4>
-                        <span>Cliente no Japão 🇯🇵(Há 10 meses)</span>
-                    </div>
-                </div>
-            </div>
 
-                        <div class="testimonial-card">
-                <div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Moro na Florida e acompanho todos os jogos do Brasileirão e os canais do Brasil ao vivo sem travar nada. A qualidade em 4K no Fire Stick é sensacional!"</p>
-                </div>
-                <div class="user-info">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Lucas Santos." class="user-avatar">
-                    <div class="user-details">
-                        <h4>Lucas S.</h4>
-                        <span>Cliente nos EUA 🇺🇸 (Há 1 ano)</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Uso o serviço aqui em Orlando há mais de 6 meses. Ótimo para assistir às novelas e programas da TV aberta com a família, além de economizar bastante com os streamings daqui."</p>
-                </div>
-                <div class="user-info">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" alt="Vanessa Lopes." class="user-avatar">
-                    <div class="user-details">
-                        <h4>Fernanda R.</h4>
-                        <span>Cliente nos EUA 🇺🇸 (Há 6 meses)</span>
-                    </div>
-                </div>
-            </div>
-
+                <button type="submit" class="btn-primary" style="border:none; cursor:pointer; width:100%; justify-content:center;">
+                    <i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO
+                </button>
+            </form>
         </div>
     </section>
 
@@ -1080,11 +1102,11 @@
                 p5: { price: "$ 250,00", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20($%20250,00)." }
             },
             JPY: {
-                p1: { price: "¥ 3000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
-                p2: { price: "¥ 4000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
-                p3: { price: "¥ 6500", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
-                p4: { price: "¥ 10000", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
-                p5: { price: "¥ 15000", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
+                p1: { price: "¥ 3.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
+                p2: { price: "¥ 4.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
+                p3: { price: "¥ 6.500", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
+                p4: { price: "¥ 10.000", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
+                p5: { price: "¥ 15.000", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
             }
         };
 
@@ -1132,14 +1154,125 @@
             showSlide(slideIndex);
         }, 4000);
 
-        // ACCORDION DO FAQ
+        // LÓGICA DE FEEDBACKS DOS CLIENTES
+        document.addEventListener('DOMContentLoaded', carregarFeedbacks);
+
+        let selectedStars = 5;
+        const stars = document.querySelectorAll('.star-rating .star');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedStars = parseInt(star.getAttribute('data-value'));
+                stars.forEach((s, idx) => {
+                    if (idx < selectedStars) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        function enviarFeedback(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('fbNome').value;
+            const local = document.getElementById('fbLocal').value;
+            const texto = document.getElementById('fbTexto').value;
+
+            const novoFeedback = {
+                nome: nome,
+                local: local,
+                texto: texto,
+                estrelas: selectedStars
+            };
+
+            // Salva no LocalStorage do navegador
+            let feedbacks = JSON.parse(localStorage.getItem('pedriin_feedbacks')) || [];
+            feedbacks.unshift(novoFeedback);
+            localStorage.setItem('pedriin_feedbacks', JSON.stringify(feedbacks));
+
+            // Renderiza na tela
+            renderizarFeedbackCard(novoFeedback, true);
+
+            document.getElementById('feedbackForm').reset();
+            alert('Muito obrigado! Sua avaliação foi publicada com sucesso.');
+        }
+
+        function carregarFeedbacks() {
+            let feedbacks = JSON.parse(localStorage.getItem('pedriin_feedbacks')) || [];
+            const grid = document.getElementById('testimonialGrid');
+            grid.innerHTML = '';
+
+            if (feedbacks.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Seja o primeiro a deixar uma avaliação abaixo!</p>';
+                return;
+            }
+
+            feedbacks.forEach(item => {
+                renderizarFeedbackCard(item, false);
+            });
+        }
+
+        function renderizarFeedbackCard(item, noTopo) {
+            const grid = document.getElementById('testimonialGrid');
+            
+            if (grid.children.length === 1 && grid.children[0].tagName === 'P') {
+                grid.innerHTML = '';
+            }
+
+            let starsHtml = '';
+            for (let i = 0; i < item.estrelas; i++) {
+                starsHtml += '<i class="fas fa-star"></i>';
+            }
+
+            const newCard = document.createElement('div');
+            newCard.className = 'testimonial-card';
+            newCard.innerHTML = `
+                <div>
+                    <div class="stars">${starsHtml}</div>
+                    <p class="testimonial-text">"${item.texto}"</p>
+                </div>
+                <div class="user-info">
+                    <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(item.nome)}&background=ff1f5a&color=fff" alt="${item.nome}" class="user-avatar">
+                    <div class="user-details">
+                        <h4>${item.nome}</h4>
+                        <span>${item.local}</span>
+                    </div>
+                </div>
+            `;
+
+            if (noTopo) {
+                grid.prepend(newCard);
+            } else {
+                grid.appendChild(newCard);
+            }
+        }
+
+        // ACCORDION DO FAQ COM ALTERNÂNCIA DE ÍCONES (+/-)
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                faqItems.forEach(i => i.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
+                
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    const icon = i.querySelector('.faq-question i');
+                    if (icon) {
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    const currentIcon = item.querySelector('.faq-question i');
+                    if (currentIcon) {
+                        currentIcon.classList.remove('fa-plus');
+                        currentIcon.classList.add('fa-minus');
+                    }
+                }
             });
         });
 
@@ -1172,6 +1305,14 @@
         function closeModal() {
             document.getElementById('modalLegal').style.display = 'none';
         }
+
+        // FECHAR MODAL AO CLICAR FORA (OVERLAY)
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('modalLegal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
