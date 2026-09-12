@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabela de Preços e Avaliações - PedriinCanais</title>
+  <title>PedriinCanais - A Melhor Seleção de Canais, Filmes e Séries</title>
   <style>
     * {
       box-sizing: border-box;
@@ -18,10 +18,92 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding-bottom: 60px;
     }
 
-    h2 {
+    /* Header / Hero Section */
+    header {
+      width: 100%;
+      background: linear-gradient(135deg, #0284c7 0%, #0f172a 100%);
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #22c55e;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #16a34a;
+      transform: translateY(-2px);
+    }
+
+    /* Seção de Recursos e Diferenciais */
+    .features-section {
+      width: 100%;
+      max-width: 1000px;
+      padding: 40px 20px 20px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .feature-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    /* Seção de Preços */
+    .pricing-section {
+      width: 100%;
+      max-width: 1000px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
       margin-bottom: 20px;
       color: #f8fafc;
       text-align: center;
@@ -62,11 +144,9 @@
     /* Grid dos Cards de Planos */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       width: 100%;
-      max-width: 1000px;
-      margin-bottom: 60px;
     }
 
     .plan-card {
@@ -77,10 +157,14 @@
       text-align: center;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .plan-card:hover {
       transform: translateY(-4px);
+      border-color: #38bdf8;
     }
 
     .plan-title {
@@ -94,12 +178,29 @@
       font-size: 2rem;
       font-weight: 800;
       color: #38bdf8;
+      margin-bottom: 20px;
+    }
+
+    .plan-btn {
+      display: block;
+      background-color: #0284c7;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .plan-btn:hover {
+      background-color: #0369a1;
     }
 
     /* Seção de Comentários / Depoimentos */
     .reviews-section {
       width: 100%;
       max-width: 1000px;
+      padding: 20px;
     }
 
     .reviews-grid {
@@ -137,6 +238,7 @@
       font-weight: bold;
       font-size: 1.2rem;
       color: #ffffff;
+      flex-shrink: 0;
     }
 
     .review-user-info {
@@ -182,50 +284,99 @@
       margin-top: 10px;
       font-size: 0.9rem;
     }
+
+    /* Rodapé */
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
 
-  <h2>Escolha seu Plano</h2>
+  <!-- Cabecalho / Banner Principal -->
+  <header>
+    <h1>PEDRIINCANAIS</h1>
+    <p>Assista aos melhores canais ao vivo, filmes, séries e esportes de qualquer lugar do mundo em Full HD e 4K.</p>
+    <a href="https://wa.me/" target="_blank" class="cta-btn">Pedir Teste Grátis no WhatsApp</a>
+  </header>
 
-  <!-- Botões para Alternar a Moeda -->
-  <div class="currency-selector">
-    <button class="currency-btn active" onclick="setCurrency('brl', event)">R$ Real</button>
-    <button class="currency-btn" onclick="setCurrency('jpy', event)">¥ Iene</button>
-    <button class="currency-btn" onclick="setCurrency('usd', event)">$ Dólar</button>
-  </div>
+  <!-- Diferenciais do Serviço -->
+  <section class="features-section">
+    <div class="feature-card">
+      <h3>🚀 Conexão Ultra Rápida</h3>
+      <p>Servidores otimizados no Brasil e no exterior sem travamentos.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📱 Assista em Qualquer Lugar</h3>
+      <p>Compatível com Smart TVs, TV Box, Fire Stick, Celulares e Computadores.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💬 Suporte Dedicado</h3>
+      <p>Atendimento rápido e humanizado para tirar todas as suas dúvidas.</p>
+    </div>
+  </section>
 
-  <!-- Cards de Planos -->
-  <div class="pricing-grid">
-    <div class="plan-card">
-      <div class="plan-title">1 Tela</div>
-      <div class="plan-price" id="plan-1tela">R$ 35,00</div>
+  <!-- Tabela de Preços -->
+  <section class="pricing-section">
+    <h2 class="section-title">Escolha seu Plano</h2>
+
+    <!-- Botões para Alternar a Moeda -->
+    <div class="currency-selector">
+      <button class="currency-btn active" onclick="setCurrency('brl', event)">R$ Real</button>
+      <button class="currency-btn" onclick="setCurrency('jpy', event)">¥ Iene</button>
+      <button class="currency-btn" onclick="setCurrency('usd', event)">$ Dólar</button>
     </div>
 
-    <div class="plan-card">
-      <div class="plan-title">2 Telas</div>
-      <div class="plan-price" id="plan-2telas">R$ 55,00</div>
-    </div>
+    <!-- Cards de Planos -->
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div>
+          <div class="plan-title">1 Tela</div>
+          <div class="plan-price" id="plan-1tela">R$ 35,00</div>
+        </div>
+        <a href="https://wa.me/" target="_blank" class="plan-btn">Assinar Agora</a>
+      </div>
 
-    <div class="plan-card">
-      <div class="plan-title">Trimestral</div>
-      <div class="plan-price" id="plan-trimestral">R$ 95,00</div>
-    </div>
+      <div class="plan-card">
+        <div>
+          <div class="plan-title">2 Telas</div>
+          <div class="plan-price" id="plan-2telas">R$ 55,00</div>
+        </div>
+        <a href="https://wa.me/" target="_blank" class="plan-btn">Assinar Agora</a>
+      </div>
 
-    <div class="plan-card">
-      <div class="plan-title">Semestral</div>
-      <div class="plan-price" id="plan-semestral">R$ 160,00</div>
-    </div>
+      <div class="plan-card">
+        <div>
+          <div class="plan-title">Trimestral</div>
+          <div class="plan-price" id="plan-trimestral">R$ 95,00</div>
+        </div>
+        <a href="https://wa.me/" target="_blank" class="plan-btn">Assinar Agora</a>
+      </div>
 
-    <div class="plan-card">
-      <div class="plan-title">Anual</div>
-      <div class="plan-price" id="plan-anual">R$ 250,00</div>
+      <div class="plan-card">
+        <div>
+          <div class="plan-title">Semestral</div>
+          <div class="plan-price" id="plan-semestral">R$ 160,00</div>
+        </div>
+        <a href="https://wa.me/" target="_blank" class="plan-btn">Assinar Agora</a>
+      </div>
+
+      <div class="plan-card">
+        <div>
+          <div class="plan-title">Anual</div>
+          <div class="plan-price" id="plan-anual">R$ 250,00</div>
+        </div>
+        <a href="https://wa.me/" target="_blank" class="plan-btn">Assinar Agora</a>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- Seção de Comentários / Depoimentos -->
-  <div class="reviews-section">
-    <h2>O que nossos clientes dizem pelo mundo</h2>
+  <section class="reviews-section">
+    <h2 class="section-title">O que nossos clientes dizem pelo mundo</h2>
 
     <div class="reviews-grid">
 
@@ -326,7 +477,11 @@
       </div>
 
     </div>
-  </div>
+  </section>
+
+  <footer>
+    <p>&copy; PedriinCanais - Todos os direitos reservados.</p>
+  </footer>
 
   <script>
     // Mapeamento de Valores em Cada Moeda
