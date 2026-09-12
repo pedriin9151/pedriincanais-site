@@ -48,6 +48,41 @@
             border-bottom: 1px solid var(--border);
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .currency-switch {
+            display: flex;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 3px;
+        }
+
+        .currency-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .currency-btn.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 2px 10px rgba(255, 31, 90, 0.3);
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -73,14 +108,14 @@
         .btn-header {
             background-color: var(--accent);
             color: #fff;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: 0.3s ease;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
         }
@@ -215,6 +250,8 @@
         @media (max-width: 600px) {
             .hero-checks { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.1rem; }
+            header { padding: 12px 3%; }
+            .btn-header span { display: none; }
         }
 
         .check-item {
@@ -654,9 +691,17 @@
             <img src="logo.png" alt="PedriinCanais" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';">
             <span id="logo-text" class="logo-fallback" style="display:none;">PedriinCanais</span>
         </a>
-        <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-header" target="_blank">
-            <i class="fab fa-whatsapp"></i> Teste Grátis
-        </a>
+
+        <div class="header-actions">
+            <div class="currency-switch">
+                <button class="currency-btn active" id="btnBRL" onclick="setCurrency('BRL')">🇧🇷 BRL</button>
+                <button class="currency-btn" id="btnJPY" onclick="setCurrency('JPY')">🇯🇵 JPY</button>
+            </div>
+
+            <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-header" target="_blank">
+                <i class="fab fa-whatsapp"></i> <span>Teste Grátis</span>
+            </a>
+        </div>
     </header>
 
     <section class="hero">
@@ -756,7 +801,7 @@
             <div class="plan-card">
                 <div>
                     <h3>1 TELA MENSAL</h3>
-                    <div class="plan-price">R$ 35,00<span>/mês</span></div>
+                    <div class="plan-price" id="price-p1">R$ 35,00<span>/mês</span></div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 1 Dispositivo Conectado</li>
                         <li><i class="fas fa-check"></i> Conteúdo Completo</li>
@@ -764,13 +809,13 @@
                         <li><i class="fas fa-check"></i> Suporte WhatsApp</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p1" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card">
                 <div>
                     <h3>2 TELAS MENSAL</h3>
-                    <div class="plan-price">R$ 55,00<span>/mês</span></div>
+                    <div class="plan-price" id="price-p2">R$ 55,00<span>/mês</span></div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 2 Dispositivos Simultâneos</li>
                         <li><i class="fas fa-check"></i> Conteúdo Completo</li>
@@ -778,13 +823,13 @@
                         <li><i class="fas fa-check"></i> Suporte Prioritário</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p2" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card">
                 <div>
                     <h3>TRIMESTRAL</h3>
-                    <div class="plan-price">R$ 95,00<span>/3 meses</span></div>
+                    <div class="plan-price" id="price-p3">R$ 95,00<span>/3 meses</span></div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 3 Meses de Acesso</li>
                         <li><i class="fas fa-check"></i> Economia no Plano</li>
@@ -792,13 +837,13 @@
                         <li><i class="fas fa-check"></i> Suporte Prioritário</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card">
                 <div>
                     <h3>SEMESTRAL</h3>
-                    <div class="plan-price">R$ 160,00<span>/6 meses</span></div>
+                    <div class="plan-price" id="price-p4">R$ 160,00<span>/6 meses</span></div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 6 Meses de Acesso</li>
                         <li><i class="fas fa-check"></i> Ótimo Custo-Benefício</li>
@@ -806,14 +851,14 @@
                         <li><i class="fas fa-check"></i> Suporte Prioritário</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card featured">
                 <span class="plan-badge">👑 MAIS VENDIDO</span>
                 <div>
                     <h3>PLANO ANUAL VIP</h3>
-                    <div class="plan-price">R$ 250,00<span>/ano</span></div>
+                    <div class="plan-price" id="price-p5">R$ 250,00<span>/ano</span></div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 365 Dias de Acesso Garantido</li>
                         <li><i class="fas fa-check"></i> Máxima Economia Anual</li>
@@ -821,7 +866,7 @@
                         <li><i class="fas fa-check"></i> Suporte VIP Exclusivo</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
         </div>
@@ -873,13 +918,13 @@
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Instalei em 3 minutos no meu Fire Stick. Qualidade 4K impressionante, nunca travou nem em dia de final de campeonato."</p>
+                    <p class="testimonial-text">"Moro no Japão e assisto aos jogos do meu time ao vivo sem travamento nenhum. Perfeito pra matar a saudade do Brasil!"</p>
                 </div>
                 <div class="user-info">
                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Ricardo P." class="user-avatar">
                     <div class="user-details">
                         <h4>Ricardo P.</h4>
-                        <span>Cliente Vitalício</span>
+                        <span>Cliente no Japão 🇯🇵</span>
                     </div>
                 </div>
             </div>
@@ -906,8 +951,8 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Preciso de uma internet muito rápida? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">Recomendamos uma conexão estável de no mínimo 15 a 20 Mega de velocidade para rodar os canais e conteúdos em resolução HD e 4K sem travamentos.</div>
+                <div class="faq-question">Funciona normalmente no Japão? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">Sim! Nosso sistema possui rotas otimizadas internacionais que funcionam com alta qualidade e sem travamentos no Japão e em qualquer lugar do mundo.</div>
             </div>
 
             <div class="faq-item">
@@ -917,7 +962,7 @@
 
             <div class="faq-item">
                 <div class="faq-question">Como é feito o pagamento? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">Aceitamos PIX, Cartões de Crédito e Boleto. O pagamento por PIX tem liberação e ativação imediata.</div>
+                <div class="faq-answer">Aceitamos PIX, Cartões de Crédito e Cartões Internacionais. Para clientes no Japão, facilitamos o pagamento via PIX ou Cartão.</div>
             </div>
 
             <div class="faq-item">
@@ -941,7 +986,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4 style="color:var(--primary)">PEDRIINCANAIS</h4>
-                <p>O melhor serviço de entretenimento online do Brasil. Qualidade, estabilidade e suporte 24 horas.</p>
+                <p>O melhor serviço de entretenimento online do Brasil e do Japão. Qualidade, estabilidade e suporte 24 horas.</p>
             </div>
             <div class="footer-col">
                 <h4>NAVEGAR</h4>
@@ -985,6 +1030,38 @@
     </div>
 
     <script>
+        // DADOS DOS PLANOS EM DUAS MOEDAS
+        const plansData = {
+            BRL: {
+                p1: { price: "R$ 35,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
+                p2: { price: "R$ 55,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
+                p3: { price: "R$ 95,00", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
+                p4: { price: "R$ 160,00", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." },
+                p5: { price: "R$ 250,00", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." }
+            },
+            JPY: {
+                p1: { price: "¥ 3.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
+                p2: { price: "¥ 4.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
+                p3: { price: "¥ 6.500", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
+                p4: { price: "¥ 10.000", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
+                p5: { price: "¥ 15.000", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
+            }
+        };
+
+        function setCurrency(currency) {
+            document.getElementById('btnBRL').classList.toggle('active', currency === 'BRL');
+            document.getElementById('btnJPY').classList.toggle('active', currency === 'JPY');
+
+            const data = plansData[currency];
+            const baseUrl = "https://wa.me/5511982539475?text=";
+
+            for (let i = 1; i <= 5; i++) {
+                const key = `p${i}`;
+                document.getElementById(`price-p${i}`).innerHTML = `${data[key].price}<span>${data[key].span}</span>`;
+                document.getElementById(`link-p${i}`).href = `${baseUrl}${data[key].msg}`;
+            }
+        }
+
         // CARROSSEL DE IMAGENS
         let slideIndex = 0;
         const slides = document.getElementById('slidesContainer');
