@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PedriinCanais - O Melhor IPTV para sua Casa</title>
-    <!-- Importação de ícones e fontes modernas -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -35,12 +34,11 @@
             overflow-x: hidden;
         }
 
-        /* Header / Navbar */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 15px 5%;
             background: rgba(7, 7, 10, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
@@ -53,14 +51,14 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
             text-decoration: none;
         }
 
-        /* Se tiver a imagem logo.png, ela carrega aqui. Se não tiver, mostra o texto premium. */
         .logo img {
-            max-height: 45px;
+            max-height: 65px;
+            width: auto;
             display: block;
+            object-fit: contain;
         }
 
         .logo-fallback {
@@ -93,12 +91,10 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* Seção Hero (Primeira Tela) */
         .hero {
-            padding: 150px 5% 80px;
+            padding: 140px 5% 60px;
             background: radial-gradient(circle at 50% 30%, rgba(121, 40, 202, 0.15) 0%, transparent 70%);
             text-align: center;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -113,7 +109,7 @@
             font-weight: 700;
             font-size: 0.8rem;
             letter-spacing: 2px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border: 1px solid rgba(255, 31, 90, 0.2);
             text-transform: uppercase;
             display: inline-block;
@@ -123,7 +119,7 @@
             font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             max-width: 800px;
         }
 
@@ -137,25 +133,84 @@
             font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 650px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        .hero .quality-badges {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 35px;
-        }
-
-        .q-badge {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
+        /* Estilos do Carrossel de 5 Banners */
+        .slider-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
             border: 1px solid var(--border);
-            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: var(--primary);
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        .slider-dots {
+            text-align: center;
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 10px;
+            width: 10px;
+            margin: 0 4px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s, width 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            width: 25px;
+            border-radius: 10px;
         }
 
         .hero-checks {
@@ -163,15 +218,13 @@
             grid-template-columns: repeat(2, minmax(180px, 1fr));
             gap: 15px;
             max-width: 600px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             text-align: left;
         }
 
         @media (max-width: 600px) {
-            .hero-checks {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 { font-size: 2.2rem; }
+            .hero-checks { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.1rem; }
         }
 
         .check-item {
@@ -231,7 +284,6 @@
             transform: translateY(-3px);
         }
 
-        /* Seção Benefícios */
         .section-title {
             text-align: center;
             padding: 60px 5% 20px;
@@ -290,7 +342,6 @@
             margin-bottom: 8px;
         }
 
-        /* Compatibilidade */
         .compatibility {
             background: rgba(255, 255, 255, 0.01);
             border-top: 1px solid var(--border);
@@ -331,7 +382,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Planos */
         .plans {
             padding: 80px 5%;
             max-width: 1200px;
@@ -435,122 +485,6 @@
             box-shadow: 0 4px 15px rgba(255, 31, 90, 0.3);
         }
 
-        /* Por Que Escolher a PedriinCanais */
-        .why-us {
-            background: rgba(255, 255, 255, 0.01);
-            padding: 80px 5%;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 40px auto 0;
-        }
-
-        .why-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .why-card i {
-            font-size: 1.8rem;
-            color: var(--primary);
-            background: rgba(255, 31, 90, 0.1);
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        .why-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .why-card p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* Aplicativos Recomendados */
-        .apps {
-            padding: 80px 5%;
-            text-align: center;
-        }
-
-        .apps-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .app-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 20px 35px;
-            border-radius: 12px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
-
-        .app-card i {
-            font-size: 1.5rem;
-            color: #ff3366;
-        }
-
-        .app-card:hover {
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Depoimentos */
-        .testimonials {
-            padding: 80px 5%;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .test-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .test-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 16px;
-            position: relative;
-        }
-
-        .stars {
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .test-card p {
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        /* FAQ (Perguntas Frequentes) */
         .faq {
             padding: 80px 5% 100px;
             max-width: 800px;
@@ -582,10 +516,6 @@
             transition: 0.3s;
         }
 
-        .faq-question:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
         .faq-answer {
             max-height: 0;
             overflow: hidden;
@@ -601,36 +531,11 @@
             border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
 
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-            color: var(--primary);
-        }
-
-        .faq-question i {
-            transition: 0.3s;
-        }
-
-        /* Footer & CTA Final */
         .cta-final {
             background: radial-gradient(circle at bottom, rgba(255, 31, 90, 0.15) 0%, transparent 70%);
             border-top: 1px solid var(--border);
             text-align: center;
             padding: 80px 5%;
-        }
-
-        .cta-final h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .cta-final p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         footer {
@@ -641,7 +546,6 @@
             font-size: 0.85rem;
         }
 
-        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -661,36 +565,44 @@
             transition: 0.3s;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
 
-    <!-- Header Navbar -->
     <header>
         <a href="#" class="logo">
-            <!-- Caso tenha um arquivo de imagem 'logo.png', ele aparecerá aqui -->
-            <img src="logo.png" alt="" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';">
-            <span id="logo-text" class="logo-fallback">PedriinCanais</span>
+            <img src="logo.png" alt="PedriinCanais" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';">
+            <span id="logo-text" class="logo-fallback" style="display:none;">PedriinCanais</span>
         </a>
         <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-header" target="_blank">
             <i class="fab fa-whatsapp"></i> Teste Grátis de 4 Horas
         </a>
     </header>
 
-    <!-- HERO (Primeira Tela) -->
     <section class="hero">
         <span class="badge-premium">🔴 100% Online e Seguro</span>
         <h1>O MELHOR <span>IPTV</span> PARA SUA CASA</h1>
-        <p class="subtitle">Filmes, Séries, Canais Ao Vivo, Futebol, UFC, Fórmula 1 e muito mais em qualidade:</p>
-        
-        <div class="quality-badges">
-            <span class="q-badge">SD</span>
-            <span class="q-badge">HD</span>
-            <span class="q-badge">FULL HD</span>
-            <span class="q-badge">4K</span>
+        <p class="subtitle">Filmes, Séries, Canais Ao Vivo, Futebol, UFC, Fórmula 1 e muito mais!</p>
+
+        <!-- CARROSSEL DE BANNERS (5 SLIDES) -->
+        <div class="slider-section">
+            <div class="slides" id="slidesContainer">
+                <div class="slide"><img src="slide1.jpg" alt="Grade de Conteúdos"></div>
+                <div class="slide"><img src="slide2.jpg" alt="Assista Tudo em um só lugar"></div>
+                <div class="slide"><img src="slide3.png" alt="Categorias de Canais"></div>
+                <div class="slide"><img src="slide4.jpg" alt="Futebol Europeu e Sul-Americano"></div>
+                <div class="slide"><img src="slide5.jpg" alt="Atualização Mais Rápida do Streaming"></div>
+            </div>
+            <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
         </div>
 
         <div class="hero-checks">
@@ -708,7 +620,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DE BENEFÍCIOS -->
     <section class="benefits-sec">
         <div class="section-title">
             <h2>TUDO QUE VOCÊ PRECISA EM <span>UM ÚNICO LUGAR</span></h2>
@@ -718,11 +629,11 @@
             <div class="benefit-card">
                 <div class="icon-box">🎬</div>
                 <h3>Filmes atualizados</h3>
-                <p>Os maiores lançamentos do cinema e streamings direto na sua tela.</p>
+                <p>Os maiores lançamentos do cinema e streaming direto na sua tela.</p>
             </div>
             <div class="benefit-card">
                 <div class="icon-box">📺</div>
-                <h3>Canais nacionais e internacionais</h3>
+                <h3>Canais ao vivo</h3>
                 <p>Todos os canais abertos e fechados na melhor qualidade.</p>
             </div>
             <div class="benefit-card">
@@ -731,34 +642,13 @@
                 <p>Estaduais, Brasileirão, Champions League e campeonatos do mundo todo.</p>
             </div>
             <div class="benefit-card">
-                <div class="icon-box">🥊</div>
-                <h3>UFC e esportes</h3>
-                <p>Lutas, basquete, corrida e muito mais esportes para torcer.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="icon-box">👶</div>
-                <h3>Conteúdo infantil</h3>
-                <p>Desenhos, filmes animados e canais infantis para as crianças.</p>
-            </div>
-            <div class="benefit-card">
                 <div class="icon-box">🍿</div>
                 <h3>Séries completas</h3>
                 <p>As maratonas mais desejadas com temporadas atualizadas.</p>
             </div>
-            <div class="benefit-card">
-                <div class="icon-box">🌍</div>
-                <h3>Conteúdo internacional</h3>
-                <p>Programação global de diversos países ao seu alcance.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="icon-box">🎞️</div>
-                <h3>Qualidade SD, HD, FHD e 4K</h3>
-                <p>Escolha a definição ideal de acordo com a sua conexão.</p>
-            </div>
         </div>
     </section>
 
-    <!-- COMPATIBILIDADE -->
     <section class="compatibility">
         <div class="section-title">
             <h2>FUNCIONA EM TODOS OS <span>SEUS DISPOSITIVOS</span></h2>
@@ -774,7 +664,6 @@
         </div>
     </section>
 
-    <!-- PLANOS -->
     <section class="plans" id="planos">
         <div class="section-title">
             <h2>ESCOLHA O <span>PLANO IDEAL</span></h2>
@@ -782,7 +671,6 @@
         </div>
         <div class="plans-grid">
             
-            <!-- PLANO MENSAL 1 TELA -->
             <div class="plan-card">
                 <div>
                     <div class="plan-title">📺 PLANO MENSAL - 1 TELA</div>
@@ -791,20 +679,17 @@
                         <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
                         <li><i class="fas fa-check-square"></i> Filmes e Séries</li>
                         <li><i class="fas fa-check-square"></i> Canais Ao Vivo</li>
-                        <li><i class="fas fa-check-square"></i> Futebol e Esportes</li>
                         <li><i class="fas fa-check-square"></i> Suporte WhatsApp</li>
                     </ul>
                 </div>
                 <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
-            <!-- PLANO MENSAL 2 TELAS -->
             <div class="plan-card">
                 <div>
                     <div class="plan-title">📺 PLANO MENSAL - 2 TELAS</div>
                     <div class="plan-price">R$ 55,00<span>/mês</span></div>
                     <ul class="plan-list">
-                        <li><i class="fas fa-check-square"></i> Tudo do plano anterior</li>
                         <li><i class="fas fa-check-square"></i> 2 dispositivos simultâneos</li>
                         <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
                         <li><i class="fas fa-check-square"></i> Filmes, Séries e Esportes</li>
@@ -814,40 +699,6 @@
                 <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
-            <!-- PLANO TRIMESTRAL -->
-            <div class="plan-card">
-                <div>
-                    <div class="plan-title">⭐️ PLANO TRIMESTRAL</div>
-                    <div class="plan-price">R$ 94,99<span>/trimestre</span></div>
-                    <ul class="plan-list">
-                        <li><i class="fas fa-check-square"></i> 90 dias de acesso</li>
-                        <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
-                        <li><i class="fas fa-check-square"></i> Conteúdo completo</li>
-                        <li><i class="fas fa-check-square"></i> Filmes, Séries e Esportes</li>
-                        <li><i class="fas fa-check-square"></i> Suporte Prioritário</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
-            </div>
-
-            <!-- PLANO SEMESTRAL -->
-            <div class="plan-card featured">
-                <span class="plan-badge">🥇 MELHOR CUSTO-BENEFÍCIO</span>
-                <div>
-                    <div class="plan-title">🏅 PLANO SEMESTRAL</div>
-                    <div class="plan-price">R$ 159,99<span>/semestre</span></div>
-                    <ul class="plan-list">
-                        <li><i class="fas fa-check-square"></i> 180 dias de acesso</li>
-                        <li><i class="fas fa-check-square"></i> Conteúdo completo</li>
-                        <li><i class="fas fa-check-square"></i> Suporte prioritário</li>
-                        <li><i class="fas fa-check-square"></i> Sem travamentos</li>
-                        <li><i class="fas fa-check-square"></i> SD, HD, FHD e 4K</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
-            </div>
-
-            <!-- PLANO ANUAL -->
             <div class="plan-card featured">
                 <span class="plan-badge">👑 MAIS VENDIDO</span>
                 <div>
@@ -855,7 +706,6 @@
                     <div class="plan-price">R$ 250,00<span>/ano</span></div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check-square"></i> 365 dias de acesso</li>
-                        <li><i class="fas fa-check-square"></i> Conteúdo completo</li>
                         <li><i class="fas fa-check-square"></i> Melhor economia</li>
                         <li><i class="fas fa-check-square"></i> Acesso garantido o ano todo</li>
                         <li><i class="fas fa-check-square"></i> Suporte VIP</li>
@@ -867,173 +717,79 @@
         </div>
     </section>
 
-    <!-- POR QUE ESCOLHER A PEDRIINCANAIS? -->
-    <section class="why-us">
-        <div class="section-title">
-            <h2>POR QUE ESCOLHER A <span>PEDRIINCANAIS</span>?</h2>
-            <p>Conheça os diferenciais que nos tornam a melhor escolha.</p>
-        </div>
-        <div class="why-grid">
-            <div class="why-card">
-                <i class="fas fa-bolt"></i>
-                <div>
-                    <h4>Servidores estáveis</h4>
-                    <p>Tecnologia de ponta para você assistir sem quedas ou congelamento de imagem.</p>
-                </div>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-sync-alt"></i>
-                <div>
-                    <h4>Canais atualizados</h4>
-                    <p>Atualizações diárias de programação, séries e filmes direto do cinema.</p>
-                </div>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-video"></i>
-                <div>
-                    <h4>Catálogo completo</h4>
-                    <p>Milhares de opções on-demand de todas as plataformas em um só lugar.</p>
-                </div>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-trophy"></i>
-                <div>
-                    <h4>Esportes ao vivo</h4>
-                    <p>Não perca nenhum lance do seu time e esportes mundiais favoritos.</p>
-                </div>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-shield-alt"></i>
-                <div>
-                    <h4>Conexão segura</h4>
-                    <p>Seus dados protegidos com sistemas modernos de streaming.</p>
-                </div>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-tablet-alt"></i>
-                <div>
-                    <h4>Compatível com vários dispositivos</h4>
-                    <p>Aplicativos fáceis para Smart TVs, celulares, computadores e consoles.</p>
-                </div>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-headset"></i>
-                <div>
-                    <h4>Atendimento rápido</h4>
-                    <p>Sem robôs. Suporte humano para ajudar na sua instalação e dúvidas.</p>
-                </div>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-user-shield"></i>
-                <div>
-                    <h4>Suporte especializado</h4>
-                    <p>Time dedicado ao seu pós-venda para garantir sua tranquilidade.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- APLICATIVOS RECOMENDADOS -->
-    <section class="apps">
-        <div class="section-title">
-            <h2>APLICATIVOS RECOMENDADOS</h2>
-            <p>Assista de onde quiser com os melhores reprodutores de IPTV do mercado.</p>
-        </div>
-        <div class="apps-grid">
-            <div class="app-card"><i class="fas fa-play"></i> IPTV Smarters Pro</div>
-            <div class="app-card"><i class="fas fa-play"></i> XCIPTV</div>
-            <div class="app-card"><i class="fas fa-play"></i> Smart IPTV</div>
-            <div class="app-card"><i class="fas fa-play"></i> TiviMate</div>
-            <div class="app-card"><i class="fas fa-play"></i> GSE Smart IPTV</div>
-            <div class="app-card"><i class="fas fa-play"></i> Flix IPTV</div>
-        </div>
-    </section>
-
-    <!-- DEPOIMENTOS -->
-    <section class="testimonials">
-        <div class="section-title">
-            <h2>DEPOIMENTOS</h2>
-            <p>O que nossos clientes dizem sobre nossa qualidade.</p>
-        </div>
-        <div class="test-grid">
-            <div class="test-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Melhor IPTV que já utilizei. Qualidade surreal e o suporte realmente responde rápido!"</p>
-            </div>
-            <div class="test-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Instalação rápida e suporte excelente. Em menos de 10 minutos já estava assistindo meus canais."</p>
-            </div>
-            <div class="test-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Imagem muito boa até em 4K. Assisto os jogos de futebol inteiros e não trava nada."</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
     <section class="faq">
         <div class="section-title">
-            <h2>FAQ - DÚVIDAS FREQUENTES</h2>
+            <h2>PERGUNTAS FREQUENTES</h2>
             <p>Tire suas dúvidas antes de começar.</p>
         </div>
         <div class="faq-accordion">
             <div class="faq-item">
                 <div class="faq-question">O teste é gratuito? <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer">Sim! Oferecemos um teste gratuito de 4 horas para você avaliar todo o conteúdo, grade de canais e estabilidade antes de assinar.</div>
+                <div class="faq-answer">Sim! Oferecemos um teste gratuito de 4 horas para você avaliar o serviço.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">Funciona em Smart TV? <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer">Sim! Funciona em qualquer Smart TV de todas as marcas (Samsung, LG, TCL, AOC, etc.) através de aplicativos de IPTV.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Funciona em iPhone? <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer">Sim! Funciona perfeitamente em dispositivos iOS (iPhone, iPad e Apple TV) por meio de apps reprodutores.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Precisa de antena? <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer">Não! Nosso sistema funciona 100% via internet, dispensando o uso de antenas ou cabeamento físico.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Tem suporte? <i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer">Sim, oferecemos suporte completo em português diretamente pelo WhatsApp para ajudar na configuração e sanar eventuais dúvidas.</div>
+                <div class="faq-answer">Sim! Funciona em qualquer Smart TV via aplicativo.</div>
             </div>
         </div>
     </section>
 
-    <!-- CONTATO FINAL & CALL TO ACTION -->
     <section class="cta-final">
         <h2>FALE CONOSCO</h2>
-        <p>Ainda está com dúvidas ou quer começar a assistir agora mesmo? Nossa equipe está pronta para te atender!</p>
-        <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20e%20solicitar%20a%20instala%C3%A7%C3%A3o." class="btn-primary" style="display:inline-flex;" target="_blank">
+        <p>Quer começar a assistir agora mesmo? Chama a gente no WhatsApp!</p>
+        <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida." class="btn-primary" style="display:inline-flex;" target="_blank">
             <i class="fab fa-whatsapp"></i> SOLICITAR INSTALAÇÃO
         </a>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 PedriinCanais - Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Botão de WhatsApp Flutuante -->
-    <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Script JavaScript para o FAQ sanfona funcionar ao clicar -->
     <script>
+        let slideIndex = 0;
+        const slides = document.getElementById('slidesContainer');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = 5;
+
+        function showSlide(index) {
+            if (index >= totalSlides) slideIndex = 0;
+            if (index < 0) slideIndex = totalSlides - 1;
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[slideIndex]) {
+                dots[slideIndex].classList.add('active');
+            }
+        }
+
+        function moveSlide(step) {
+            slideIndex += step;
+            showSlide(slideIndex);
+        }
+
+        function currentSlide(index) {
+            slideIndex = index;
+            showSlide(slideIndex);
+        }
+
+        setInterval(() => {
+            slideIndex++;
+            showSlide(slideIndex);
+        }, 4000);
+
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
                 faqItems.forEach(i => i.classList.remove('active'));
-                if (!isActive) {
-                    item.classList.add('active');
-                }
+                if (!isActive) item.classList.add('active');
             });
         });
     </script>
-
 </body>
 </html>
