@@ -695,6 +695,7 @@
         <div class="header-actions">
             <div class="currency-switch">
                 <button class="currency-btn active" id="btnBRL" onclick="setCurrency('BRL')">🇧🇷 BRL</button>
+                <button class="currency-btn" id="btnUSD" onclick="setCurrency('USD')">🇺🇸 USD</button>
                 <button class="currency-btn" id="btnJPY" onclick="setCurrency('JPY')">🇯🇵 JPY</button>
             </div>
 
@@ -1030,7 +1031,7 @@
     </div>
 
     <script>
-        // DADOS DOS PLANOS EM DUAS MOEDAS
+        // DADOS DOS PLANOS EM TRÊS MOEDAS (BRL, USD, JPY)
         const plansData = {
             BRL: {
                 p1: { price: "R$ 35,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
@@ -1039,17 +1040,25 @@
                 p4: { price: "R$ 160,00", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." },
                 p5: { price: "R$ 250,00", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." }
             },
+            USD: {
+                p1: { price: "$ 35,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
+                p2: { price: "$ 55,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
+                p3: { price: "$ 95,00", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
+                p4: { price: "$ 160,00", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20($%20160,00)." },
+                p5: { price: "$ 250,00", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20($%20250,00)." }
+            },
             JPY: {
-                p1: { price: "¥ 3.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
-                p2: { price: "¥ 4.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
-                p3: { price: "¥ 6.500", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
-                p4: { price: "¥ 10.000", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
-                p5: { price: "¥ 15.000", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
+                p1: { price: "¥ 3000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
+                p2: { price: "¥ 4000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
+                p3: { price: "¥ 6500", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
+                p4: { price: "¥ 10000", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
+                p5: { price: "¥ 15000", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
             }
         };
 
         function setCurrency(currency) {
             document.getElementById('btnBRL').classList.toggle('active', currency === 'BRL');
+            document.getElementById('btnUSD').classList.toggle('active', currency === 'USD');
             document.getElementById('btnJPY').classList.toggle('active', currency === 'JPY');
 
             const data = plansData[currency];
