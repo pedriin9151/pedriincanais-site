@@ -1087,10 +1087,17 @@
     </div>
 
     <script>
-        // CONFIGURAÇÃO DO SUPABASE (Sua API Key está aplicada)
+        // CONFIGURAÇÃO DO SUPABASE (Com verificação e suporte a fallback de ambiente)
         const SUPABASE_URL = 'https://yitfwkgfswzmugzrhhbw.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjE0NDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
+        
+        // Inicialização garantida do cliente Supabase após carregamento da biblioteca
+        let supabaseClient;
+        if (window.supabase && typeof window.supabase.createClient === 'function') {
+            supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        } else {
+            console.error('Biblioteca do Supabase não foi carregada corretamente.');
+        }
 
         // DADOS DOS PLANOS EM TRÊS MOEDAS (BRL, USD, JPY)
         const plansData = {
@@ -1184,10 +1191,23 @@
         async function carregarFeedbacks() {
             const grid = document.getElementById('testimonialGrid');
 
-            const { data: depoimentos, error } = await supabaseClient
+            if (!supabaseClient) {
+                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Erro ao inicializar serviços de avaliação.</p>';
+                return;
+            }
+
+            // Tenta buscar ordenado por id (caso a coluna created_at não exista na tabela)
+            let { data: depoimentos, error } = await supabaseClient
                 .from('depoimentos')
                 .select('*')
-                .order('created_at', { ascending: false });
+                .order('id', { ascending: false });
+
+            // Tratamento genérico de fallback se a consulta inicial falhar
+            if (error) {
+                const retry = await supabaseClient.from('depoimentos').select('*');
+                depoimentos = retry.data;
+                error = retry.error;
+            }
 
             if (error) {
                 console.error('Erro ao buscar depoimentos do Supabase:', error);
@@ -1202,7 +1222,8 @@
 
             grid.innerHTML = depoimentos.map(item => {
                 let starsHtml = '';
-                for (let i = 0; i < item.estrelas; i++) {
+                const numStars = item.estrelas || 5;
+                for (let i = 0; i < numStars; i++) {
                     starsHtml += '<i class="fas fa-star"></i>';
                 }
 
@@ -1226,6 +1247,11 @@
 
         async function enviarFeedback(event) {
             event.preventDefault();
+
+            if (!supabaseClient) {
+                alert('O serviço de envio não está disponível no momento.');
+                return;
+            }
 
             const btn = document.getElementById('btnSubmitFeedback');
             btn.disabled = true;
