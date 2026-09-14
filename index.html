@@ -6,6 +6,8 @@
     <title>PedriinCanais - IPTV Premium | O Melhor Entretenimento</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- BIBLIOTECA OFICIAL DO SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
             --bg-dark: #07070a;
@@ -946,9 +948,9 @@
             <p>Veja o que quem já usa o PedriinCanais tem a dizer ou deixe seu comentário!</p>
         </div>
 
-        <!-- Grade de depoimentos reais -->
+        <!-- Grade de depoimentos reais (Conectada ao Supabase) -->
         <div class="testimonial-grid" id="testimonialGrid">
-            <!-- Feedbacks reais enviados no formulário serão inseridos aqui -->
+            <p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Carregando depoimentos...</p>
         </div>
 
         <!-- FORMULÁRIO PARA NOVO FEEDBACK REAL -->
@@ -980,7 +982,7 @@
                     <textarea id="fbTexto" rows="3" placeholder="Escreva como está sendo sua experiência com a PedriinCanais..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary" style="border:none; cursor:pointer; width:100%; justify-content:center;">
+                <button type="submit" id="btnSubmitFeedback" class="btn-primary" style="border:none; cursor:pointer; width:100%; justify-content:center;">
                     <i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO
                 </button>
             </form>
@@ -1085,6 +1087,11 @@
     </div>
 
     <script>
+        // CONFIGURAÇÃO DO SUPABASE (Sua API Key está aplicada)
+        const SUPABASE_URL = 'https://yitfwkgfswzmugzrhhbw.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
         // DADOS DOS PLANOS EM TRÊS MOEDAS (BRL, USD, JPY)
         const plansData = {
             BRL: {
@@ -1154,15 +1161,13 @@
             showSlide(slideIndex);
         }, 4000);
 
-        // LÓGICA DE FEEDBACKS DOS CLIENTES
-        document.addEventListener('DOMContentLoaded', carregarFeedbacks);
-
+        // LÓGICA DE ESTRELAS NO FORMULÁRIO
         let selectedStars = 5;
         const stars = document.querySelectorAll('.star-rating .star');
 
         stars.forEach(star => {
             star.addEventListener('click', () => {
-                selectedStars = parseInt(star.getAttribute('data-value'));
+                selectedStars = parseInt(star.getAttribute('data-value'), 10);
                 stars.forEach((s, idx) => {
                     if (idx < selectedStars) {
                         s.classList.add('active');
@@ -1173,80 +1178,78 @@
             });
         });
 
-        function enviarFeedback(event) {
+        // INTEGRACAO COM O SUPABASE (DEPOIMENTOS)
+        document.addEventListener('DOMContentLoaded', carregarFeedbacks);
+
+        async function carregarFeedbacks() {
+            const grid = document.getElementById('testimonialGrid');
+
+            const { data: depoimentos, error } = await supabaseClient
+                .from('depoimentos')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                console.error('Erro ao buscar depoimentos do Supabase:', error);
+                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Não foi possível carregar os depoimentos no momento.</p>';
+                return;
+            }
+
+            if (!depoimentos || depoimentos.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Seja o primeiro a deixar uma avaliação abaixo!</p>';
+                return;
+            }
+
+            grid.innerHTML = depoimentos.map(item => {
+                let starsHtml = '';
+                for (let i = 0; i < item.estrelas; i++) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                }
+
+                return `
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="stars">${starsHtml}</div>
+                            <p class="testimonial-text">"${item.texto}"</p>
+                        </div>
+                        <div class="user-info">
+                            <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(item.nome)}&background=ff1f5a&color=fff" alt="${item.nome}" class="user-avatar">
+                            <div class="user-details">
+                                <h4>${item.nome}</h4>
+                                <span>${item.local}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function enviarFeedback(event) {
             event.preventDefault();
+
+            const btn = document.getElementById('btnSubmitFeedback');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
 
             const nome = document.getElementById('fbNome').value;
             const local = document.getElementById('fbLocal').value;
             const texto = document.getElementById('fbTexto').value;
 
-            const novoFeedback = {
-                nome: nome,
-                local: local,
-                texto: texto,
-                estrelas: selectedStars
-            };
+            const { error } = await supabaseClient
+                .from('depoimentos')
+                .insert([{ nome, local, texto, estrelas: selectedStars }]);
 
-            // Salva no LocalStorage do navegador
-            let feedbacks = JSON.parse(localStorage.getItem('pedriin_feedbacks')) || [];
-            feedbacks.unshift(novoFeedback);
-            localStorage.setItem('pedriin_feedbacks', JSON.stringify(feedbacks));
-
-            // Renderiza na tela
-            renderizarFeedbackCard(novoFeedback, true);
-
-            document.getElementById('feedbackForm').reset();
-            alert('Muito obrigado! Sua avaliação foi publicada com sucesso.');
-        }
-
-        function carregarFeedbacks() {
-            let feedbacks = JSON.parse(localStorage.getItem('pedriin_feedbacks')) || [];
-            const grid = document.getElementById('testimonialGrid');
-            grid.innerHTML = '';
-
-            if (feedbacks.length === 0) {
-                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Seja o primeiro a deixar uma avaliação abaixo!</p>';
-                return;
-            }
-
-            feedbacks.forEach(item => {
-                renderizarFeedbackCard(item, false);
-            });
-        }
-
-        function renderizarFeedbackCard(item, noTopo) {
-            const grid = document.getElementById('testimonialGrid');
-            
-            if (grid.children.length === 1 && grid.children[0].tagName === 'P') {
-                grid.innerHTML = '';
-            }
-
-            let starsHtml = '';
-            for (let i = 0; i < item.estrelas; i++) {
-                starsHtml += '<i class="fas fa-star"></i>';
-            }
-
-            const newCard = document.createElement('div');
-            newCard.className = 'testimonial-card';
-            newCard.innerHTML = `
-                <div>
-                    <div class="stars">${starsHtml}</div>
-                    <p class="testimonial-text">"${item.texto}"</p>
-                </div>
-                <div class="user-info">
-                    <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(item.nome)}&background=ff1f5a&color=fff" alt="${item.nome}" class="user-avatar">
-                    <div class="user-details">
-                        <h4>${item.nome}</h4>
-                        <span>${item.local}</span>
-                    </div>
-                </div>
-            `;
-
-            if (noTopo) {
-                grid.prepend(newCard);
+            if (error) {
+                alert('Erro ao enviar avaliação. Verifique suas permissões no Supabase (RLS Policy).');
+                console.error('Erro no Supabase:', error);
             } else {
-                grid.appendChild(newCard);
+                alert('Muito obrigado! Sua avaliação foi publicada com sucesso.');
+                document.getElementById('feedbackForm').reset();
+                carregarFeedbacks();
             }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO';
         }
 
         // ACCORDION DO FAQ COM ALTERNÂNCIA DE ÍCONES (+/-)
