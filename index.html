@@ -1091,7 +1091,6 @@
         const SUPABASE_URL = 'https://yitfwkgfswzmugzrhhbw.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjE0NDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
         
-        // Inicialização garantida do cliente Supabase após carregamento da biblioteca
         let supabaseClient;
         if (window.supabase && typeof window.supabase.createClient === 'function') {
             supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -1175,15 +1174,19 @@
         stars.forEach(star => {
             star.addEventListener('click', () => {
                 selectedStars = parseInt(star.getAttribute('data-value'), 10);
-                stars.forEach((s, idx) => {
-                    if (idx < selectedStars) {
-                        s.classList.add('active');
-                    } else {
-                        s.classList.remove('active');
-                    }
-                });
+                updateStarDisplay(selectedStars);
             });
         });
+
+        function updateStarDisplay(rating) {
+            stars.forEach((s, idx) => {
+                if (idx < rating) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        }
 
         // INTEGRACAO COM O SUPABASE (DEPOIMENTOS)
         document.addEventListener('DOMContentLoaded', carregarFeedbacks);
@@ -1196,13 +1199,11 @@
                 return;
             }
 
-            // Tenta buscar ordenado por id (caso a coluna created_at não exista na tabela)
             let { data: depoimentos, error } = await supabaseClient
                 .from('depoimentos')
                 .select('*')
                 .order('id', { ascending: false });
 
-            // Tratamento genérico de fallback se a consulta inicial falhar
             if (error) {
                 const retry = await supabaseClient.from('depoimentos').select('*');
                 depoimentos = retry.data;
@@ -1271,6 +1272,8 @@
             } else {
                 alert('Muito obrigado! Sua avaliação foi publicada com sucesso.');
                 document.getElementById('feedbackForm').reset();
+                selectedStars = 5;
+                updateStarDisplay(5);
                 carregarFeedbacks();
             }
 
@@ -1278,7 +1281,7 @@
             btn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO';
         }
 
-        // ACCORDION DO FAQ COM ALTERNÂNCIA DE ÍCONES (+/-)
+        // ACCORDION DO FAQ
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -1335,10 +1338,15 @@
             document.getElementById('modalLegal').style.display = 'none';
         }
 
-        // FECHAR MODAL AO CLICAR FORA (OVERLAY)
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('modalLegal');
             if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
                 closeModal();
             }
         });
