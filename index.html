@@ -6,7 +6,6 @@
     <title>PedriinCanais - IPTV Premium | O Melhor Entretenimento</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- BIBLIOTECA OFICIAL DO SUPABASE -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
@@ -175,7 +174,6 @@
             margin-bottom: 30px;
         }
 
-        /* CARROSSEL */
         .slider-section {
             width: 100%;
             max-width: 900px;
@@ -330,7 +328,6 @@
             color: var(--text-secondary);
         }
 
-        /* BENEFICIOS */
         .benefits {
             padding: 20px 5% 60px;
             display: grid;
@@ -353,7 +350,6 @@
             margin-bottom: 15px;
         }
 
-        /* DISPOSITIVOS */
         .compatibility {
             background: rgba(255, 255, 255, 0.01);
             border-top: 1px solid var(--border);
@@ -388,7 +384,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* PLANOS */
         .plans {
             padding: 60px 5%;
             max-width: 1300px;
@@ -433,7 +428,6 @@
             white-space: nowrap;
         }
 
-        /* NOVOS ESTILOS PARA DESCONTO E ECONOMIA */
         .badge-economia {
             display: inline-block;
             background: rgba(37, 211, 102, 0.15);
@@ -566,65 +560,9 @@
             display: block;
         }
 
-        /* ESTILOS DO FORMULÁRIO DE FEEDBACK */
-        .add-feedback-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 30px;
-            max-width: 600px;
-            margin: 40px auto 0;
+        .see-more-box {
             text-align: center;
-        }
-
-        .add-feedback-box h3 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-
-        .add-feedback-box p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .form-group label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: #fff;
-            font-size: 0.95rem;
-            outline: none;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary);
-        }
-
-        .star-rating {
-            display: flex;
-            gap: 8px;
-            font-size: 1.5rem;
-            color: #444;
-            cursor: pointer;
-        }
-
-        .star-rating .star.active {
-            color: #ffb400;
+            margin-top: 35px;
         }
 
         /* FAQ */
@@ -672,7 +610,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
 
-        /* CTA FINAL */
         .cta-final {
             background: radial-gradient(circle at bottom, rgba(255, 31, 90, 0.15) 0%, transparent 70%);
             border-top: 1px solid var(--border);
@@ -680,7 +617,6 @@
             padding: 60px 5%;
         }
 
-        /* RODAPÉ */
         footer {
             background: #040406;
             border-top: 1px solid var(--border);
@@ -703,23 +639,10 @@
             font-size: 1.1rem;
         }
 
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--primary);
-        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: var(--text-secondary); text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--primary); }
 
         .footer-bottom {
             text-align: center;
@@ -746,7 +669,6 @@
             text-decoration: none;
         }
 
-        /* MODAL POLITICA */
         .modal {
             display: none;
             position: fixed;
@@ -804,7 +726,6 @@
         <h1>O MELHOR <span>IPTV</span> PARA SUA CASA</h1>
         <p class="subtitle">Filmes, Séries, Canais Ao Vivo, Futebol, UFC, Fórmula 1 e muito mais sem travamentos!</p>
 
-        <!-- CARROSSEL -->
         <div class="slider-section">
             <div class="slides" id="slidesContainer">
                 <div class="slide"><img src="slide1.jpg" alt="Grade de Conteúdos"></div>
@@ -839,7 +760,6 @@
         </div>
     </section>
 
-    <!-- BENEFICIOS -->
     <section class="benefits-sec" id="beneficios">
         <div class="section-title">
             <h2>TUDO O QUE VOCÊ PRECISA EM <span>UM SÓ LUGAR</span></h2>
@@ -869,7 +789,6 @@
         </div>
     </section>
 
-    <!-- DISPOSITIVOS -->
     <section class="compatibility" id="dispositivos">
         <div class="section-title">
             <h2>DISPOSITIVOS <span>COMPATÍVEIS</span></h2>
@@ -885,14 +804,12 @@
         </div>
     </section>
 
-    <!-- PLANOS -->
     <section class="plans" id="planos">
         <div class="section-title">
             <h2>NOSSOS <span>PLANOS</span></h2>
             <p>Escolha o plano ideal para você e sua família.</p>
         </div>
         <div class="plans-grid">
-            
             <div class="plan-card">
                 <div>
                     <span class="badge-economia" id="eco-p1">PLANO BASE</span>
@@ -981,59 +898,27 @@
                 </div>
                 <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
-
         </div>
     </section>
 
-    <!-- SESSÃO: DEPOIMENTOS DE CLIENTES -->
+    <!-- DEPOIMENTOS EM DESTAQUE (LIMITE DE 3) -->
     <section class="testimonials" id="depoimentos">
         <div class="section-title">
             <h2>AVALIAÇÕES DOS <span>NOSSOS CLIENTES</span></h2>
-            <p>Veja o que quem já usa o PedriinCanais tem a dizer ou deixe seu comentário!</p>
+            <p>Veja o que quem já usa o PedriinCanais fala sobre o nosso serviço!</p>
         </div>
 
-        <!-- Grade de depoimentos reais (Conectada ao Supabase) -->
         <div class="testimonial-grid" id="testimonialGrid">
             <p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Carregando depoimentos...</p>
         </div>
 
-        <!-- FORMULÁRIO PARA NOVO FEEDBACK REAL -->
-        <div class="add-feedback-box">
-            <h3>Deixe sua Avaliação</h3>
-            <p>Sua opinião é fundamental para melhorarmos nosso serviço!</p>
-            
-            <form id="feedbackForm" onsubmit="enviarFeedback(event)">
-                <div class="form-group">
-                    <input type="text" id="fbNome" placeholder="Seu Nome completo" required>
-                </div>
-                
-                <div class="form-group">
-                    <input type="text" id="fbLocal" placeholder="Cidade / País (ex: São Paulo 🇧🇷 ou Orlando 🇺🇸)" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Sua Nota:</label>
-                    <div class="star-rating">
-                        <i class="fas fa-star star active" data-value="1"></i>
-                        <i class="fas fa-star star active" data-value="2"></i>
-                        <i class="fas fa-star star active" data-value="3"></i>
-                        <i class="fas fa-star star active" data-value="4"></i>
-                        <i class="fas fa-star star active" data-value="5"></i>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <textarea id="fbTexto" rows="3" placeholder="Escreva como está sendo sua experiência com a PedriinCanais..." required></textarea>
-                </div>
-
-                <button type="submit" id="btnSubmitFeedback" class="btn-primary" style="border:none; cursor:pointer; width:100%; justify-content:center;">
-                    <i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO
-                </button>
-            </form>
+        <div class="see-more-box">
+            <a href="comentarios.html" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 10px;">
+                <i class="fas fa-comments"></i> Ver Todas as Avaliações / Deixar um Comentário
+            </a>
         </div>
     </section>
 
-    <!-- SESSÃO: FAQ -->
     <section class="faq" id="faq">
         <div class="section-title">
             <h2>TUDO O QUE VOCÊ <span>PRECISA SABER</span></h2>
@@ -1073,7 +958,6 @@
         </div>
     </section>
 
-    <!-- CALL TO ACTION FINAL -->
     <section class="cta-final">
         <h2>AINDA TEM DÚVIDAS?</h2>
         <p style="color: var(--text-secondary); margin-bottom: 25px;">Chame nossa equipe no WhatsApp para tirar qualquer dúvida na hora!</p>
@@ -1082,7 +966,6 @@
         </a>
     </section>
 
-    <!-- RODAPÉ COMPLETO -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -1095,7 +978,7 @@
                     <li><a href="#beneficios">Benefícios</a></li>
                     <li><a href="#dispositivos">Dispositivos</a></li>
                     <li><a href="#planos">Planos</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="comentarios.html">Comentários</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
             </div>
@@ -1117,12 +1000,10 @@
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
     <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- MODAL POLITICA / TERMOS -->
     <div class="modal" id="modalLegal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -1131,12 +1012,10 @@
     </div>
 
     <script>
-        // CONFIGURAÇÃO DO SUPABASE (Sua API Key está aplicada)
         const SUPABASE_URL = 'https://yitfwkgfswzmugzrhhbw.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // DADOS DOS PLANOS EM TRÊS MOEDAS COM OS PREÇOS ORIGINAIS E ECONOMIA
         const plansData = {
             BRL: {
                 p1: { price: "R$ 35,00", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
@@ -1182,7 +1061,6 @@
             }
         }
 
-        // CARROSSEL DE IMAGENS
         let slideIndex = 0;
         const slides = document.getElementById('slidesContainer');
         const dots = document.querySelectorAll('.dot');
@@ -1196,65 +1074,31 @@
             if (dots[slideIndex]) dots[slideIndex].classList.add('active');
         }
 
-        function moveSlide(step) {
-            slideIndex += step;
-            showSlide(slideIndex);
-        }
+        function moveSlide(step) { slideIndex += step; showSlide(slideIndex); }
+        function currentSlide(index) { slideIndex = index; showSlide(slideIndex); }
 
-        function currentSlide(index) {
-            slideIndex = index;
-            showSlide(slideIndex);
-        }
+        setInterval(() => { slideIndex++; showSlide(slideIndex); }, 4000);
 
-        setInterval(() => {
-            slideIndex++;
-            showSlide(slideIndex);
-        }, 4000);
+        document.addEventListener('DOMContentLoaded', carregarFeedbacksDestaque);
 
-        // LÓGICA DE ESTRELAS NO FORMULÁRIO
-        let selectedStars = 5;
-        const stars = document.querySelectorAll('.star-rating .star');
-
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                selectedStars = parseInt(star.getAttribute('data-value'), 10);
-                stars.forEach((s, idx) => {
-                    if (idx < selectedStars) {
-                        s.classList.add('active');
-                    } else {
-                        s.classList.remove('active');
-                    }
-                });
-            });
-        });
-
-        // INTEGRACAO COM O SUPABASE (DEPOIMENTOS)
-        document.addEventListener('DOMContentLoaded', carregarFeedbacks);
-
-        async function carregarFeedbacks() {
+        // Busca APENAS OS 3 PRIMEIROS depoimentos para carregar rápido na home
+        async function carregarFeedbacksDestaque() {
             const grid = document.getElementById('testimonialGrid');
 
             const { data: depoimentos, error } = await supabaseClient
                 .from('depoimentos')
                 .select('*')
-                .order('created_at', { ascending: false });
+                .order('created_at', { ascending: false })
+                .limit(3);
 
-            if (error) {
-                console.error('Erro ao buscar depoimentos do Supabase:', error);
-                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Não foi possível carregar os depoimentos no momento.</p>';
-                return;
-            }
-
-            if (!depoimentos || depoimentos.length === 0) {
-                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Seja o primeiro a deixar uma avaliação abaixo!</p>';
+            if (error || !depoimentos || depoimentos.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Confira a opinião dos nossos clientes na nossa área dedicada!</p>';
                 return;
             }
 
             grid.innerHTML = depoimentos.map(item => {
                 let starsHtml = '';
-                for (let i = 0; i < item.estrelas; i++) {
-                    starsHtml += '<i class="fas fa-star"></i>';
-                }
+                for (let i = 0; i < item.estrelas; i++) { starsHtml += '<i class="fas fa-star"></i>'; }
 
                 return `
                     <div class="testimonial-card">
@@ -1274,62 +1118,24 @@
             }).join('');
         }
 
-        async function enviarFeedback(event) {
-            event.preventDefault();
-
-            const btn = document.getElementById('btnSubmitFeedback');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
-
-            const nome = document.getElementById('fbNome').value;
-            const local = document.getElementById('fbLocal').value;
-            const texto = document.getElementById('fbTexto').value;
-
-            const { error } = await supabaseClient
-                .from('depoimentos')
-                .insert([{ nome, local, texto, estrelas: selectedStars }]);
-
-            if (error) {
-                alert('Erro ao enviar avaliação. Verifique suas permissões no Supabase (RLS Policy).');
-                console.error('Erro no Supabase:', error);
-            } else {
-                alert('Muito obrigado! Sua avaliação foi publicada com sucesso.');
-                document.getElementById('feedbackForm').reset();
-                carregarFeedbacks();
-            }
-
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO';
-        }
-
-        // ACCORDION DO FAQ COM ALTERNÂNCIA DE ÍCONES (+/-)
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
                 faqItems.forEach(i => {
                     i.classList.remove('active');
                     const icon = i.querySelector('.faq-question i');
-                    if (icon) {
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                    }
+                    if (icon) { icon.classList.remove('fa-minus'); icon.classList.add('fa-plus'); }
                 });
-
                 if (!isActive) {
                     item.classList.add('active');
                     const currentIcon = item.querySelector('.faq-question i');
-                    if (currentIcon) {
-                        currentIcon.classList.remove('fa-plus');
-                        currentIcon.classList.add('fa-minus');
-                    }
+                    if (currentIcon) { currentIcon.classList.remove('fa-plus'); currentIcon.classList.add('fa-minus'); }
                 }
             });
         });
 
-        // MODAL DE PRIVACIDADE E TERMOS
         function openModal(type) {
             const modal = document.getElementById('modalLegal');
             const modalText = document.getElementById('modalText');
@@ -1355,16 +1161,10 @@
             modal.style.display = 'flex';
         }
 
-        function closeModal() {
-            document.getElementById('modalLegal').style.display = 'none';
-        }
-
-        // FECHAR MODAL AO CLICAR FORA (OVERLAY)
+        function closeModal() { document.getElementById('modalLegal').style.display = 'none'; }
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('modalLegal');
-            if (event.target === modal) {
-                closeModal();
-            }
+            if (event.target === modal) { closeModal(); }
         });
     </script>
 </body>
