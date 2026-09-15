@@ -433,10 +433,36 @@
             white-space: nowrap;
         }
 
+        /* NOVOS ESTILOS PARA DESCONTO E ECONOMIA */
+        .badge-economia {
+            display: inline-block;
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .price-box {
+            margin-bottom: 20px;
+        }
+
+        .price-original {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            font-weight: 600;
+            display: block;
+            margin-bottom: -4px;
+        }
+
         .plan-price {
             font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            line-height: 1.1;
         }
 
         .plan-price span { font-size: 0.9rem; color: var(--text-secondary); }
@@ -869,8 +895,11 @@
             
             <div class="plan-card">
                 <div>
+                    <span class="badge-economia" id="eco-p1">PLANO BASE</span>
                     <h3>1 TELA MENSAL</h3>
-                    <div class="plan-price" id="price-p1">R$ 35,00<span>/mês</span></div>
+                    <div class="price-box">
+                        <div class="plan-price" id="price-p1">R$ 35,00<span>/mês</span></div>
+                    </div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 1 Dispositivo Conectado</li>
                         <li><i class="fas fa-check"></i> Conteúdo Completo</li>
@@ -883,8 +912,11 @@
 
             <div class="plan-card">
                 <div>
+                    <span class="badge-economia" id="eco-p2">SEM FIDELIDADE</span>
                     <h3>2 TELAS MENSAL</h3>
-                    <div class="plan-price" id="price-p2">R$ 55,00<span>/mês</span></div>
+                    <div class="price-box">
+                        <div class="plan-price" id="price-p2">R$ 55,00<span>/mês</span></div>
+                    </div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 2 Dispositivos Simultâneos</li>
                         <li><i class="fas fa-check"></i> Conteúdo Completo</li>
@@ -897,8 +929,12 @@
 
             <div class="plan-card">
                 <div>
+                    <span class="badge-economia" id="eco-p3">Economize R$ 10,00</span>
                     <h3>TRIMESTRAL</h3>
-                    <div class="plan-price" id="price-p3">R$ 95,00<span>/3 meses</span></div>
+                    <div class="price-box">
+                        <span class="price-original" id="orig-p3">R$ 105,00</span>
+                        <div class="plan-price" id="price-p3">R$ 95,00<span>/3 meses</span></div>
+                    </div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 3 Meses de Acesso</li>
                         <li><i class="fas fa-check"></i> Economia no Plano</li>
@@ -911,8 +947,12 @@
 
             <div class="plan-card">
                 <div>
+                    <span class="badge-economia" id="eco-p4">Economize R$ 50,00</span>
                     <h3>SEMESTRAL</h3>
-                    <div class="plan-price" id="price-p4">R$ 160,00<span>/6 meses</span></div>
+                    <div class="price-box">
+                        <span class="price-original" id="orig-p4">R$ 210,00</span>
+                        <div class="plan-price" id="price-p4">R$ 160,00<span>/6 meses</span></div>
+                    </div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 6 Meses de Acesso</li>
                         <li><i class="fas fa-check"></i> Ótimo Custo-Benefício</li>
@@ -926,8 +966,12 @@
             <div class="plan-card featured">
                 <span class="plan-badge">👑 MAIS VENDIDO</span>
                 <div>
+                    <span class="badge-economia" id="eco-p5" style="margin-top: 10px;">Economize R$ 170,00</span>
                     <h3>PLANO ANUAL VIP</h3>
-                    <div class="plan-price" id="price-p5">R$ 250,00<span>/ano</span></div>
+                    <div class="price-box">
+                        <span class="price-original" id="orig-p5">R$ 420,00</span>
+                        <div class="plan-price" id="price-p5">R$ 250,00<span>/ano</span></div>
+                    </div>
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> 365 Dias de Acesso Garantido</li>
                         <li><i class="fas fa-check"></i> Máxima Economia Anual</li>
@@ -1092,28 +1136,28 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // DADOS DOS PLANOS EM TRÊS MOEDAS (BRL, USD, JPY)
+        // DADOS DOS PLANOS EM TRÊS MOEDAS COM OS PREÇOS ORIGINAIS E ECONOMIA
         const plansData = {
             BRL: {
-                p1: { price: "R$ 35,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
-                p2: { price: "R$ 55,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
-                p3: { price: "R$ 95,00", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
-                p4: { price: "R$ 160,00", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." },
-                p5: { price: "R$ 250,00", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." }
+                p1: { price: "R$ 35,00", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
+                p2: { price: "R$ 55,00", span: "/mês", orig: "", eco: "SEM FIDELIDADE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
+                p3: { price: "R$ 95,00", span: "/3 meses", orig: "R$ 105,00", eco: "Economize R$ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
+                p4: { price: "R$ 160,00", span: "/6 meses", orig: "R$ 210,00", eco: "Economize R$ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." },
+                p5: { price: "R$ 250,00", span: "/ano", orig: "R$ 420,00", eco: "Economize R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." }
             },
             USD: {
-                p1: { price: "$ 35,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
-                p2: { price: "$ 55,00", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
-                p3: { price: "$ 95,00", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
-                p4: { price: "$ 160,00", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20($%20160,00)." },
-                p5: { price: "$ 250,00", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20($%20250,00)." }
+                p1: { price: "$ 35,00", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
+                p2: { price: "$ 55,00", span: "/mês", orig: "", eco: "SEM FIDELIDADE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
+                p3: { price: "$ 95,00", span: "/3 meses", orig: "$ 105,00", eco: "Economize $ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
+                p4: { price: "$ 160,00", span: "/6 meses", orig: "$ 210,00", eco: "Economize $ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20($%20160,00)." },
+                p5: { price: "$ 250,00", span: "/ano", orig: "$ 420,00", eco: "Economize $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20($%20250,00)." }
             },
             JPY: {
-                p1: { price: "¥ 3.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
-                p2: { price: "¥ 4.000", span: "/mês", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
-                p3: { price: "¥ 6.500", span: "/3 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
-                p4: { price: "¥ 10.000", span: "/6 meses", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
-                p5: { price: "¥ 15.000", span: "/ano", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
+                p1: { price: "¥ 3.000", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
+                p2: { price: "¥ 4.000", span: "/mês", orig: "", eco: "SEM FIDELIDADE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
+                p3: { price: "¥ 6.500", span: "/3 meses", orig: "¥ 9.000", eco: "Economize ¥ 2.500", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
+                p4: { price: "¥ 10.000", span: "/6 meses", orig: "¥ 18.000", eco: "Economize ¥ 8.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
+                p5: { price: "¥ 15.000", span: "/ano", orig: "¥ 36.000", eco: "Economize ¥ 21.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
             }
         };
 
@@ -1129,6 +1173,12 @@
                 const key = `p${i}`;
                 document.getElementById(`price-p${i}`).innerHTML = `${data[key].price}<span>${data[key].span}</span>`;
                 document.getElementById(`link-p${i}`).href = `${baseUrl}${data[key].msg}`;
+                
+                const ecoElem = document.getElementById(`eco-p${i}`);
+                if (ecoElem) ecoElem.innerText = data[key].eco;
+
+                const origElem = document.getElementById(`orig-p${i}`);
+                if (origElem) origElem.innerText = data[key].orig;
             }
         }
 
