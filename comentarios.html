@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações dos Clientes - PedriinCanais</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --bg-dark: #07070a;
+            --bg-card: #121217;
+            --primary: #ff1f5a;
+            --secondary: #7928ca;
+            --accent: #25d366;
+            --text: #ffffff;
+            --text-secondary: #a0a0b0;
+            --gradient: linear-gradient(135deg, #ff1f5a 0%, #7928ca 100%);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text); line-height: 1.6; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(7, 7, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .btn-back {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover { color: var(--primary); }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .page-title h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .add-feedback-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .add-feedback-box h3 { font-size: 1.4rem; margin-bottom: 5px; }
+        .add-feedback-box p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 5px; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
+
+        .star-rating { display: flex; gap: 8px; font-size: 1.5rem; color: #444; cursor: pointer; }
+        .star-rating .star.active { color: #ffb400; }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+            padding: 14px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 31, 90, 0.4); }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars { color: #ffb400; font-size: 1.1rem; margin-bottom: 15px; }
+        .testimonial-text { font-size: 0.95rem; color: #e0e0e0; font-style: italic; margin-bottom: 20px; }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
+        }
+
+        .user-avatar { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
+        .user-details h4 { font-size: 1rem; font-weight: 700; }
+        .user-details span { font-size: 0.8rem; color: var(--text-secondary); display: block; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar ao Site Principal</a>
+        <span style="font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">PEDRIINCANAIS</span>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h1>Mural de <span>Avaliações</span></h1>
+            <p>Confira o que nossos clientes dizem sobre o nosso serviço ou deixe o seu comentário!</p>
+        </div>
+
+        <div class="add-feedback-box">
+            <h3>Deixe sua Avaliação</h3>
+            <p>Sua opinião é fundamental para nós!</p>
+            
+            <form id="feedbackForm" onsubmit="enviarFeedback(event)">
+                <div class="form-group">
+                    <input type="text" id="fbNome" placeholder="Seu Nome completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="fbLocal" placeholder="Cidade / País (ex: São Paulo 🇧🇷 ou Japão 🇯🇵)" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Sua Nota:</label>
+                    <div class="star-rating">
+                        <i class="fas fa-star star active" data-value="1"></i>
+                        <i class="fas fa-star star active" data-value="2"></i>
+                        <i class="fas fa-star star active" data-value="3"></i>
+                        <i class="fas fa-star star active" data-value="4"></i>
+                        <i class="fas fa-star star active" data-value="5"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="fbTexto" rows="3" placeholder="Conte como tem sido sua experiência com a PedriinCanais..." required></textarea>
+                </div>
+
+                <button type="submit" id="btnSubmitFeedback" class="btn-primary" style="width:100%; justify-content:center;">
+                    <i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO
+                </button>
+            </form>
+        </div>
+
+        <h2 style="margin-bottom: 25px; font-size: 1.5rem;">Todas as Avaliações</h2>
+        
+        <div class="testimonial-grid" id="testimonialGrid">
+            <p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Carregando depoimentos...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2019 PedriinCanais - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const SUPABASE_URL = 'https://yitfwkgfswzmugzrhhbw.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let selectedStars = 5;
+        const stars = document.querySelectorAll('.star-rating .star');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedStars = parseInt(star.getAttribute('data-value'), 10);
+                stars.forEach((s, idx) => {
+                    if (idx < selectedStars) { s.classList.add('active'); } 
+                    else { s.classList.remove('active'); }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', carregarTodosFeedbacks);
+
+        async function carregarTodosFeedbacks() {
+            const grid = document.getElementById('testimonialGrid');
+
+            const { data: depoimentos, error } = await supabaseClient
+                .from('depoimentos')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Erro ao carregar depoimentos.</p>';
+                return;
+            }
+
+            if (!depoimentos || depoimentos.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Nenhum depoimento encontrado. Seja o primeiro a comentar!</p>';
+                return;
+            }
+
+            grid.innerHTML = depoimentos.map(item => {
+                let starsHtml = '';
+                for (let i = 0; i < item.estrelas; i++) { starsHtml += '<i class="fas fa-star"></i>'; }
+
+                return `
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="stars">${starsHtml}</div>
+                            <p class="testimonial-text">"${item.texto}"</p>
+                        </div>
+                        <div class="user-info">
+                            <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(item.nome)}&background=ff1f5a&color=fff" alt="${item.nome}" class="user-avatar">
+                            <div class="user-details">
+                                <h4>${item.nome}</h4>
+                                <span>${item.local}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function enviarFeedback(event) {
+            event.preventDefault();
+
+            const btn = document.getElementById('btnSubmitFeedback');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
+
+            const nome = document.getElementById('fbNome').value;
+            const local = document.getElementById('fbLocal').value;
+            const texto = document.getElementById('fbTexto').value;
+
+            const { error } = await supabaseClient
+                .from('depoimentos')
+                .insert([{ nome, local, texto, estrelas: selectedStars }]);
+
+            if (error) {
+                alert('Erro ao enviar avaliação. Tente novamente.');
+            } else {
+                alert('Sua avaliação foi enviada com sucesso!');
+                document.getElementById('feedbackForm').reset();
+                carregarTodosFeedbacks();
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR AVALIAÇÃO';
+        }
+    </script>
+</body>
+</html>
