@@ -402,7 +402,7 @@
             margin-top: 40px;
         }
 
-        /* NOVO DESIGN DOS CARTOES INSPIRADO NA IMAGEM */
+        /* CARTOES DE PLANO */
         .plan-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -451,12 +451,12 @@
         }
 
         .plan-duration {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--primary);
             text-transform: uppercase;
             margin-bottom: 15px;
-            line-height: 1;
+            line-height: 1.1;
         }
 
         .plan-list {
@@ -489,9 +489,10 @@
             flex-shrink: 0;
         }
 
+        /* COR DA CAIXA AJUSTADA PARA HARMONIZAR COM O SITE (ROXO/ROSA NEON DISCRETO) */
         .badge-discount-box {
-            border: 1px solid rgba(255, 31, 90, 0.4);
-            background: rgba(255, 31, 90, 0.08);
+            border: 1px solid rgba(121, 40, 202, 0.5);
+            background: rgba(121, 40, 202, 0.12);
             border-radius: 12px;
             padding: 10px;
             margin: 15px 0;
@@ -499,10 +500,14 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            color: var(--primary);
+            color: #d1a3ff;
             font-weight: 700;
             font-size: 0.85rem;
             text-transform: uppercase;
+        }
+
+        .badge-discount-box i {
+            color: var(--primary);
         }
 
         .price-label {
@@ -864,7 +869,7 @@
         </div>
     </section>
 
-    <!-- PLANOS REESTRUTURADOS ESTILO INSPIRAÇÃO -->
+    <!-- PLANOS REESTRUTURADOS -->
     <section class="plans" id="planos">
         <div class="section-title">
             <h2>NOSSOS <span>PLANOS</span></h2>
@@ -921,7 +926,7 @@
                     </ul>
 
                     <div class="badge-discount-box" id="eco-p2">
-                        <i class="fas fa-users"></i> DUPLE ACESSO
+                        <i class="fas fa-users"></i> DUPLO ACESSO
                     </div>
 
                     <div class="price-label">POR APENAS:</div>
@@ -959,16 +964,16 @@
                 <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
             </div>
 
-            <!-- PLANO SEMESTRAL -->
+            <!-- PLANO SEMESTRAL (AGORA COM 2 TELAS) -->
             <div class="plan-card">
                 <div>
                     <div class="plan-brand">PLANO PEDRIINCANAIS</div>
-                    <div class="plan-duration">6 MESES</div>
+                    <div class="plan-duration">6 MESES (2 TELAS)</div>
 
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> Conteúdo Completo</li>
                         <li><i class="fas fa-check"></i> Sem fidelidade</li>
-                        <li><i class="fas fa-check"></i> Assista em 1 tela</li>
+                        <li><i class="fas fa-check"></i> Assista em 2 telas simultâneas</li>
                         <li><i class="fas fa-check"></i> Canais Adultos (opcional)</li>
                         <li><i class="fas fa-check"></i> + de 40 mil conteúdos</li>
                         <li><i class="fas fa-check"></i> Qualidade SD/HD/FHD/4K</li>
@@ -985,20 +990,20 @@
                     <div class="price-label">DE <span class="price-original" id="orig-p4">R$ 210,00</span> POR APENAS:</div>
                     <div class="plan-price-main" id="price-p4">R$ 160,00</div>
                 </div>
-                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
+                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(R$%20160,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
             </div>
 
-            <!-- PLANO ANUAL VIP -->
+            <!-- PLANO ANUAL VIP (AGORA COM 2 TELAS) -->
             <div class="plan-card featured">
                 <span class="plan-badge">👑 O MAIS VENDIDO</span>
                 <div>
                     <div class="plan-brand" style="margin-top:10px;">PLANO PEDRIINCANAIS</div>
-                    <div class="plan-duration">1 ANO</div>
+                    <div class="plan-duration">1 ANO (2 TELAS)</div>
 
                     <ul class="plan-list">
                         <li><i class="fas fa-check"></i> Conteúdo Completo VIP</li>
                         <li><i class="fas fa-check"></i> Sem fidelidade</li>
-                        <li><i class="fas fa-check"></i> Assista em 1 tela</li>
+                        <li><i class="fas fa-check"></i> Assista em 2 telas simultâneas</li>
                         <li><i class="fas fa-check"></i> Canais Adultos (opcional)</li>
                         <li><i class="fas fa-check"></i> + de 40 mil conteúdos</li>
                         <li><i class="fas fa-check"></i> Qualidade SD/HD/FHD/4K</li>
@@ -1015,7 +1020,7 @@
                     <div class="price-label">DE <span class="price-original" id="orig-p5">R$ 420,00</span> POR APENAS:</div>
                     <div class="plan-price-main" id="price-p5">R$ 250,00</div>
                 </div>
-                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
+                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
             </div>
 
         </div>
@@ -1142,22 +1147,22 @@
                 p1: { price: "R$ 35,00", orig: "", eco: "<i class='fas fa-check-circle'></i> PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
                 p2: { price: "R$ 55,00", orig: "", eco: "<i class='fas fa-users'></i> DUPLO ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
                 p3: { price: "R$ 95,00", orig: "R$ 105,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
-                p4: { price: "R$ 160,00", orig: "R$ 210,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." },
-                p5: { price: "R$ 250,00", orig: "R$ 420,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." }
+                p4: { price: "R$ 160,00", orig: "R$ 210,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(R$%20160,00)." },
+                p5: { price: "R$ 250,00", orig: "R$ 420,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." }
             },
             USD: {
                 p1: { price: "$ 35,00", orig: "", eco: "<i class='fas fa-check-circle'></i> PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
                 p2: { price: "$ 55,00", orig: "", eco: "<i class='fas fa-users'></i> DUPLO ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
                 p3: { price: "$ 95,00", orig: "$ 105,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
-                p4: { price: "$ 160,00", orig: "$ 210,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20($%20160,00)." },
-                p5: { price: "$ 250,00", orig: "$ 420,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20($%20250,00)." }
+                p4: { price: "$ 160,00", orig: "$ 210,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20($%20160,00)." },
+                p5: { price: "$ 250,00", orig: "$ 420,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20($%20250,00)." }
             },
             JPY: {
                 p1: { price: "¥ 3.000", orig: "", eco: "<i class='fas fa-check-circle'></i> PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
                 p2: { price: "¥ 4.000", orig: "", eco: "<i class='fas fa-users'></i> DUPLO ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
                 p3: { price: "¥ 6.500", orig: "¥ 9.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 2.500", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
-                p4: { price: "¥ 10.000", orig: "¥ 18.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 8.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
-                p5: { price: "¥ 15.000", orig: "¥ 36.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 21.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
+                p4: { price: "¥ 10.000", orig: "¥ 18.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 8.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(%C2%A5%2010.000)." },
+                p5: { price: "¥ 15.000", orig: "¥ 36.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 21.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(%C2%A5%2015.000)." }
             }
         };
 
