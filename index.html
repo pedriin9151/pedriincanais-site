@@ -191,9 +191,7 @@
             width: 100%;
         }
 
-        .slide {
-            min-width: 100%;
-        }
+        .slide { min-width: 100%; }
 
         .slide img {
             width: 100%;
@@ -217,10 +215,7 @@
             transition: background 0.3s ease;
         }
 
-        .prev-btn:hover, .next-btn:hover {
-            background: rgba(255, 31, 90, 0.8);
-        }
-
+        .prev-btn:hover, .next-btn:hover { background: rgba(255, 31, 90, 0.8); }
         .prev-btn { left: 15px; }
         .next-btn { right: 15px; }
 
@@ -329,9 +324,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .section-title p {
-            color: var(--text-secondary);
-        }
+        .section-title p { color: var(--text-secondary); }
 
         .benefits {
             padding: 20px 5% 60px;
@@ -389,7 +382,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* ESTILOS DA SEÇÃO DE COMPARAÇÃO DE STREAMING */
+        /* SEÇÃO COMPARAÇÃO DE STREAMING COM BOTOES COLORIDOS IDÊNTICOS À IMAGEM */
         .streaming-compare-sec {
             padding: 35px 15px;
             background: #07070a;
@@ -400,7 +393,7 @@
         }
 
         .streaming-box {
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
             background: #121217;
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -429,60 +422,144 @@
             margin-bottom: 25px;
         }
 
+        /* CARD DE BASE DOS STREAMINGS */
         .stream-card {
-            background: #181822;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
+            border-radius: 18px;
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            height: 65px;
+            height: 85px;
             cursor: pointer;
             user-select: none;
-            transition: all 0.2s ease;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
             box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
+        /* ANIMAÇÃO DE CLIQUE / TOQUE */
         .stream-card:hover, .stream-card:active {
-            transform: scale(1.04);
-            border-color: #ff1f5a;
-            box-shadow: 0 0 12px rgba(255, 31, 90, 0.35);
+            transform: scale(1.06);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
-        .stream-logo-img {
-            max-width: 85%;
-            max-height: 32px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            display: block;
+        /* ESTILOS E CORES INDIVIDUAIS FÉIS À IMAGEM */
+        /* Netflix: Fundo escuro com N vermelho grande */
+        .card-netflix {
+            background: #141414;
+            border: 1px solid #282828;
+        }
+        .netflix-n {
+            color: #E50914;
+            font-weight: 900;
+            font-size: 3.2rem;
+            line-height: 1;
+            font-family: Arial, sans-serif;
         }
 
-        .stream-logo-icon {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
+        /* Prime Video: Fundo azul vibrante com logo branca */
+        .card-prime {
+            background: #00A8E1;
+            flex-direction: column;
         }
-
-        .stream-name {
-            font-size: 0.9rem;
+        .prime-text {
+            color: #FFFFFF;
             font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 0.3px;
+            font-size: 1.1rem;
+            line-height: 0.95;
+            text-align: center;
+        }
+        .prime-arrow {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            margin-top: -2px;
         }
 
-        .stream-card.more-box {
-            background: linear-gradient(135deg, #ff1f5a 0%, #7928ca 100%);
-            border: none;
+        /* Max: Fundo azul escuro com gradiente */
+        .card-max {
+            background: linear-gradient(135deg, #001252 0%, #002BE7 100%);
+        }
+        .max-text {
+            color: #FFFFFF;
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: -1px;
+            text-transform: lowercase;
         }
 
-        .stream-card-text {
-            font-size: 0.8rem;
+        /* Disney+: Gradiente ciano/azul */
+        .card-disney {
+            background: linear-gradient(135deg, #0d1d2d 0%, #113ccf 50%, #158b99 100%);
+        }
+        .disney-text {
+            color: #FFFFFF;
             font-weight: 800;
-            color: #ffffff;
-            text-transform: uppercase;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+
+        /* Globoplay: Gradiente vermelho/laranja */
+        .card-globoplay {
+            background: linear-gradient(135deg, #e60014 0%, #ff5000 100%);
+            flex-direction: column;
+            line-height: 1;
+        }
+        .globo-text {
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        /* Apple TV+: Fundo escuro/preto com logo e texto brancos */
+        .card-appletv {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            gap: 6px;
+        }
+        .apple-icon {
+            color: #FFFFFF;
+            font-size: 1.6rem;
+        }
+        .apple-text {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* Crunchyroll: Fundo Laranja */
+        .card-crunchy {
+            background: linear-gradient(135deg, #f47521 0%, #ff8c00 100%);
+        }
+        .crunchy-eye {
+            width: 38px;
+            height: 38px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .crunchy-pupil {
+            width: 18px;
+            height: 18px;
+            background: #f47521;
+            border-radius: 50%;
+            margin-left: 6px;
+            margin-bottom: 4px;
+        }
+
+        /* E muito mais...: Fundo branco com texto escuro */
+        .card-more {
+            background: #FFFFFF;
+        }
+        .more-text {
+            color: #000000;
+            font-weight: 900;
+            font-size: 1rem;
+            line-height: 1.2;
+            text-align: left;
         }
 
         .streaming-offer-text {
@@ -539,9 +616,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .plan-card:hover {
-            transform: translateY(-5px);
-        }
+        .plan-card:hover { transform: translateY(-5px); }
 
         .plan-card.featured {
             border: 2px solid var(--primary);
@@ -618,12 +693,6 @@
             color: #ffffff;
             line-height: 1.1;
             margin-bottom: 20px;
-        }
-
-        .plan-price-main span {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
         }
 
         .plan-list {
@@ -978,7 +1047,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO COMPARAÇÃO DE STREAMING ACIMA DOS PLANOS -->
+    <!-- SEÇÃO COMPARAÇÃO DE STREAMING IDÊNTICA À SUA IMAGEM -->
     <section class="streaming-compare-sec">
         <div class="streaming-box">
             <h2 class="streaming-title">
@@ -987,46 +1056,47 @@
 
             <div class="streaming-grid">
                 <!-- Netflix -->
-                <div class="stream-card" title="Netflix">
-                    <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" alt="Netflix" class="stream-logo-icon">
-                    <span class="stream-name" style="color: #E50914;">Netflix</span>
+                <div class="stream-card card-netflix" title="Netflix">
+                    <span class="netflix-n">N</span>
                 </div>
 
                 <!-- Prime Video -->
-                <div class="stream-card" title="Prime Video">
-                    <img src="https://images-na.ssl-images-amazon.com/images/G/01/digital/video/pv_web/prime_video_icon.png" alt="Prime Video" class="stream-logo-img">
+                <div class="stream-card card-prime" title="Prime Video">
+                    <span class="prime-text">prime<br>video</span>
+                    <span class="prime-arrow">⌣</span>
                 </div>
 
                 <!-- Max -->
-                <div class="stream-card" title="Max">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="Max" class="stream-logo-img" style="max-height: 22px;">
+                <div class="stream-card card-max" title="Max">
+                    <span class="max-text">max</span>
                 </div>
 
                 <!-- Disney+ -->
-                <div class="stream-card" title="Disney+">
-                    <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/disneyplus_logo_icon_169082.png" alt="Disney+" class="stream-logo-img">
+                <div class="stream-card card-disney" title="Disney+">
+                    <span class="disney-text">Disney+</span>
                 </div>
 
                 <!-- Globoplay -->
-                <div class="stream-card" title="Globoplay">
-                    <img src="https://cdn.icon-icons.com/icons2/3053/PNG/512/globoplay_macos_bigsur_icon_189688.png" alt="Globoplay" class="stream-logo-img">
+                <div class="stream-card card-globoplay" title="Globoplay">
+                    <span class="globo-text">globo<br>play</span>
                 </div>
 
                 <!-- Apple TV+ -->
-                <div class="stream-card" title="Apple TV+">
-                    <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" alt="Apple TV+" class="stream-logo-icon">
-                    <span class="stream-name">Apple TV+</span>
+                <div class="stream-card card-appletv" title="Apple TV+">
+                    <i class="fab fa-apple apple-icon"></i>
+                    <span class="apple-text">tv</span>
                 </div>
 
                 <!-- Crunchyroll -->
-                <div class="stream-card" title="Crunchyroll">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670332.png" alt="Crunchyroll" class="stream-logo-icon">
-                    <span class="stream-name" style="color: #F47521;">Crunchyroll</span>
+                <div class="stream-card card-crunchy" title="Crunchyroll">
+                    <div class="crunchy-eye">
+                        <div class="crunchy-pupil"></div>
+                    </div>
                 </div>
 
                 <!-- E muito mais... -->
-                <div class="stream-card more-box">
-                    <span class="stream-card-text">E muito mais...</span>
+                <div class="stream-card card-more" title="E muito mais">
+                    <span class="more-text">E<br>muito<br>mais...</span>
                 </div>
             </div>
 
