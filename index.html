@@ -214,6 +214,11 @@
             cursor: pointer;
             border-radius: 50%;
             z-index: 10;
+            transition: background 0.3s ease;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: rgba(255, 31, 90, 0.8);
         }
 
         .prev-btn { left: 15px; }
@@ -726,16 +731,17 @@
         <h1>O MELHOR <span>IPTV</span> PARA SUA CASA</h1>
         <p class="subtitle">Filmes, Séries, Canais Ao Vivo, Futebol, UFC, Fórmula 1 e muito mais sem travamentos!</p>
 
+        <!-- Slider de Imagens Otimizado -->
         <div class="slider-section">
             <div class="slides" id="slidesContainer">
-                <div class="slide"><img src="slide1.jpg" alt="Grade de Conteúdos"></div>
-                <div class="slide"><img src="slide2.jpg" alt="Assista Tudo em um só lugar"></div>
-                <div class="slide"><img src="slide3.png" alt="Categorias de Canais"></div>
-                <div class="slide"><img src="slide4.jpg" alt="Futebol Europeu e Sul-Americano"></div>
-                <div class="slide"><img src="slide5.jpg" alt="Atualização Mais Rápida do Streaming"></div>
+                <div class="slide"><img src="slide1.jpg" alt="Grade de Conteúdos e Canais"></div>
+                <div class="slide"><img src="slide2.jpg" alt="Assista Tudo em um só lugar" loading="lazy"></div>
+                <div class="slide"><img src="slide3.png" alt="Categorias de Canais" loading="lazy"></div>
+                <div class="slide"><img src="slide4.jpg" alt="Futebol Europeu e Sul-Americano" loading="lazy"></div>
+                <div class="slide"><img src="slide5.jpg" alt="Atualização Mais Rápida do Streaming" loading="lazy"></div>
             </div>
-            <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
+            <button class="prev-btn" onclick="moveSlide(-1)" aria-label="Slide anterior">&#10094;</button>
+            <button class="next-btn" onclick="moveSlide(1)" aria-label="Próximo slide">&#10095;</button>
             <div class="slider-dots">
                 <span class="dot active" onclick="currentSlide(0)"></span>
                 <span class="dot" onclick="currentSlide(1)"></span>
@@ -804,6 +810,7 @@
         </div>
     </section>
 
+    <!-- SEÇÃO DE PLANOS DADOS E PREÇOS ATUALIZADOS -->
     <section class="plans" id="planos">
         <div class="section-title">
             <h2>NOSSOS <span>PLANOS</span></h2>
@@ -824,7 +831,7 @@
                         <li><i class="fas fa-check"></i> Suporte WhatsApp</li>
                     </ul>
                 </div>
-                <a id="link-p1" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p1" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card">
@@ -841,7 +848,7 @@
                         <li><i class="fas fa-check"></i> Suporte Prioritário</li>
                     </ul>
                 </div>
-                <a id="link-p2" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p2" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card">
@@ -859,7 +866,7 @@
                         <li><i class="fas fa-check"></i> Suporte Prioritário</li>
                     </ul>
                 </div>
-                <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card">
@@ -877,7 +884,7 @@
                         <li><i class="fas fa-check"></i> Suporte Prioritário</li>
                     </ul>
                 </div>
-                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
             <div class="plan-card featured">
@@ -896,7 +903,7 @@
                         <li><i class="fas fa-check"></i> Suporte VIP Exclusivo</li>
                     </ul>
                 </div>
-                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
         </div>
     </section>
@@ -1016,6 +1023,7 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+        // Dados de Moedas e Mapeamento
         const plansData = {
             BRL: {
                 p1: { price: "R$ 35,00", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
@@ -1061,10 +1069,12 @@
             }
         }
 
+        // Lógica do Slider Otimizado
         let slideIndex = 0;
         const slides = document.getElementById('slidesContainer');
         const dots = document.querySelectorAll('.dot');
         const totalSlides = 5;
+        let autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
 
         function showSlide(index) {
             if (index >= totalSlides) slideIndex = 0;
@@ -1074,10 +1084,19 @@
             if (dots[slideIndex]) dots[slideIndex].classList.add('active');
         }
 
-        function moveSlide(step) { slideIndex += step; showSlide(slideIndex); }
-        function currentSlide(index) { slideIndex = index; showSlide(slideIndex); }
+        function moveSlide(step) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
+            slideIndex += step; 
+            showSlide(slideIndex); 
+        }
 
-        setInterval(() => { slideIndex++; showSlide(slideIndex); }, 4000);
+        function currentSlide(index) { 
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
+            slideIndex = index; 
+            showSlide(slideIndex); 
+        }
 
         document.addEventListener('DOMContentLoaded', carregarFeedbacksDestaque);
 
@@ -1118,6 +1137,7 @@
             }).join('');
         }
 
+        // Lógica da Acordeão do FAQ
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -1136,6 +1156,7 @@
             });
         });
 
+        // Modais de Termos e Privacidade
         function openModal(type) {
             const modal = document.getElementById('modalLegal');
             const modalText = document.getElementById('modalText');
@@ -1162,9 +1183,15 @@
         }
 
         function closeModal() { document.getElementById('modalLegal').style.display = 'none'; }
+        
+        // Fechamento de Modais (Clique fora e Tecla ESC)
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('modalLegal');
             if (event.target === modal) { closeModal(); }
+        });
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') { closeModal(); }
         });
     </script>
 </body>
