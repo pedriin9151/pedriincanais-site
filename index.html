@@ -191,7 +191,9 @@
             width: 100%;
         }
 
-        .slide { min-width: 100%; }
+        .slide {
+            min-width: 100%;
+        }
 
         .slide img {
             width: 100%;
@@ -215,7 +217,10 @@
             transition: background 0.3s ease;
         }
 
-        .prev-btn:hover, .next-btn:hover { background: rgba(255, 31, 90, 0.8); }
+        .prev-btn:hover, .next-btn:hover {
+            background: rgba(255, 31, 90, 0.8);
+        }
+
         .prev-btn { left: 15px; }
         .next-btn { right: 15px; }
 
@@ -324,7 +329,9 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .section-title p { color: var(--text-secondary); }
+        .section-title p {
+            color: var(--text-secondary);
+        }
 
         .benefits {
             padding: 20px 5% 60px;
@@ -382,21 +389,21 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* SEÇÃO COMPARAÇÃO DE STREAMING */
+        /* ESTILOS DA SEÇÃO DE COMPARAÇÃO DE STREAMING */
         .streaming-compare-sec {
-            padding: 40px 15px;
-            background: var(--bg-dark);
+            padding: 35px 15px;
+            background: #07070a;
             text-align: center;
             box-sizing: border-box;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .streaming-box {
             max-width: 500px;
             margin: 0 auto;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: #121217;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 25px 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -411,7 +418,7 @@
         }
 
         .streaming-title span {
-            color: var(--primary);
+            color: #ff1f5a;
             text-decoration: underline;
         }
 
@@ -424,36 +431,50 @@
 
         .stream-card {
             background: #181822;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 14px;
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 70px;
+            gap: 8px;
+            height: 65px;
             cursor: pointer;
             user-select: none;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.2s ease;
             box-sizing: border-box;
         }
 
-        .stream-logo {
-            max-width: 90%;
-            max-height: 38px;
+        .stream-card:hover, .stream-card:active {
+            transform: scale(1.04);
+            border-color: #ff1f5a;
+            box-shadow: 0 0 12px rgba(255, 31, 90, 0.35);
+        }
+
+        .stream-logo-img {
+            max-width: 85%;
+            max-height: 32px;
             width: auto;
             height: auto;
             object-fit: contain;
             display: block;
         }
 
-        .stream-card:hover, .stream-card:active {
-            transform: scale(1.05);
-            border-color: var(--primary);
-            box-shadow: 0 0 12px rgba(255, 31, 90, 0.4);
+        .stream-logo-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .stream-name {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.3px;
         }
 
         .stream-card.more-box {
-            background: var(--gradient);
+            background: linear-gradient(135deg, #ff1f5a 0%, #7928ca 100%);
             border: none;
         }
 
@@ -472,14 +493,14 @@
         }
 
         .streaming-offer-text strong {
-            color: var(--accent);
+            color: #25d366;
             font-size: 1.25rem;
         }
 
         .btn-streaming-cta {
             display: block;
             width: 100%;
-            background: var(--gradient);
+            background: linear-gradient(135deg, #ff1f5a 0%, #7928ca 100%);
             color: #ffffff;
             font-size: 0.95rem;
             font-weight: 800;
@@ -491,7 +512,6 @@
             box-sizing: border-box;
         }
 
-        /* PLANOS */
         .plans {
             padding: 60px 5%;
             max-width: 1300px;
@@ -505,6 +525,7 @@
             margin-top: 40px;
         }
 
+        /* ESTILO DOS CARTOES DE PLANO */
         .plan-card {
             background: #121318;
             border: 1px solid #22242b;
@@ -518,7 +539,9 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .plan-card:hover { transform: translateY(-5px); }
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
 
         .plan-card.featured {
             border: 2px solid var(--primary);
@@ -595,6 +618,12 @@
             color: #ffffff;
             line-height: 1.1;
             margin-bottom: 20px;
+        }
+
+        .plan-price-main span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .plan-list {
@@ -949,7 +978,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO COMPARAÇÃO DE STREAMING COM NATIVOS SVG QUE NUNCA FALHAM -->
+    <!-- SEÇÃO COMPARAÇÃO DE STREAMING ACIMA DOS PLANOS -->
     <section class="streaming-compare-sec">
         <div class="streaming-box">
             <h2 class="streaming-title">
@@ -959,57 +988,40 @@
             <div class="streaming-grid">
                 <!-- Netflix -->
                 <div class="stream-card" title="Netflix">
-                    <svg viewBox="0 0 111 30" class="stream-logo">
-                        <path fill="#E50914" d="M105.062 14.28l6.19 15.266h-5.83l-3.21-8.31-3.27 8.31h-5.83l6.19-15.266L93.36 0h5.83l3.05 8.13L105.29 0h5.83l-6.058 14.28zM82.26 30V0h5.58v30H82.26zm-11.83 0V0h13.25v5.18H76.01v6.92h8.04v5.18h-8.04v12.72H70.43zm-13.72 0V0h5.58v24.82h8.21V30H56.71zm-13.88 0V0h13.25v5.18H48.41v6.92h8.04v5.18h-8.04v7.54h8.86V30H42.83zM28.09 30V5.18h-5.32V0h16.22v5.18h-5.32V30H28.09zM14.86 30V0h13.25v5.18H20.44v6.92h8.04v5.18h-8.04v7.54h8.86V30H14.86zM0 30V0h5.58l7.65 19.34V0h5.58v30h-5.26L5.58 9.94V30H0z"/>
-                    </svg>
+                    <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" alt="Netflix" class="stream-logo-icon">
+                    <span class="stream-name" style="color: #E50914;">Netflix</span>
                 </div>
 
                 <!-- Prime Video -->
                 <div class="stream-card" title="Prime Video">
-                    <svg viewBox="0 0 100 30" class="stream-logo">
-                        <path fill="#00A8E1" d="M12.5 5c-3.5 0-6.5 2.5-6.5 6.5 0 3.2 2.2 5.8 5.5 6.3v.2c-2.8.5-4.5 2.2-4.5 4.5 0 2.8 2.5 4.5 6.2 4.5 4.5 0 7.8-2.8 7.8-7.2 0-4.8-3.8-6.2-8.5-6.8V13c2.8 0 4.8-1.5 4.8-3.8 0-2.2-1.8-4.2-4.8-4.2zm-.2 18.2c-2 0-3.2-.8-3.2-2.2 0-1.5 1.2-2.3 3.5-2.6 2.2.3 3.5 1.2 3.5 2.8 0 1.2-1.2 2-3.8 2zm.2-11.8c-1.5 0-2.5-.8-2.5-2.2 0-1.2 1-2.2 2.5-2.2 1.5 0 2.5.8 2.5 2.2 0 1.2-1 2.2-2.5 2.2zM28 5h-4.2v22H28V5zm14 0h-4.2v3.8h.2c.8-2.5 3-4.2 5.8-4.2 3.8 0 6.2 2.8 6.2 7.2V27h-4.2v-14c0-2.5-1.2-3.8-3.5-3.8-2.2 0-4.2 1.5-4.2 4.2V27H38.2V5H42zm24.8 11.5c0-6-4.2-11.8-11.2-11.8-6.8 0-11.2 5.5-11.2 11.8 0 6.5 4.5 11.8 11.5 11.8 3.2 0 6.2-1.2 8.5-3.2l-2.2-2.8c-1.8 1.5-3.8 2.2-6.2 2.2-4.2 0-7.2-3.2-7.2-8h18c0-.6 0-1.2 0-1.8zm-18.2-2.2c.5-3.8 3.2-6 6.8-6 3.5 0 6.2 2.2 6.8 6h-13.6z"/>
-                    </svg>
+                    <img src="https://images-na.ssl-images-amazon.com/images/G/01/digital/video/pv_web/prime_video_icon.png" alt="Prime Video" class="stream-logo-img">
                 </div>
 
                 <!-- Max -->
                 <div class="stream-card" title="Max">
-                    <svg viewBox="0 0 100 35" class="stream-logo">
-                        <path fill="#002BE7" d="M10 5L20 22L30 5H42V30H32V15L22 30H18L8 15V30H0V5H10ZM48 30V5H58C65 5 70 9 70 17.5C70 26 65 30 58 30H48ZM58 13H56V22H58C60.5 22 62 20.5 62 17.5C62 14.5 60.5 13 58 13ZM74 30L85 5H95L100 17L105 5H115L126 30H115L111 20H99L95 30H85ZM101 13L103 8L105 13H101Z"/>
-                    </svg>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="Max" class="stream-logo-img" style="max-height: 22px;">
                 </div>
 
                 <!-- Disney+ -->
                 <div class="stream-card" title="Disney+">
-                    <svg viewBox="0 0 100 40" class="stream-logo">
-                        <path fill="#FFFFFF" d="M22.2 11.6c-2.3 0-4.1 1.8-4.1 4.1 0 2.3 1.8 4.1 4.1 4.1 2.3 0 4.1-1.8 4.1-4.1 0-2.3-1.8-4.1-4.1-4.1zm29.3 1c-3.1 0-5.8 1.2-7.8 3.2V8.2h-5.2v21.5h5.2v-11c0-3.1 2.2-5.1 5.2-5.1 3.1 0 4.8 2 4.8 5.1v11h5.2V17.7c0-5.1-3.1-5.1-7.4-5.1zm22.4 0c-5.8 0-9.8 4.1-9.8 9.8 0 5.8 4.1 9.8 9.8 9.8 5.8 0 9.8-4.1 9.8-9.8 0-5.8-4.1-9.8-9.8-9.8zm0 14.8c-2.8 0-4.8-2.2-4.8-5 0-2.8 2-5 4.8-5 2.8 0 4.8 2.2 4.8 5 0 2.8-2 5-4.8 5zm17.9-10.2h-3.8V8.2h-5.2v9h-3.2v4.8h3.2v7.8h5.2v-7.8h3.8v-4.8z"/>
-                    </svg>
+                    <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/disneyplus_logo_icon_169082.png" alt="Disney+" class="stream-logo-img">
                 </div>
 
                 <!-- Globoplay -->
                 <div class="stream-card" title="Globoplay">
-                    <svg viewBox="0 0 160 35" class="stream-logo">
-                        <circle cx="18" cy="17.5" r="12" fill="#FB3800"/>
-                        <circle cx="18" cy="17.5" r="5" fill="#181822"/>
-                        <text x="38" y="24" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="800" font-size="16">globoplay</text>
-                    </svg>
+                    <img src="https://cdn.icon-icons.com/icons2/3053/PNG/512/globoplay_macos_bigsur_icon_189688.png" alt="Globoplay" class="stream-logo-img">
                 </div>
 
                 <!-- Apple TV+ -->
                 <div class="stream-card" title="Apple TV+">
-                    <svg viewBox="0 0 120 35" class="stream-logo">
-                        <path fill="#FFFFFF" d="M15.2 13.5c-.1-2.8 2.3-4.2 2.4-4.3-1.3-1.9-3.4-2.2-4.1-2.2-1.7-.2-3.4 1-4.3 1-.9 0-2.2-1-3.6-1-1.9 0-3.6 1.1-4.6 2.8-2 3.4-.5 8.5 1.4 11.3.9 1.4 2.1 2.9 3.6 2.8 1.4-.1 2-1 3.7-1 1.7 0 2.2 1 3.7 1 1.5 0 2.5-1.4 3.5-2.8 1.1-1.6 1.6-3.2 1.6-3.3-.1 0-3.1-1.2-3.3-4.3zM12.2 5.5c.8-1 1.3-2.3 1.1-3.7-1.1.1-2.5.8-3.3 1.7-.7.8-1.3 2.2-1.1 3.5 1.3.1 2.5-.5 3.3-1.5z"/>
-                        <text x="24" y="23" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="700" font-size="17">tv+</text>
-                    </svg>
+                    <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" alt="Apple TV+" class="stream-logo-icon">
+                    <span class="stream-name">Apple TV+</span>
                 </div>
 
                 <!-- Crunchyroll -->
                 <div class="stream-card" title="Crunchyroll">
-                    <svg viewBox="0 0 150 35" class="stream-logo">
-                        <circle cx="16" cy="17.5" r="12" fill="#F47521"/>
-                        <circle cx="20" cy="15" r="5" fill="#181822"/>
-                        <circle cx="21" cy="14" r="2.5" fill="#F47521"/>
-                        <text x="36" y="23" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="800" font-size="13" letter-spacing="0.5">CRUNCHYROLL</text>
-                    </svg>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670332.png" alt="Crunchyroll" class="stream-logo-icon">
+                    <span class="stream-name" style="color: #F47521;">Crunchyroll</span>
                 </div>
 
                 <!-- E muito mais... -->
@@ -1321,7 +1333,8 @@
             const data = plansData[currency];
             const baseUrl = "https://wa.me/5511982539475?text=";
 
-            document.getElementById('compare-price').innerText = data.comparePrice;
+            const comparePriceElem = document.getElementById('compare-price');
+            if (comparePriceElem) comparePriceElem.innerText = data.comparePrice;
 
             for (let i = 1; i <= 5; i++) {
                 const key = `p${i}`;
@@ -1403,7 +1416,7 @@
             }).join('');
         }
 
-        // Lógica da Acordeão do FAQ
+        // Lógica do FAQ
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -1422,7 +1435,7 @@
             });
         });
 
-        // Modais de Termos e Privacidade
+        // Modais
         function openModal(type) {
             const modal = document.getElementById('modalLegal');
             const modalText = document.getElementById('modalText');
