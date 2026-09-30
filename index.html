@@ -389,6 +389,133 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* NOVA SEÇÃO DE COMPARAÇÃO DE STREAMINGS (ESTILO PEDRIINCANAIS) */
+        .streaming-compare-sec {
+            padding: 50px 5%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 31, 90, 0.08) 0%, transparent 70%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .streaming-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .streaming-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .streaming-title span {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .streaming-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 500px) {
+            .streaming-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .streaming-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        .stream-card {
+            background: #181822;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* ANIMAÇÃO DE MINI ZOOM E VIBRAÇÃO AO CLICAR OU PASSAR O MOUSE */
+        .stream-card:hover, .stream-card:active {
+            transform: scale(1.08);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(255, 31, 90, 0.4);
+            animation: miniVibrate 0.2s ease-in-out;
+        }
+
+        @keyframes miniVibrate {
+            0% { transform: scale(1.08) rotate(0deg); }
+            25% { transform: scale(1.08) rotate(-2deg); }
+            75% { transform: scale(1.08) rotate(2deg); }
+            100% { transform: scale(1.08) rotate(0deg); }
+        }
+
+        .stream-card img {
+            max-height: 38px;
+            max-width: 80%;
+            object-fit: contain;
+        }
+
+        .stream-card-text {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--text);
+            text-transform: uppercase;
+        }
+
+        .stream-card.more-box {
+            background: var(--gradient);
+            color: #fff;
+        }
+
+        .streaming-offer-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .streaming-offer-text strong {
+            color: var(--accent);
+            font-size: 1.6rem;
+        }
+
+        .btn-streaming-cta {
+            display: inline-block;
+            background: var(--gradient);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 31, 90, 0.3);
+        }
+
+        .btn-streaming-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 31, 90, 0.5);
+        }
+
         .plans {
             padding: 60px 5%;
             max-width: 1300px;
@@ -402,7 +529,7 @@
             margin-top: 40px;
         }
 
-        /* ESTILO DOS CARTOES AJUSTADO AO MODELO 1 */
+        /* ESTILO DOS CARTOES DE PLANO */
         .plan-card {
             background: #121318;
             border: 1px solid #22242b;
@@ -855,6 +982,50 @@
         </div>
     </section>
 
+    <!-- SEÇÃO COMPARAÇÃO DE STREAMING ACIMA DOS PLANOS -->
+    <section class="streaming-compare-sec">
+        <div class="streaming-box">
+            <h2 class="streaming-title">
+                Se fosse para pagar todas as plataformas você pagaria <span>R$537 por mês</span>
+            </h2>
+
+            <div class="streaming-grid">
+                <div class="stream-card">
+                    <span style="color: #e50914; font-weight: 900; font-size: 1.8rem;">N</span>
+                </div>
+                <div class="stream-card">
+                    <span style="color: #00a8e1; font-weight: 800; font-size: 0.9rem;">prime video</span>
+                </div>
+                <div class="stream-card">
+                    <span style="color: #002be7; font-weight: 900; font-size: 1.1rem;">max</span>
+                </div>
+                <div class="stream-card">
+                    <span style="color: #ffffff; font-weight: 800; font-size: 0.85rem;">Disney+</span>
+                </div>
+                <div class="stream-card">
+                    <span style="color: #fb3800; font-weight: 800; font-size: 0.8rem;">globoplay</span>
+                </div>
+                <div class="stream-card">
+                    <span style="color: #ffffff; font-weight: 800; font-size: 0.9rem;"><i class="fab fa-apple"></i> tv</span>
+                </div>
+                <div class="stream-card">
+                    <span style="color: #f47521; font-weight: 900; font-size: 1.3rem;">CR</span>
+                </div>
+                <div class="stream-card more-box">
+                    <span class="stream-card-text">E muito mais...</span>
+                </div>
+            </div>
+
+            <p class="streaming-offer-text">
+                Com a nossa plataforma você pagará apenas <strong id="compare-price">R$ 35,00/mês!!</strong>
+            </p>
+
+            <a href="#planos" class="btn-streaming-cta">
+                QUERO ASSINAR AGORA!
+            </a>
+        </div>
+    </section>
+
     <!-- PLANOS -->
     <section class="plans" id="planos">
         <div class="section-title">
@@ -1115,6 +1286,7 @@
         // Dados de Moedas e Mapeamento
         const plansData = {
             BRL: {
+                comparePrice: "R$ 35,00/mês!!",
                 p1: { price: "R$ 35,00", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
                 p2: { price: "R$ 55,00", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
                 p3: { price: "R$ 95,00", orig: "R$ 105,00", eco: "Economize R$ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
@@ -1122,6 +1294,7 @@
                 p5: { price: "R$ 250,00", orig: "R$ 420,00", eco: "Economize R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." }
             },
             USD: {
+                comparePrice: "$ 35,00/mês!!",
                 p1: { price: "$ 35,00", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
                 p2: { price: "$ 55,00", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
                 p3: { price: "$ 95,00", orig: "$ 105,00", eco: "Economize $ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
@@ -1129,6 +1302,7 @@
                 p5: { price: "$ 250,00", orig: "$ 420,00", eco: "Economize $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20($%20250,00)." }
             },
             JPY: {
+                comparePrice: "¥ 3.000/mês!!",
                 p1: { price: "¥ 3.000", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
                 p2: { price: "¥ 4.000", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
                 p3: { price: "¥ 6.500", orig: "¥ 9.000", eco: "Economize ¥ 2.500", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
@@ -1144,6 +1318,8 @@
 
             const data = plansData[currency];
             const baseUrl = "https://wa.me/5511982539475?text=";
+
+            document.getElementById('compare-price').innerText = data.comparePrice;
 
             for (let i = 1; i <= 5; i++) {
                 const key = `p${i}`;
