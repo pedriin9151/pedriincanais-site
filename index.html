@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PedriinCanais - IPTV Premium | O Melhor Entretenimento</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
@@ -191,7 +191,9 @@
             width: 100%;
         }
 
-        .slide { min-width: 100%; }
+        .slide {
+            min-width: 100%;
+        }
 
         .slide img {
             width: 100%;
@@ -215,7 +217,10 @@
             transition: background 0.3s ease;
         }
 
-        .prev-btn:hover, .next-btn:hover { background: rgba(255, 31, 90, 0.8); }
+        .prev-btn:hover, .next-btn:hover {
+            background: rgba(255, 31, 90, 0.8);
+        }
+
         .prev-btn { left: 15px; }
         .next-btn { right: 15px; }
 
@@ -324,7 +329,9 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .section-title p { color: var(--text-secondary); }
+        .section-title p {
+            color: var(--text-secondary);
+        }
 
         .benefits {
             padding: 20px 5% 60px;
@@ -382,115 +389,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* SEÇÃO COMPARAÇÃO DE STREAMING COM IMAGENS REAIS DOS ÍCONES DAS APPS */
-        .streaming-compare-sec {
-            padding: 35px 15px;
-            background: #07070a;
-            text-align: center;
-            box-sizing: border-box;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .streaming-box {
-            max-width: 480px;
-            margin: 0 auto;
-            background: #121217;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 25px 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .streaming-title {
-            font-size: 1.15rem;
-            font-weight: 800;
-            line-height: 1.4;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        .streaming-title span {
-            color: #ff1f5a;
-            text-decoration: underline;
-        }
-
-        .streaming-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        /* CARD DE BASE DOS STREAMINGS COM IMAGENS */
-        .stream-card {
-            border-radius: 18px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 90px;
-            cursor: pointer;
-            user-select: none;
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
-            box-sizing: border-box;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            background: #181822;
-        }
-
-        .stream-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .stream-card:hover, .stream-card:active {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 31, 90, 0.4);
-        }
-
-        /* CARD DO 'E MUITO MAIS...' COM ESTILO BRANCO */
-        .card-more-real {
-            background: #FFFFFF;
-            padding: 10px;
-        }
-        .more-text-real {
-            color: #000000;
-            font-weight: 900;
-            font-size: 1.1rem;
-            line-height: 1.2;
-            text-align: left;
-            width: 100%;
-        }
-
-        .streaming-offer-text {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        .streaming-offer-text strong {
-            color: #25d366;
-            font-size: 1.25rem;
-        }
-
-        .btn-streaming-cta {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, #ff1f5a 0%, #7928ca 100%);
-            color: #ffffff;
-            font-size: 0.95rem;
-            font-weight: 800;
-            padding: 14px 0;
-            border-radius: 50px;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(255, 31, 90, 0.3);
-            box-sizing: border-box;
-        }
-
         .plans {
             padding: 60px 5%;
             max-width: 1300px;
@@ -504,7 +402,7 @@
             margin-top: 40px;
         }
 
-        /* ESTILO DOS CARTOES DE PLANO */
+        /* ESTILO DOS CARTOES AJUSTADO AO MODELO 1 */
         .plan-card {
             background: #121318;
             border: 1px solid #22242b;
@@ -518,7 +416,9 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .plan-card:hover { transform: translateY(-5px); }
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
 
         .plan-card.featured {
             border: 2px solid var(--primary);
@@ -595,6 +495,12 @@
             color: #ffffff;
             line-height: 1.1;
             margin-bottom: 20px;
+        }
+
+        .plan-price-main span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .plan-list {
@@ -949,65 +855,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO COMPARAÇÃO DE STREAMING COM LOGÓTIPOS REAIS EM IMAGEM -->
-    <section class="streaming-compare-sec">
-        <div class="streaming-box">
-            <h2 class="streaming-title">
-                Se fosse para pagar todas as plataformas você pagaria <span>R$537 por mês</span>
-            </h2>
-
-            <div class="streaming-grid">
-                <!-- Netflix -->
-                <div class="stream-card" title="Netflix">
-                    <img src="https://images.ctfassets.net/4cd4281643ba/711y4y1p81/ec308c0ef0192d4f2f0c115c57b85358/Netflix_Symbol_RGB.png" alt="Netflix">
-                </div>
-
-                <!-- Prime Video -->
-                <div class="stream-card" title="Prime Video">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video">
-                </div>
-
-                <!-- Max -->
-                <div class="stream-card" title="Max">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="Max">
-                </div>
-
-                <!-- Disney+ -->
-                <div class="stream-card" title="Disney+">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
-                </div>
-
-                <!-- Globoplay -->
-                <div class="stream-card" title="Globoplay">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Globoplay_logo_2020.svg" alt="Globoplay">
-                </div>
-
-                <!-- Apple TV+ -->
-                <div class="stream-card" title="Apple TV+">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Apple_TV%2B_logo.svg" alt="Apple TV+">
-                </div>
-
-                <!-- Crunchyroll -->
-                <div class="stream-card" title="Crunchyroll">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Crunchyroll_Logo.svg" alt="Crunchyroll">
-                </div>
-
-                <!-- E muito mais... -->
-                <div class="stream-card card-more-real" title="E muito mais">
-                    <span class="more-text-real">E<br>muito<br>mais...</span>
-                </div>
-            </div>
-
-            <p class="streaming-offer-text">
-                Com a nossa plataforma você pagará apenas <strong id="compare-price">R$ 35,00/mês!!</strong>
-            </p>
-
-            <a href="#planos" class="btn-streaming-cta">
-                QUERO ASSINAR AGORA!
-            </a>
-        </div>
-    </section>
-
     <!-- PLANOS -->
     <section class="plans" id="planos">
         <div class="section-title">
@@ -1268,7 +1115,6 @@
         // Dados de Moedas e Mapeamento
         const plansData = {
             BRL: {
-                comparePrice: "R$ 35,00/mês!!",
                 p1: { price: "R$ 35,00", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
                 p2: { price: "R$ 55,00", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
                 p3: { price: "R$ 95,00", orig: "R$ 105,00", eco: "Economize R$ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
@@ -1276,7 +1122,6 @@
                 p5: { price: "R$ 250,00", orig: "R$ 420,00", eco: "Economize R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." }
             },
             USD: {
-                comparePrice: "$ 35,00/mês!!",
                 p1: { price: "$ 35,00", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
                 p2: { price: "$ 55,00", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
                 p3: { price: "$ 95,00", orig: "$ 105,00", eco: "Economize $ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
@@ -1284,7 +1129,6 @@
                 p5: { price: "$ 250,00", orig: "$ 420,00", eco: "Economize $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20($%20250,00)." }
             },
             JPY: {
-                comparePrice: "¥ 3.000/mês!!",
                 p1: { price: "¥ 3.000", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
                 p2: { price: "¥ 4.000", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
                 p3: { price: "¥ 6.500", orig: "¥ 9.000", eco: "Economize ¥ 2.500", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
@@ -1300,9 +1144,6 @@
 
             const data = plansData[currency];
             const baseUrl = "https://wa.me/5511982539475?text=";
-
-            const comparePriceElem = document.getElementById('compare-price');
-            if (comparePriceElem) comparePriceElem.innerText = data.comparePrice;
 
             for (let i = 1; i <= 5; i++) {
                 const key = `p${i}`;
@@ -1384,7 +1225,7 @@
             }).join('');
         }
 
-        // Lógica do FAQ
+        // Lógica da Acordeão do FAQ
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -1403,7 +1244,7 @@
             });
         });
 
-        // Modais
+        // Modais de Termos e Privacidade
         function openModal(type) {
             const modal = document.getElementById('modalLegal');
             const modalText = document.getElementById('modalText');
