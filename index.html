@@ -214,11 +214,6 @@
             cursor: pointer;
             border-radius: 50%;
             z-index: 10;
-            transition: background 0.3s ease;
-        }
-
-        .prev-btn:hover, .next-btn:hover {
-            background: rgba(255, 31, 90, 0.8);
         }
 
         .prev-btn { left: 15px; }
@@ -397,167 +392,107 @@
 
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
             margin-top: 40px;
         }
 
-        /* CARTOES DE PLANO */
         .plan-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 30px 20px;
+            border-radius: 20px;
+            padding: 35px 25px;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-5px);
         }
 
         .plan-card.featured {
-            border: 2px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(255, 31, 90, 0.25);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 31, 90, 0.15);
         }
 
         .plan-badge {
             position: absolute;
-            top: -14px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--gradient);
             color: white;
             font-size: 0.75rem;
             font-weight: 800;
-            padding: 5px 16px;
+            padding: 6px 16px;
             border-radius: 50px;
             text-transform: uppercase;
             white-space: nowrap;
-            letter-spacing: 1px;
         }
 
-        .plan-brand {
-            font-size: 0.85rem;
+        .badge-economia {
+            display: inline-block;
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 1.5px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            margin-bottom: 5px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 12px;
         }
 
-        .plan-duration {
-            font-size: 2rem;
+        .price-box {
+            margin-bottom: 20px;
+        }
+
+        .price-original {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            font-weight: 600;
+            display: block;
+            margin-bottom: -4px;
+        }
+
+        .plan-price {
+            font-size: 2.2rem;
             font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 15px;
             line-height: 1.1;
         }
 
+        .plan-price span { font-size: 0.9rem; color: var(--text-secondary); }
+
         .plan-list {
             list-style: none;
-            margin-bottom: 20px;
-            text-align: left;
-            padding: 0 10px;
+            margin-bottom: 30px;
         }
 
         .plan-list li {
             margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.88rem;
-            color: #e0e0e0;
-            font-weight: 500;
+            gap: 10px;
+            font-size: 0.9rem;
         }
 
-        .plan-list li i {
-            color: var(--primary);
-            background: rgba(255, 31, 90, 0.15);
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            flex-shrink: 0;
-        }
-
-        /* COR DA CAIXA AJUSTADA PARA HARMONIZAR COM O SITE (ROXO/ROSA NEON DISCRETO) */
-        .badge-discount-box {
-            border: 1px solid rgba(121, 40, 202, 0.5);
-            background: rgba(121, 40, 202, 0.12);
-            border-radius: 12px;
-            padding: 10px;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: #d1a3ff;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-
-        .badge-discount-box i {
-            color: var(--primary);
-        }
-
-        .price-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .price-original {
-            text-decoration: line-through;
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-
-        .plan-price-main {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .plan-price-main span {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
+        .plan-list li i { color: var(--accent); }
 
         .btn-plan {
-            background: var(--gradient);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
             color: #fff;
-            padding: 16px;
-            border-radius: 12px;
+            padding: 14px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 700;
+            text-align: center;
             display: block;
-            transition: 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 31, 90, 0.3);
-            border: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
         }
 
-        .btn-plan:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 31, 90, 0.5);
+        .plan-card.featured .btn-plan, .btn-plan:hover {
+            background: var(--gradient);
+            border: none;
         }
 
         /* DEPOIMENTOS */
@@ -793,14 +728,14 @@
 
         <div class="slider-section">
             <div class="slides" id="slidesContainer">
-                <div class="slide"><img src="slide1.jpg" alt="Grade de Conteúdos e Canais"></div>
-                <div class="slide"><img src="slide2.jpg" alt="Assista Tudo em um só lugar" loading="lazy"></div>
-                <div class="slide"><img src="slide3.png" alt="Categorias de Canais" loading="lazy"></div>
-                <div class="slide"><img src="slide4.jpg" alt="Futebol Europeu e Sul-Americano" loading="lazy"></div>
-                <div class="slide"><img src="slide5.jpg" alt="Atualização Mais Rápida do Streaming" loading="lazy"></div>
+                <div class="slide"><img src="slide1.jpg" alt="Grade de Conteúdos"></div>
+                <div class="slide"><img src="slide2.jpg" alt="Assista Tudo em um só lugar"></div>
+                <div class="slide"><img src="slide3.png" alt="Categorias de Canais"></div>
+                <div class="slide"><img src="slide4.jpg" alt="Futebol Europeu e Sul-Americano"></div>
+                <div class="slide"><img src="slide5.jpg" alt="Atualização Mais Rápida do Streaming"></div>
             </div>
-            <button class="prev-btn" onclick="moveSlide(-1)" aria-label="Slide anterior">&#10094;</button>
-            <button class="next-btn" onclick="moveSlide(1)" aria-label="Próximo slide">&#10095;</button>
+            <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
             <div class="slider-dots">
                 <span class="dot active" onclick="currentSlide(0)"></span>
                 <span class="dot" onclick="currentSlide(1)"></span>
@@ -869,164 +804,104 @@
         </div>
     </section>
 
-    <!-- PLANOS REESTRUTURADOS -->
     <section class="plans" id="planos">
         <div class="section-title">
             <h2>NOSSOS <span>PLANOS</span></h2>
             <p>Escolha o plano ideal para você e sua família.</p>
         </div>
         <div class="plans-grid">
-            
-            <!-- PLANO MENSAL 1 TELA -->
             <div class="plan-card">
                 <div>
-                    <div class="plan-brand">PLANO PEDRIINCANAIS</div>
-                    <div class="plan-duration">1 MÊS</div>
-
-                    <ul class="plan-list">
-                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
-                        <li><i class="fas fa-check"></i> Sem fidelidade</li>
-                        <li><i class="fas fa-check"></i> Assista em 1 tela</li>
-                        <li><i class="fas fa-check"></i> Canais Adultos (opcional)</li>
-                        <li><i class="fas fa-check"></i> + de 40 mil conteúdos</li>
-                        <li><i class="fas fa-check"></i> Qualidade SD/HD/FHD/4K</li>
-                        <li><i class="fas fa-check"></i> Assista na Smart TV</li>
-                        <li><i class="fas fa-check"></i> Assista no Smartphone</li>
-                        <li><i class="fas fa-check"></i> Assista na TV Box</li>
-                        <li><i class="fas fa-check"></i> Assista no computador</li>
-                    </ul>
-
-                    <div class="badge-discount-box" id="eco-p1">
-                        <i class="fas fa-check-circle"></i> PLANO BASE
+                    <span class="badge-economia" id="eco-p1">PLANO BASE</span>
+                    <h3>1 TELA MENSAL</h3>
+                    <div class="price-box">
+                        <div class="plan-price" id="price-p1">R$ 35,00<span>/mês</span></div>
                     </div>
-
-                    <div class="price-label">POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p1">R$ 35,00</div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 1 Dispositivo Conectado</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Qualidade SD, HD, FHD, 4K</li>
+                        <li><i class="fas fa-check"></i> Suporte WhatsApp</li>
+                    </ul>
                 </div>
-                <a id="link-p1" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
+                <a id="link-p1" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
-            <!-- PLANO MENSAL 2 TELAS -->
             <div class="plan-card">
                 <div>
-                    <div class="plan-brand">PLANO PEDRIINCANAIS</div>
-                    <div class="plan-duration">1 MÊS (2 TELAS)</div>
-
-                    <ul class="plan-list">
-                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
-                        <li><i class="fas fa-check"></i> Sem fidelidade</li>
-                        <li><i class="fas fa-check"></i> Assista em 2 telas simultâneas</li>
-                        <li><i class="fas fa-check"></i> Canais Adultos (opcional)</li>
-                        <li><i class="fas fa-check"></i> + de 40 mil conteúdos</li>
-                        <li><i class="fas fa-check"></i> Qualidade SD/HD/FHD/4K</li>
-                        <li><i class="fas fa-check"></i> Assista na Smart TV</li>
-                        <li><i class="fas fa-check"></i> Assista no Smartphone</li>
-                        <li><i class="fas fa-check"></i> Assista na TV Box</li>
-                        <li><i class="fas fa-check"></i> Assista no computador</li>
-                    </ul>
-
-                    <div class="badge-discount-box" id="eco-p2">
-                        <i class="fas fa-users"></i> DUPLO ACESSO
+                    <span class="badge-economia" id="eco-p2">SEM FIDELIDADE</span>
+                    <h3>2 TELAS MENSAL</h3>
+                    <div class="price-box">
+                        <div class="plan-price" id="price-p2">R$ 55,00<span>/mês</span></div>
                     </div>
-
-                    <div class="price-label">POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p2">R$ 55,00</div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 2 Dispositivos Simultâneos</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Qualidade SD, HD, FHD, 4K</li>
+                        <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                    </ul>
                 </div>
-                <a id="link-p2" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
+                <a id="link-p2" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
-            <!-- PLANO TRIMESTRAL -->
             <div class="plan-card">
                 <div>
-                    <div class="plan-brand">PLANO PEDRIINCANAIS</div>
-                    <div class="plan-duration">3 MESES</div>
-
-                    <ul class="plan-list">
-                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
-                        <li><i class="fas fa-check"></i> Sem fidelidade</li>
-                        <li><i class="fas fa-check"></i> Assista em 1 tela</li>
-                        <li><i class="fas fa-check"></i> Canais Adultos (opcional)</li>
-                        <li><i class="fas fa-check"></i> + de 40 mil conteúdos</li>
-                        <li><i class="fas fa-check"></i> Qualidade SD/HD/FHD/4K</li>
-                        <li><i class="fas fa-check"></i> Assista na Smart TV</li>
-                        <li><i class="fas fa-check"></i> Assista no Smartphone</li>
-                        <li><i class="fas fa-check"></i> Assista na TV Box</li>
-                        <li><i class="fas fa-check"></i> Assista no computador</li>
-                    </ul>
-
-                    <div class="badge-discount-box" id="eco-p3">
-                        <i class="fas fa-gift"></i> ECONOMIZE R$ 10,00
+                    <span class="badge-economia" id="eco-p3">Economize R$ 10,00</span>
+                    <h3>TRIMESTRAL</h3>
+                    <div class="price-box">
+                        <span class="price-original" id="orig-p3">R$ 105,00</span>
+                        <div class="plan-price" id="price-p3">R$ 95,00<span>/3 meses</span></div>
                     </div>
-
-                    <div class="price-label">DE <span class="price-original" id="orig-p3">R$ 105,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p3">R$ 95,00</div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 3 Meses de Acesso</li>
+                        <li><i class="fas fa-check"></i> Economia no Plano</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                    </ul>
                 </div>
-                <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
+                <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
-            <!-- PLANO SEMESTRAL (AGORA COM 2 TELAS) -->
             <div class="plan-card">
                 <div>
-                    <div class="plan-brand">PLANO PEDRIINCANAIS</div>
-                    <div class="plan-duration">6 MESES (2 TELAS)</div>
-
-                    <ul class="plan-list">
-                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
-                        <li><i class="fas fa-check"></i> Sem fidelidade</li>
-                        <li><i class="fas fa-check"></i> Assista em 2 telas simultâneas</li>
-                        <li><i class="fas fa-check"></i> Canais Adultos (opcional)</li>
-                        <li><i class="fas fa-check"></i> + de 40 mil conteúdos</li>
-                        <li><i class="fas fa-check"></i> Qualidade SD/HD/FHD/4K</li>
-                        <li><i class="fas fa-check"></i> Assista na Smart TV</li>
-                        <li><i class="fas fa-check"></i> Assista no Smartphone</li>
-                        <li><i class="fas fa-check"></i> Assista na TV Box</li>
-                        <li><i class="fas fa-check"></i> Assista no computador</li>
-                    </ul>
-
-                    <div class="badge-discount-box" id="eco-p4">
-                        <i class="fas fa-gift"></i> ECONOMIZE R$ 50,00
+                    <span class="badge-economia" id="eco-p4">Economize R$ 50,00</span>
+                    <h3>SEMESTRAL</h3>
+                    <div class="price-box">
+                        <span class="price-original" id="orig-p4">R$ 210,00</span>
+                        <div class="plan-price" id="price-p4">R$ 160,00<span>/6 meses</span></div>
                     </div>
-
-                    <div class="price-label">DE <span class="price-original" id="orig-p4">R$ 210,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p4">R$ 160,00</div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 6 Meses de Acesso</li>
+                        <li><i class="fas fa-check"></i> Ótimo Custo-Benefício</li>
+                        <li><i class="fas fa-check"></i> Conteúdo Completo</li>
+                        <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                    </ul>
                 </div>
-                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(R$%20160,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
+                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
 
-            <!-- PLANO ANUAL VIP (AGORA COM 2 TELAS) -->
             <div class="plan-card featured">
-                <span class="plan-badge">👑 O MAIS VENDIDO</span>
+                <span class="plan-badge">👑 MAIS VENDIDO</span>
                 <div>
-                    <div class="plan-brand" style="margin-top:10px;">PLANO PEDRIINCANAIS</div>
-                    <div class="plan-duration">1 ANO (2 TELAS)</div>
-
-                    <ul class="plan-list">
-                        <li><i class="fas fa-check"></i> Conteúdo Completo VIP</li>
-                        <li><i class="fas fa-check"></i> Sem fidelidade</li>
-                        <li><i class="fas fa-check"></i> Assista em 2 telas simultâneas</li>
-                        <li><i class="fas fa-check"></i> Canais Adultos (opcional)</li>
-                        <li><i class="fas fa-check"></i> + de 40 mil conteúdos</li>
-                        <li><i class="fas fa-check"></i> Qualidade SD/HD/FHD/4K</li>
-                        <li><i class="fas fa-check"></i> Assista na Smart TV</li>
-                        <li><i class="fas fa-check"></i> Assista no Smartphone</li>
-                        <li><i class="fas fa-check"></i> Assista na TV Box</li>
-                        <li><i class="fas fa-check"></i> Assista no computador</li>
-                    </ul>
-
-                    <div class="badge-discount-box" id="eco-p5">
-                        <i class="fas fa-gift"></i> ECONOMIZE R$ 170,00
+                    <span class="badge-economia" id="eco-p5" style="margin-top: 10px;">Economize R$ 170,00</span>
+                    <h3>PLANO ANUAL VIP</h3>
+                    <div class="price-box">
+                        <span class="price-original" id="orig-p5">R$ 420,00</span>
+                        <div class="plan-price" id="price-p5">R$ 250,00<span>/ano</span></div>
                     </div>
-
-                    <div class="price-label">DE <span class="price-original" id="orig-p5">R$ 420,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p5">R$ 250,00</div>
+                    <ul class="plan-list">
+                        <li><i class="fas fa-check"></i> 365 Dias de Acesso Garantido</li>
+                        <li><i class="fas fa-check"></i> Máxima Economia Anual</li>
+                        <li><i class="fas fa-check"></i> Acesso Liberado para a Família</li>
+                        <li><i class="fas fa-check"></i> Suporte VIP Exclusivo</li>
+                    </ul>
                 </div>
-                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." class="btn-plan" target="_blank">ASSINAR AGORA!</a>
+                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual." class="btn-plan" target="_blank">ASSINAR AGORA</a>
             </div>
-
         </div>
     </section>
 
-    <!-- DEPOIMENTOS EM DESTAQUE -->
+    <!-- DEPOIMENTOS EM DESTAQUE (LIMITE DE 3) -->
     <section class="testimonials" id="depoimentos">
         <div class="section-title">
             <h2>AVALIAÇÕES DOS <span>NOSSOS CLIENTES</span></h2>
@@ -1141,28 +1016,27 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Dados de Moedas e Mapeamento
         const plansData = {
             BRL: {
-                p1: { price: "R$ 35,00", orig: "", eco: "<i class='fas fa-check-circle'></i> PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
-                p2: { price: "R$ 55,00", orig: "", eco: "<i class='fas fa-users'></i> DUPLO ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
-                p3: { price: "R$ 95,00", orig: "R$ 105,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
-                p4: { price: "R$ 160,00", orig: "R$ 210,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(R$%20160,00)." },
-                p5: { price: "R$ 250,00", orig: "R$ 420,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." }
+                p1: { price: "R$ 35,00", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
+                p2: { price: "R$ 55,00", span: "/mês", orig: "", eco: "SEM FIDELIDADE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
+                p3: { price: "R$ 95,00", span: "/3 meses", orig: "R$ 105,00", eco: "Economize R$ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
+                p4: { price: "R$ 160,00", span: "/6 meses", orig: "R$ 210,00", eco: "Economize R$ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(R$%20160,00)." },
+                p5: { price: "R$ 250,00", span: "/ano", orig: "R$ 420,00", eco: "Economize R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(R$%20250,00)." }
             },
             USD: {
-                p1: { price: "$ 35,00", orig: "", eco: "<i class='fas fa-check-circle'></i> PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
-                p2: { price: "$ 55,00", orig: "", eco: "<i class='fas fa-users'></i> DUPLO ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
-                p3: { price: "$ 95,00", orig: "$ 105,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
-                p4: { price: "$ 160,00", orig: "$ 210,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20($%20160,00)." },
-                p5: { price: "$ 250,00", orig: "$ 420,00", eco: "<i class='fas fa-gift'></i> ECONOMIZE $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20($%20250,00)." }
+                p1: { price: "$ 35,00", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
+                p2: { price: "$ 55,00", span: "/mês", orig: "", eco: "SEM FIDELIDADE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
+                p3: { price: "$ 95,00", span: "/3 meses", orig: "$ 105,00", eco: "Economize $ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
+                p4: { price: "$ 160,00", span: "/6 meses", orig: "$ 210,00", eco: "Economize $ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20($%20160,00)." },
+                p5: { price: "$ 250,00", span: "/ano", orig: "$ 420,00", eco: "Economize $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20($%20250,00)." }
             },
             JPY: {
-                p1: { price: "¥ 3.000", orig: "", eco: "<i class='fas fa-check-circle'></i> PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
-                p2: { price: "¥ 4.000", orig: "", eco: "<i class='fas fa-users'></i> DUPLO ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
-                p3: { price: "¥ 6.500", orig: "¥ 9.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 2.500", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
-                p4: { price: "¥ 10.000", orig: "¥ 18.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 8.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(%C2%A5%2010.000)." },
-                p5: { price: "¥ 15.000", orig: "¥ 36.000", eco: "<i class='fas fa-gift'></i> ECONOMIZE ¥ 21.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(%C2%A5%2015.000)." }
+                p1: { price: "¥ 3.000", span: "/mês", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
+                p2: { price: "¥ 4.000", span: "/mês", orig: "", eco: "SEM FIDELIDADE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
+                p3: { price: "¥ 6.500", span: "/3 meses", orig: "¥ 9.000", eco: "Economize ¥ 2.500", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
+                p4: { price: "¥ 10.000", span: "/6 meses", orig: "¥ 18.000", eco: "Economize ¥ 8.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%20(%C2%A5%2010.000)." },
+                p5: { price: "¥ 15.000", span: "/ano", orig: "¥ 36.000", eco: "Economize ¥ 21.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%20(%C2%A5%2015.000)." }
             }
         };
 
@@ -1176,23 +1050,21 @@
 
             for (let i = 1; i <= 5; i++) {
                 const key = `p${i}`;
-                document.getElementById(`price-p${i}`).innerText = data[key].price;
+                document.getElementById(`price-p${i}`).innerHTML = `${data[key].price}<span>${data[key].span}</span>`;
                 document.getElementById(`link-p${i}`).href = `${baseUrl}${data[key].msg}`;
                 
                 const ecoElem = document.getElementById(`eco-p${i}`);
-                if (ecoElem) ecoElem.innerHTML = data[key].eco;
+                if (ecoElem) ecoElem.innerText = data[key].eco;
 
                 const origElem = document.getElementById(`orig-p${i}`);
                 if (origElem) origElem.innerText = data[key].orig;
             }
         }
 
-        // Lógica do Slider
         let slideIndex = 0;
         const slides = document.getElementById('slidesContainer');
         const dots = document.querySelectorAll('.dot');
         const totalSlides = 5;
-        let autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
 
         function showSlide(index) {
             if (index >= totalSlides) slideIndex = 0;
@@ -1202,22 +1074,14 @@
             if (dots[slideIndex]) dots[slideIndex].classList.add('active');
         }
 
-        function moveSlide(step) {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
-            slideIndex += step; 
-            showSlide(slideIndex); 
-        }
+        function moveSlide(step) { slideIndex += step; showSlide(slideIndex); }
+        function currentSlide(index) { slideIndex = index; showSlide(slideIndex); }
 
-        function currentSlide(index) { 
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
-            slideIndex = index; 
-            showSlide(slideIndex); 
-        }
+        setInterval(() => { slideIndex++; showSlide(slideIndex); }, 4000);
 
         document.addEventListener('DOMContentLoaded', carregarFeedbacksDestaque);
 
+        // Busca APENAS OS 3 PRIMEIROS depoimentos para carregar rápido na home
         async function carregarFeedbacksDestaque() {
             const grid = document.getElementById('testimonialGrid');
 
@@ -1254,7 +1118,6 @@
             }).join('');
         }
 
-        // Lógica da Acordeão do FAQ
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -1273,7 +1136,6 @@
             });
         });
 
-        // Modais de Termos e Privacidade
         function openModal(type) {
             const modal = document.getElementById('modalLegal');
             const modalText = document.getElementById('modalText');
@@ -1300,14 +1162,9 @@
         }
 
         function closeModal() { document.getElementById('modalLegal').style.display = 'none'; }
-        
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('modalLegal');
             if (event.target === modal) { closeModal(); }
-        });
-
-        window.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') { closeModal(); }
         });
     </script>
 </body>
