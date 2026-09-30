@@ -382,7 +382,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* SEÇÃO COMPARAÇÃO DE STREAMING COM BOTOES COLORIDOS IDÊNTICOS À IMAGEM */
+        /* SEÇÃO COMPARAÇÃO DE STREAMING COM IMAGENS REAIS DOS ÍCONES DAS APPS */
         .streaming-compare-sec {
             padding: 35px 15px;
             background: #07070a;
@@ -422,144 +422,46 @@
             margin-bottom: 25px;
         }
 
-        /* CARD DE BASE DOS STREAMINGS */
+        /* CARD DE BASE DOS STREAMINGS COM IMAGENS */
         .stream-card {
             border-radius: 18px;
-            padding: 10px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 85px;
+            height: 90px;
             cursor: pointer;
             user-select: none;
             transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
             box-sizing: border-box;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            background: #181822;
         }
 
-        /* ANIMAÇÃO DE CLIQUE / TOQUE */
+        .stream-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .stream-card:hover, .stream-card:active {
-            transform: scale(1.06);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 31, 90, 0.4);
         }
 
-        /* ESTILOS E CORES INDIVIDUAIS FÉIS À IMAGEM */
-        /* Netflix: Fundo escuro com N vermelho grande */
-        .card-netflix {
-            background: #141414;
-            border: 1px solid #282828;
-        }
-        .netflix-n {
-            color: #E50914;
-            font-weight: 900;
-            font-size: 3.2rem;
-            line-height: 1;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Prime Video: Fundo azul vibrante com logo branca */
-        .card-prime {
-            background: #00A8E1;
-            flex-direction: column;
-        }
-        .prime-text {
-            color: #FFFFFF;
-            font-weight: 800;
-            font-size: 1.1rem;
-            line-height: 0.95;
-            text-align: center;
-        }
-        .prime-arrow {
-            color: #FFFFFF;
-            font-size: 1.2rem;
-            margin-top: -2px;
-        }
-
-        /* Max: Fundo azul escuro com gradiente */
-        .card-max {
-            background: linear-gradient(135deg, #001252 0%, #002BE7 100%);
-        }
-        .max-text {
-            color: #FFFFFF;
-            font-weight: 900;
-            font-size: 1.8rem;
-            letter-spacing: -1px;
-            text-transform: lowercase;
-        }
-
-        /* Disney+: Gradiente ciano/azul */
-        .card-disney {
-            background: linear-gradient(135deg, #0d1d2d 0%, #113ccf 50%, #158b99 100%);
-        }
-        .disney-text {
-            color: #FFFFFF;
-            font-weight: 800;
-            font-size: 1.3rem;
-            font-style: italic;
-        }
-
-        /* Globoplay: Gradiente vermelho/laranja */
-        .card-globoplay {
-            background: linear-gradient(135deg, #e60014 0%, #ff5000 100%);
-            flex-direction: column;
-            line-height: 1;
-        }
-        .globo-text {
-            color: #FFFFFF;
-            font-weight: 800;
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
-        }
-
-        /* Apple TV+: Fundo escuro/preto com logo e texto brancos */
-        .card-appletv {
-            background: #1a1a1a;
-            border: 1px solid #333333;
-            gap: 6px;
-        }
-        .apple-icon {
-            color: #FFFFFF;
-            font-size: 1.6rem;
-        }
-        .apple-text {
-            color: #FFFFFF;
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        /* Crunchyroll: Fundo Laranja */
-        .card-crunchy {
-            background: linear-gradient(135deg, #f47521 0%, #ff8c00 100%);
-        }
-        .crunchy-eye {
-            width: 38px;
-            height: 38px;
+        /* CARD DO 'E MUITO MAIS...' COM ESTILO BRANCO */
+        .card-more-real {
             background: #FFFFFF;
-            border-radius: 50%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 10px;
         }
-        .crunchy-pupil {
-            width: 18px;
-            height: 18px;
-            background: #f47521;
-            border-radius: 50%;
-            margin-left: 6px;
-            margin-bottom: 4px;
-        }
-
-        /* E muito mais...: Fundo branco com texto escuro */
-        .card-more {
-            background: #FFFFFF;
-        }
-        .more-text {
+        .more-text-real {
             color: #000000;
             font-weight: 900;
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.2;
             text-align: left;
+            width: 100%;
         }
 
         .streaming-offer-text {
@@ -1047,7 +949,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO COMPARAÇÃO DE STREAMING IDÊNTICA À SUA IMAGEM -->
+    <!-- SEÇÃO COMPARAÇÃO DE STREAMING COM LOGÓTIPOS REAIS EM IMAGEM -->
     <section class="streaming-compare-sec">
         <div class="streaming-box">
             <h2 class="streaming-title">
@@ -1056,47 +958,43 @@
 
             <div class="streaming-grid">
                 <!-- Netflix -->
-                <div class="stream-card card-netflix" title="Netflix">
-                    <span class="netflix-n">N</span>
+                <div class="stream-card" title="Netflix">
+                    <img src="https://images.ctfassets.net/4cd4281643ba/711y4y1p81/ec308c0ef0192d4f2f0c115c57b85358/Netflix_Symbol_RGB.png" alt="Netflix">
                 </div>
 
                 <!-- Prime Video -->
-                <div class="stream-card card-prime" title="Prime Video">
-                    <span class="prime-text">prime<br>video</span>
-                    <span class="prime-arrow">⌣</span>
+                <div class="stream-card" title="Prime Video">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video">
                 </div>
 
                 <!-- Max -->
-                <div class="stream-card card-max" title="Max">
-                    <span class="max-text">max</span>
+                <div class="stream-card" title="Max">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="Max">
                 </div>
 
                 <!-- Disney+ -->
-                <div class="stream-card card-disney" title="Disney+">
-                    <span class="disney-text">Disney+</span>
+                <div class="stream-card" title="Disney+">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
                 </div>
 
                 <!-- Globoplay -->
-                <div class="stream-card card-globoplay" title="Globoplay">
-                    <span class="globo-text">globo<br>play</span>
+                <div class="stream-card" title="Globoplay">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Globoplay_logo_2020.svg" alt="Globoplay">
                 </div>
 
                 <!-- Apple TV+ -->
-                <div class="stream-card card-appletv" title="Apple TV+">
-                    <i class="fab fa-apple apple-icon"></i>
-                    <span class="apple-text">tv</span>
+                <div class="stream-card" title="Apple TV+">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Apple_TV%2B_logo.svg" alt="Apple TV+">
                 </div>
 
                 <!-- Crunchyroll -->
-                <div class="stream-card card-crunchy" title="Crunchyroll">
-                    <div class="crunchy-eye">
-                        <div class="crunchy-pupil"></div>
-                    </div>
+                <div class="stream-card" title="Crunchyroll">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Crunchyroll_Logo.svg" alt="Crunchyroll">
                 </div>
 
                 <!-- E muito mais... -->
-                <div class="stream-card card-more" title="E muito mais">
-                    <span class="more-text">E<br>muito<br>mais...</span>
+                <div class="stream-card card-more-real" title="E muito mais">
+                    <span class="more-text-real">E<br>muito<br>mais...</span>
                 </div>
             </div>
 
