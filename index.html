@@ -131,8 +131,66 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
+        /* BANNER CLICAVEL GRANDE NO TOPO */
+        .bf-top-banner {
+            padding: 122px 5% 18px;
+            background: radial-gradient(circle at 50% 15%, rgba(255, 31, 90, 0.18) 0%, rgba(121, 40, 202, 0.08) 45%, transparent 75%);
+            display: flex;
+            justify-content: center;
+        }
+
+        .bf-top-banner-box {
+            width: 100%;
+            max-width: 820px;
+        }
+
+        .bf-top-banner-link {
+            position: relative;
+            display: block;
+            border-radius: 24px;
+            padding: 5px;
+            background: var(--gradient);
+            text-decoration: none;
+            box-shadow: 0 18px 46px rgba(255, 31, 90, 0.28), 0 0 36px rgba(121, 40, 202, 0.22);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+
+        .bf-top-banner-link:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 24px 56px rgba(255, 31, 90, 0.38), 0 0 48px rgba(121, 40, 202, 0.35);
+        }
+
+        .bf-top-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 19px;
+        }
+
+        .bf-top-banner-badge {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(7, 7, 10, 0.93);
+            color: #ffffff;
+            border: 1px solid rgba(255, 31, 90, 0.65);
+            padding: 9px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+            transition: background 0.2s ease;
+        }
+
+        .bf-top-banner-link:hover .bf-top-banner-badge {
+            background: var(--gradient);
+        }
+
         .hero {
-            padding: 130px 5% 50px;
+            padding: 36px 5% 50px;
             background: radial-gradient(circle at 50% 30%, rgba(121, 40, 202, 0.15) 0%, transparent 70%);
             text-align: center;
             display: flex;
@@ -258,6 +316,12 @@
         }
 
         @media (max-width: 600px) {
+            .bf-top-banner { padding: 108px 4% 12px; }
+            .bf-top-banner-badge {
+                bottom: 10px;
+                font-size: 0.72rem;
+                padding: 6px 12px;
+            }
             .hero-checks { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.1rem; }
             header { padding: 12px 3%; }
@@ -389,67 +453,8 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* BANNER CLICAVEL BLACK FRIDAY */
-        .bf-banner-wrap {
-            max-width: 760px;
-            margin: 30px auto 10px;
-            padding: 0 5%;
-        }
-
-        .bf-banner-link {
-            position: relative;
-            display: block;
-            border-radius: 22px;
-            padding: 4px;
-            background: var(--gradient);
-            box-shadow: 0 14px 38px rgba(255, 31, 90, 0.25);
-            text-decoration: none;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .bf-banner-link:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 46px rgba(121, 40, 202, 0.38);
-        }
-
-        .bf-banner-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 18px;
-        }
-
-        .bf-banner-pill {
-            position: absolute;
-            bottom: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(7, 7, 10, 0.92);
-            color: #ffffff;
-            border: 1px solid rgba(255, 31, 90, 0.55);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            white-space: nowrap;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65);
-            transition: background 0.2s ease;
-        }
-
-        .bf-banner-link:hover .bf-banner-pill {
-            background: var(--gradient);
-        }
-
-        @media (max-width: 600px) {
-            .bf-banner-pill {
-                bottom: 10px;
-                font-size: 0.72rem;
-                padding: 6px 12px;
-            }
-        }
-
         .plans {
-            padding: 40px 5% 60px;
+            padding: 60px 5%;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -842,6 +847,16 @@
         </div>
     </header>
 
+    <!-- BANNER CLICÁVEL NO TOPO -->
+    <div class="bf-top-banner">
+        <div class="bf-top-banner-box">
+            <a href="#planos" class="bf-top-banner-link" title="Clique para ver os planos da Black Friday">
+                <img src="blackfriday.png" alt="Black Friday PedriinCanais IPTV Premium - Clique para ver os planos" class="bf-top-banner-img">
+                <span class="bf-top-banner-badge">🔥 Black Friday no Site • Clique e Vá Direto aos Valores</span>
+            </a>
+        </div>
+    </div>
+
     <section class="hero">
         <span class="badge-premium">🔴 100% Online e Seguro • Black Friday no Site</span>
         <h1>O MELHOR <span>IPTV</span> PARA SUA CASA</h1>
@@ -924,14 +939,6 @@
             <div class="device-card"><i class="fas fa-laptop"></i>Computador / PC</div>
         </div>
     </section>
-
-    <!-- BANNER CLICÁVEL BLACK FRIDAY -->
-    <div class="bf-banner-wrap">
-        <a href="#planos" class="bf-banner-link" title="Clique para ver os planos da Black Friday">
-            <img src="333819.png" alt="Black Friday PedriinCanais IPTV Premium - Clique para ver os planos" class="bf-banner-img">
-            <span class="bf-banner-pill">🔥 Promoção Exclusiva do Site • Clique para Ver os Planos</span>
-        </a>
-    </div>
 
     <!-- PLANOS -->
     <section class="plans" id="planos">
