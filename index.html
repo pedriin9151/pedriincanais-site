@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PedriinCanais - IPTV Premium | O Melhor Entretenimento</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@600;700&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
@@ -395,6 +395,36 @@
 
         .section-title p {
             color: var(--text-secondary);
+        }
+
+        /* FONTE CHAMATIVA EXCLUSIVA DO TITULO DOS PLANOS BLACK FRIDAY */
+        .plans .section-title h2 {
+            font-family: 'Anton', 'Poppins', sans-serif;
+            font-size: clamp(2.8rem, 7vw, 4.6rem);
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            line-height: 1;
+            text-transform: uppercase;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
+            paint-order: stroke fill;
+            filter: drop-shadow(0 6px 22px rgba(255, 31, 90, 0.35));
+        }
+
+        .plans .section-title h2 span {
+            background: linear-gradient(180deg, #ffe259 0%, #ffa751 55%, #ff6a00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .plans .section-title p {
+            font-family: 'Oswald', 'Poppins', sans-serif;
+            font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+            font-weight: 600;
+            color: #f4f4f8;
+            letter-spacing: 0.6px;
+            max-width: 680px;
+            margin: 12px auto 0;
         }
 
         .benefits {
