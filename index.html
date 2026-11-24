@@ -564,18 +564,40 @@
             display: inline;
         }
 
+        .plan-price-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
         .plan-price-main {
             font-size: 2.3rem;
             font-weight: 900;
             color: #ffffff;
             line-height: 1.1;
-            margin-bottom: 16px;
+            margin-bottom: 0;
         }
 
         .plan-price-main span {
             font-size: 0.9rem;
             color: var(--text-secondary);
             font-weight: 500;
+        }
+
+        .gift-cell-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 208, 0, 0.14);
+            color: #ffd000;
+            border: 1px solid rgba(255, 208, 0, 0.45);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            line-height: 1.2;
         }
 
         .plan-list {
@@ -956,7 +978,10 @@
                     <div class="plan-duration">1 MÊS</div>
 
                     <div class="price-label">DE <span class="price-original" id="orig-p1">R$ 35,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p1">R$ 29,90</div>
+                    <div class="plan-price-row">
+                        <div class="plan-price-main" id="price-p1">R$ 29,90</div>
+                        <span class="gift-cell-badge" id="gift-p1">🎁 Ganhei 1 acesso para celular</span>
+                    </div>
 
                     <div class="plan-rule-note" id="rule-p1">
                         ⚠️ R$ 29,90 válido apenas para novos clientes pelo site. Clientes antigos na renovação: R$ 35,00.
@@ -986,7 +1011,10 @@
                     <div class="plan-duration">1 MÊS (2 TELAS)</div>
 
                     <div class="price-label">DE <span class="price-original" id="orig-p2">R$ 55,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p2">R$ 45,00</div>
+                    <div class="plan-price-row">
+                        <div class="plan-price-main" id="price-p2">R$ 45,00</div>
+                        <span class="gift-cell-badge" id="gift-p2">🎁 Ganhei 1 acesso para celular</span>
+                    </div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo</li>
@@ -1012,7 +1040,10 @@
                     <div class="plan-duration">3 MESES</div>
 
                     <div class="price-label">DE <span class="price-original" id="orig-p3">R$ 95,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p3">R$ 75,00</div>
+                    <div class="plan-price-row">
+                        <div class="plan-price-main" id="price-p3">R$ 75,00</div>
+                        <span class="gift-cell-badge" id="gift-p3">🎁 Ganhei 1 acesso para celular</span>
+                    </div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo</li>
@@ -1038,7 +1069,10 @@
                     <div class="plan-duration">6 MESES (2 TELAS)</div>
 
                     <div class="price-label">DE <span class="price-original" id="orig-p4">R$ 160,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p4">R$ 125,00</div>
+                    <div class="plan-price-row">
+                        <div class="plan-price-main" id="price-p4">R$ 125,00</div>
+                        <span class="gift-cell-badge" id="gift-p4">🎁 Ganhei 1 acesso para celular</span>
+                    </div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo</li>
@@ -1065,7 +1099,10 @@
                     <div class="plan-duration">1 ANO (2 TELAS)</div>
 
                     <div class="price-label">DE <span class="price-original" id="orig-p5">R$ 250,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p5">R$ 197,00</div>
+                    <div class="plan-price-row">
+                        <div class="plan-price-main" id="price-p5">R$ 197,00</div>
+                        <span class="gift-cell-badge" id="gift-p5">🎁 Ganhei 1 acesso para celular</span>
+                    </div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo VIP</li>
@@ -1203,6 +1240,12 @@
 
         const WHATSAPP_BASE_URL = "https://wa.me/5511982539475?text=";
 
+        const GIFT_TEXT = {
+            BRL: "Ganhei 1 acesso para celular",
+            USD: "Ganhei 1 acesso para celular",
+            JPY: "Ganhei 1 acesso para celular"
+        };
+
         // Dados de Moedas da Black Friday
         const plansData = {
             BRL: {
@@ -1315,6 +1358,7 @@
                 "",
                 `📌 *Plano escolhido:* ${planoNome}`,
                 `💰 *Valor da Black Friday:* ${price}${obs}`,
+                "🎁 *Bônus:* Ganhei 1 acesso para celular",
                 "",
                 "Gostaria de assinar e tirar minhas dúvidas!"
             ].join("\n");
@@ -1334,6 +1378,10 @@
                 const item = data[key];
 
                 document.getElementById(`price-p${i}`).innerText = item.price;
+
+                const giftElem = document.getElementById(`gift-p${i}`);
+                if (giftElem) giftElem.innerText = `🎁 ${GIFT_TEXT[currency]}`;
+
                 document.getElementById(`link-p${i}`).href = buildWhatsAppLink(
                     item.planoNome,
                     item.price,
