@@ -389,10 +389,80 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* BANNER CLICAVEL BLACK FRIDAY */
+        .bf-banner-wrap {
+            max-width: 760px;
+            margin: 30px auto 10px;
+            padding: 0 5%;
+        }
+
+        .bf-banner-link {
+            position: relative;
+            display: block;
+            border-radius: 22px;
+            padding: 4px;
+            background: var(--gradient);
+            box-shadow: 0 14px 38px rgba(255, 31, 90, 0.25);
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .bf-banner-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 46px rgba(121, 40, 202, 0.38);
+        }
+
+        .bf-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 18px;
+        }
+
+        .bf-banner-pill {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(7, 7, 10, 0.92);
+            color: #ffffff;
+            border: 1px solid rgba(255, 31, 90, 0.55);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65);
+            transition: background 0.2s ease;
+        }
+
+        .bf-banner-link:hover .bf-banner-pill {
+            background: var(--gradient);
+        }
+
+        @media (max-width: 600px) {
+            .bf-banner-pill {
+                bottom: 10px;
+                font-size: 0.72rem;
+                padding: 6px 12px;
+            }
+        }
+
         .plans {
-            padding: 60px 5%;
+            padding: 40px 5% 60px;
             max-width: 1300px;
             margin: 0 auto;
+        }
+
+        .plan-rule-note {
+            font-size: 0.8rem;
+            color: #ffd6e2;
+            background: rgba(255, 31, 90, 0.12);
+            border: 1px solid rgba(255, 31, 90, 0.28);
+            border-radius: 12px;
+            padding: 8px 12px;
+            margin-bottom: 16px;
+            line-height: 1.4;
         }
 
         .plans-grid {
@@ -486,7 +556,7 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             font-weight: 600;
-            display: block;
+            display: inline;
         }
 
         .plan-price-main {
@@ -494,7 +564,7 @@
             font-weight: 900;
             color: #ffffff;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .plan-price-main span {
@@ -766,14 +836,14 @@
                 <button class="currency-btn" id="btnJPY" onclick="setCurrency('JPY')">🇯🇵 JPY</button>
             </div>
 
-            <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-header" target="_blank">
+            <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20pedriincanais.shop%20na%20Black%20Friday%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-header" target="_blank">
                 <i class="fab fa-whatsapp"></i> <span>Teste Grátis</span>
             </a>
         </div>
     </header>
 
     <section class="hero">
-        <span class="badge-premium">🔴 100% Online e Seguro</span>
+        <span class="badge-premium">🔴 100% Online e Seguro • Black Friday no Site</span>
         <h1>O MELHOR <span>IPTV</span> PARA SUA CASA</h1>
         <p class="subtitle">Filmes, Séries, Canais Ao Vivo, Futebol, UFC, Fórmula 1 e muito mais sem travamentos!</p>
 
@@ -804,10 +874,10 @@
         </div>
 
         <div class="hero-buttons">
-            <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-primary" target="_blank">
+            <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20pedriincanais.shop%20na%20Black%20Friday%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%204%20horas." class="btn-primary" target="_blank">
                 <i class="fas fa-play"></i> SOLICITAR TESTE GRÁTIS
             </a>
-            <a href="#planos" class="btn-secondary">VER PLANOS</a>
+            <a href="#planos" class="btn-secondary">VER PLANOS BLACK FRIDAY</a>
         </div>
     </section>
 
@@ -855,23 +925,35 @@
         </div>
     </section>
 
+    <!-- BANNER CLICÁVEL BLACK FRIDAY -->
+    <div class="bf-banner-wrap">
+        <a href="#planos" class="bf-banner-link" title="Clique para ver os planos da Black Friday">
+            <img src="333819.png" alt="Black Friday PedriinCanais IPTV Premium - Clique para ver os planos" class="bf-banner-img">
+            <span class="bf-banner-pill">🔥 Promoção Exclusiva do Site • Clique para Ver os Planos</span>
+        </a>
+    </div>
+
     <!-- PLANOS -->
     <section class="plans" id="planos">
         <div class="section-title">
-            <h2>NOSSOS <span>PLANOS</span></h2>
-            <p>Escolha o plano ideal para você e sua família.</p>
+            <h2>PLANOS <span>BLACK FRIDAY</span></h2>
+            <p>Condições especiais liberadas exclusivamente aqui no site para você e sua família.</p>
         </div>
         <div class="plans-grid">
-            
+
             <!-- PLANO 1 TELA MENSAL -->
             <div class="plan-card">
                 <div>
-                    <div class="badge-economia" id="eco-p1">PLANO BASE</div>
+                    <div class="badge-economia" id="eco-p1">BLACK FRIDAY • NOVOS CLIENTES</div>
                     <div class="plan-brand">PLANO PEDRIINCANAIS</div>
                     <div class="plan-duration">1 MÊS</div>
 
-                    <div class="price-label">POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p1">R$ 35,00</div>
+                    <div class="price-label">DE <span class="price-original" id="orig-p1">R$ 35,00</span> POR APENAS:</div>
+                    <div class="plan-price-main" id="price-p1">R$ 29,90</div>
+
+                    <div class="plan-rule-note" id="rule-p1">
+                        ⚠️ R$ 29,90 válido apenas para novos clientes pelo site. Clientes antigos na renovação: R$ 35,00.
+                    </div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo</li>
@@ -886,18 +968,18 @@
                         <li><span class="check-icon">✓</span> Assista no computador</li>
                     </ul>
                 </div>
-                <a id="link-p1" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p1" href="#" class="btn-plan" target="_blank" rel="noopener noreferrer">ASSINAR AGORA</a>
             </div>
 
             <!-- PLANO 2 TELAS MENSAL -->
             <div class="plan-card">
                 <div>
-                    <div class="badge-economia" id="eco-p2">DUPLE ACESSO</div>
+                    <div class="badge-economia" id="eco-p2">DUPLO ACESSO • ECONOMIZE R$ 10,00</div>
                     <div class="plan-brand">PLANO PEDRIINCANAIS</div>
                     <div class="plan-duration">1 MÊS (2 TELAS)</div>
 
-                    <div class="price-label">POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p2">R$ 55,00</div>
+                    <div class="price-label">DE <span class="price-original" id="orig-p2">R$ 55,00</span> POR APENAS:</div>
+                    <div class="plan-price-main" id="price-p2">R$ 45,00</div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo</li>
@@ -912,18 +994,18 @@
                         <li><span class="check-icon">✓</span> Assista no computador</li>
                     </ul>
                 </div>
-                <a id="link-p2" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p2" href="#" class="btn-plan" target="_blank" rel="noopener noreferrer">ASSINAR AGORA</a>
             </div>
 
             <!-- PLANO TRIMESTRAL -->
             <div class="plan-card">
                 <div>
-                    <div class="badge-economia" id="eco-p3">Economize R$ 10,00</div>
+                    <div class="badge-economia" id="eco-p3">BLACK FRIDAY • ECONOMIZE R$ 20,00</div>
                     <div class="plan-brand">PLANO PEDRIINCANAIS</div>
                     <div class="plan-duration">3 MESES</div>
 
-                    <div class="price-label">DE <span class="price-original" id="orig-p3">R$ 105,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p3">R$ 95,00</div>
+                    <div class="price-label">DE <span class="price-original" id="orig-p3">R$ 95,00</span> POR APENAS:</div>
+                    <div class="plan-price-main" id="price-p3">R$ 75,00</div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo</li>
@@ -938,18 +1020,18 @@
                         <li><span class="check-icon">✓</span> Assista no computador</li>
                     </ul>
                 </div>
-                <a id="link-p3" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p3" href="#" class="btn-plan" target="_blank" rel="noopener noreferrer">ASSINAR AGORA</a>
             </div>
 
             <!-- PLANO SEMESTRAL (2 TELAS) -->
             <div class="plan-card">
                 <div>
-                    <div class="badge-economia" id="eco-p4">Economize R$ 50,00</div>
+                    <div class="badge-economia" id="eco-p4">DUPLO ACESSO • ECONOMIZE R$ 35,00</div>
                     <div class="plan-brand">PLANO PEDRIINCANAIS</div>
                     <div class="plan-duration">6 MESES (2 TELAS)</div>
 
-                    <div class="price-label">DE <span class="price-original" id="orig-p4">R$ 210,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p4">R$ 160,00</div>
+                    <div class="price-label">DE <span class="price-original" id="orig-p4">R$ 160,00</span> POR APENAS:</div>
+                    <div class="plan-price-main" id="price-p4">R$ 125,00</div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo</li>
@@ -964,19 +1046,19 @@
                         <li><span class="check-icon">✓</span> Assista no computador</li>
                     </ul>
                 </div>
-                <a id="link-p4" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(R$%20160,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p4" href="#" class="btn-plan" target="_blank" rel="noopener noreferrer">ASSINAR AGORA</a>
             </div>
 
             <!-- PLANO ANUAL VIP (2 TELAS) -->
             <div class="plan-card featured">
-                <span class="plan-badge">👑 O MAIS VENDIDO</span>
+                <span class="plan-badge">👑 O MAIS VENDIDO • BLACK FRIDAY</span>
                 <div>
-                    <div class="badge-economia" id="eco-p5" style="margin-top: 10px;">Economize R$ 170,00</div>
+                    <div class="badge-economia" id="eco-p5" style="margin-top: 10px;">ECONOMIZE R$ 53,00</div>
                     <div class="plan-brand">PLANO PEDRIINCANAIS</div>
                     <div class="plan-duration">1 ANO (2 TELAS)</div>
 
-                    <div class="price-label">DE <span class="price-original" id="orig-p5">R$ 420,00</span> POR APENAS:</div>
-                    <div class="plan-price-main" id="price-p5">R$ 250,00</div>
+                    <div class="price-label">DE <span class="price-original" id="orig-p5">R$ 250,00</span> POR APENAS:</div>
+                    <div class="plan-price-main" id="price-p5">R$ 197,00</div>
 
                     <ul class="plan-list">
                         <li><span class="check-icon">✓</span> Conteúdo Completo VIP</li>
@@ -991,7 +1073,7 @@
                         <li><span class="check-icon">✓</span> Assista no computador</li>
                     </ul>
                 </div>
-                <a id="link-p5" href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." class="btn-plan" target="_blank">ASSINAR AGORA</a>
+                <a id="link-p5" href="#" class="btn-plan" target="_blank" rel="noopener noreferrer">ASSINAR AGORA</a>
             </div>
 
         </div>
@@ -1057,7 +1139,7 @@
     <section class="cta-final">
         <h2>AINDA TEM DÚVIDAS?</h2>
         <p style="color: var(--text-secondary); margin-bottom: 25px;">Chame nossa equipe no WhatsApp para tirar qualquer dúvida na hora!</p>
-        <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Ainda%20tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20servi%C3%A7o." class="btn-primary" style="display:inline-flex;" target="_blank">
+        <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20pedriincanais.shop%20na%20Black%20Friday%20e%20ainda%20tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20servi%C3%A7o." class="btn-primary" style="display:inline-flex;" target="_blank">
             <i class="fab fa-whatsapp"></i> FALE CONOSCO NO WHATSAPP
         </a>
     </section>
@@ -1092,11 +1174,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2019 PedriinCanais - Todos os direitos reservados.</p>
+            <p>&copy; 2026 PedriinCanais - Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20o%20teste%20gr%C3%A1tis." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5511982539475?text=Ol%C3%A1!%20Vim%20pelo%20site%20pedriincanais.shop%20na%20Black%20Friday%20e%20quero%20o%20teste%20gr%C3%A1tis." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1112,30 +1194,126 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpdGZ3a2dmc3d6bXVnenJoaGJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzQ4MDIsImV4cCI6MjEwNDgxMDgwMn0.VGpXA6hC2wiWa1pdI8udTVt2ahMQRKLdKHBbCmmRb3M';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Dados de Moedas e Mapeamento
+        const WHATSAPP_BASE_URL = "https://wa.me/5511982539475?text=";
+
+        // Dados de Moedas da Black Friday
         const plansData = {
             BRL: {
-                p1: { price: "R$ 35,00", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(R$%2035,00)." },
-                p2: { price: "R$ 55,00", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(R$%2055,00)." },
-                p3: { price: "R$ 95,00", orig: "R$ 105,00", eco: "Economize R$ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(R$%2095,00)." },
-                p4: { price: "R$ 160,00", orig: "R$ 210,00", eco: "Economize R$ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(R$%20160,00)." },
-                p5: { price: "R$ 250,00", orig: "R$ 420,00", eco: "Economize R$ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(R$%20250,00)." }
+                p1: {
+                    planoNome: "1 Mês (1 Tela — Exclusivo Novos Clientes)",
+                    price: "R$ 29,90",
+                    orig: "R$ 35,00",
+                    eco: "BLACK FRIDAY • NOVOS CLIENTES",
+                    rule: "⚠️ R$ 29,90 válido apenas para novos clientes pelo site. Clientes antigos na renovação: R$ 35,00.",
+                    obs: " (OBS: R$ 29,90 apenas para novos clientes; renovação de cliente antigo é R$ 35,00)"
+                },
+                p2: {
+                    planoNome: "1 Mês (Duplo Acesso — 2 Telas)",
+                    price: "R$ 45,00",
+                    orig: "R$ 55,00",
+                    eco: "DUPLO ACESSO • ECONOMIZE R$ 10,00"
+                },
+                p3: {
+                    planoNome: "3 Meses (1 Tela)",
+                    price: "R$ 75,00",
+                    orig: "R$ 95,00",
+                    eco: "BLACK FRIDAY • ECONOMIZE R$ 20,00"
+                },
+                p4: {
+                    planoNome: "6 Meses (2 Telas)",
+                    price: "R$ 125,00",
+                    orig: "R$ 160,00",
+                    eco: "DUPLO ACESSO • ECONOMIZE R$ 35,00"
+                },
+                p5: {
+                    planoNome: "1 Ano VIP (2 Telas)",
+                    price: "R$ 197,00",
+                    orig: "R$ 250,00",
+                    eco: "ECONOMIZE R$ 53,00"
+                }
             },
             USD: {
-                p1: { price: "$ 35,00", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20($%2035,00)." },
-                p2: { price: "$ 55,00", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20($%2055,00)." },
-                p3: { price: "$ 95,00", orig: "$ 105,00", eco: "Economize $ 10,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20($%2095,00)." },
-                p4: { price: "$ 160,00", orig: "$ 210,00", eco: "Economize $ 50,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20($%20160,00)." },
-                p5: { price: "$ 250,00", orig: "$ 420,00", eco: "Economize $ 170,00", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20($%20250,00)." }
+                p1: {
+                    planoNome: "1 Mês (1 Tela — Exclusivo Novos Clientes)",
+                    price: "$ 5.50",
+                    orig: "$ 6.50",
+                    eco: "BLACK FRIDAY • NOVOS CLIENTES",
+                    rule: "⚠️ $ 5.50 válido apenas para novos clientes pelo site. Clientes antigos na renovação: $ 6.50.",
+                    obs: " (OBS: $ 5.50 apenas para novos clientes; renovação de cliente antigo é $ 6.50)"
+                },
+                p2: {
+                    planoNome: "1 Mês (Duplo Acesso — 2 Telas)",
+                    price: "$ 8.00",
+                    orig: "$ 10.00",
+                    eco: "DUPLO ACESSO • ECONOMIZE $ 2.00"
+                },
+                p3: {
+                    planoNome: "3 Meses (1 Tela)",
+                    price: "$ 13.50",
+                    orig: "$ 17.50",
+                    eco: "BLACK FRIDAY • ECONOMIZE $ 4.00"
+                },
+                p4: {
+                    planoNome: "6 Meses (2 Telas)",
+                    price: "$ 22.50",
+                    orig: "$ 29.00",
+                    eco: "DUPLO ACESSO • ECONOMIZE $ 6.50"
+                },
+                p5: {
+                    planoNome: "1 Ano VIP (2 Telas)",
+                    price: "$ 35.00",
+                    orig: "$ 45.00",
+                    eco: "ECONOMIZE $ 10.00"
+                }
             },
             JPY: {
-                p1: { price: "¥ 3.000", orig: "", eco: "PLANO BASE", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%201%20Tela%20(%C2%A5%203.000)." },
-                p2: { price: "¥ 4.000", orig: "", eco: "DUPLE ACESSO", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Mensal%20de%202%20Telas%20(%C2%A5%204.000)." },
-                p3: { price: "¥ 6.500", orig: "¥ 9.000", eco: "Economize ¥ 2.500", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Trimestral%20(%C2%A5%206.500)." },
-                p4: { price: "¥ 10.000", orig: "¥ 18.000", eco: "Economize ¥ 8.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Semestral%202%20Telas%20(%C2%A5%2010.000)." },
-                p5: { price: "¥ 15.000", orig: "¥ 36.000", eco: "Economize ¥ 21.000", msg: "Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Anual%202%20Telas%20(%C2%A5%2015.000)." }
+                p1: {
+                    planoNome: "1 Mês (1 Tela — Exclusivo Novos Clientes)",
+                    price: "¥ 850",
+                    orig: "¥ 1.000",
+                    eco: "BLACK FRIDAY • NOVOS CLIENTES",
+                    rule: "⚠️ ¥ 850 válido apenas para novos clientes pelo site. Clientes antigos na renovação: ¥ 1.000.",
+                    obs: " (OBS: ¥ 850 apenas para novos clientes; renovação de cliente antigo é ¥ 1.000)"
+                },
+                p2: {
+                    planoNome: "1 Mês (Duplo Acesso — 2 Telas)",
+                    price: "¥ 1.250",
+                    orig: "¥ 1.500",
+                    eco: "DUPLO ACESSO • ECONOMIZE ¥ 250"
+                },
+                p3: {
+                    planoNome: "3 Meses (1 Tela)",
+                    price: "¥ 2.100",
+                    orig: "¥ 2.700",
+                    eco: "BLACK FRIDAY • ECONOMIZE ¥ 600"
+                },
+                p4: {
+                    planoNome: "6 Meses (2 Telas)",
+                    price: "¥ 3.500",
+                    orig: "¥ 4.500",
+                    eco: "DUPLO ACESSO • ECONOMIZE ¥ 1.000"
+                },
+                p5: {
+                    planoNome: "1 Ano VIP (2 Telas)",
+                    price: "¥ 5.500",
+                    orig: "¥ 7.000",
+                    eco: "ECONOMIZE ¥ 1.500"
+                }
             }
         };
+
+        function buildWhatsAppLink(planoNome, price, obs = "") {
+            const mensagem = [
+                "Olá! Vim pelo site pedriincanais.shop na promoção de *Black Friday*. 🔥",
+                "",
+                `📌 *Plano escolhido:* ${planoNome}`,
+                `💰 *Valor da Black Friday:* ${price}${obs}`,
+                "",
+                "Gostaria de assinar e tirar minhas dúvidas!"
+            ].join("\n");
+
+            return `${WHATSAPP_BASE_URL}${encodeURIComponent(mensagem)}`;
+        }
 
         function setCurrency(currency) {
             document.getElementById('btnBRL').classList.toggle('active', currency === 'BRL');
@@ -1143,20 +1321,33 @@
             document.getElementById('btnJPY').classList.toggle('active', currency === 'JPY');
 
             const data = plansData[currency];
-            const baseUrl = "https://wa.me/5511982539475?text=";
 
             for (let i = 1; i <= 5; i++) {
                 const key = `p${i}`;
-                document.getElementById(`price-p${i}`).innerText = data[key].price;
-                document.getElementById(`link-p${i}`).href = `${baseUrl}${data[key].msg}`;
-                
+                const item = data[key];
+
+                document.getElementById(`price-p${i}`).innerText = item.price;
+                document.getElementById(`link-p${i}`).href = buildWhatsAppLink(
+                    item.planoNome,
+                    item.price,
+                    item.obs || ""
+                );
+
                 const ecoElem = document.getElementById(`eco-p${i}`);
-                if (ecoElem) ecoElem.innerText = data[key].eco;
+                if (ecoElem) ecoElem.innerText = item.eco;
 
                 const origElem = document.getElementById(`orig-p${i}`);
-                if (origElem) origElem.innerText = data[key].orig;
+                if (origElem) origElem.innerText = item.orig;
+
+                if (i === 1) {
+                    const ruleElem = document.getElementById('rule-p1');
+                    if (ruleElem && item.rule) ruleElem.innerText = item.rule;
+                }
             }
         }
+
+        // Inicializa os links da Black Friday em BRL assim que o script roda
+        setCurrency('BRL');
 
         // Lógica do Slider
         let slideIndex = 0;
@@ -1176,15 +1367,15 @@
         function moveSlide(step) {
             clearInterval(autoSlideInterval);
             autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
-            slideIndex += step; 
-            showSlide(slideIndex); 
+            slideIndex += step;
+            showSlide(slideIndex);
         }
 
-        function currentSlide(index) { 
+        function currentSlide(index) {
             clearInterval(autoSlideInterval);
             autoSlideInterval = setInterval(() => { moveSlide(1); }, 4000);
-            slideIndex = index; 
-            showSlide(slideIndex); 
+            slideIndex = index;
+            showSlide(slideIndex);
         }
 
         document.addEventListener('DOMContentLoaded', carregarFeedbacksDestaque);
@@ -1248,7 +1439,7 @@
         function openModal(type) {
             const modal = document.getElementById('modalLegal');
             const modalText = document.getElementById('modalText');
-            
+
             if(type === 'privacidade') {
                 modalText.innerHTML = `
                     <h2 style="margin-bottom:15px; color:var(--primary);">Política de Privacidade</h2>
@@ -1271,7 +1462,7 @@
         }
 
         function closeModal() { document.getElementById('modalLegal').style.display = 'none'; }
-        
+
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('modalLegal');
             if (event.target === modal) { closeModal(); }
